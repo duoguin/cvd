@@ -1,0 +1,38 @@
+Name: Party RSVP
+Desc: Manage the RSVP process for a party
+
+SLOTs:
+  - name: Name
+  - name: Venue
+  - name: HostName
+  - name: ArrivalTime
+  - name: NumberGuests
+  - name: NeedParking
+  - name: DietaryRestrictions
+
+APIs:
+  - name: PartyRSVP
+    request: [Name, ArrivalTime, HostName, Venue, NumberGuests, NeedParking, DietaryRestrictions]
+    response: [Message]
+
+ANSWERs:
+  - name: RSVPConfirmation
+    desc: Confirm the RSVP with the attendee and provide them with any additional information or next steps.
+    precondition: [PartyRSVP]
+  - name: RSVPFailure
+    desc: Inform the attendee that there was an issue processing their RSVP and suggest next steps or who to contact for assistance.
+    precondition: [PartyRSVP]
+
+PDL: |
+  [Name] = ASKSLOT()
+  [Venue] = ASKSLOT()
+  [HostName] = ASKSLOT()
+  [ArrivalTime] = ASKSLOT()
+  [NumberGuests] = ASKSLOT()
+  [NeedParking] = ASKSLOT()
+  [DietaryRestrictions] = ASKSLOT()
+  [Message] = API_PartyRSVP([Name, ArrivalTime, HostName, Venue, NumberGuests, NeedParking, DietaryRestrictions])
+  if Message == "Success":
+      ANSWER_RSVPConfirmation()
+  else:
+      ANSWER_RSVPFailure()

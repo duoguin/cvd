@@ -1,0 +1,25 @@
+- API: plane_book
+  API description: Books or checks the availability of a flight for a given customer.
+  Input parameters:
+    CustomerName:
+      description: The name of the customer making the booking request.
+      required: 'true'
+      type: ShortString
+    RequestType:
+      categories:
+      - Check
+      - Book
+      description: The type of request being made, either to check availability or
+        to book.
+      required: 'true'
+      type: RequestType
+    id:
+      description: The unique identifier for a booking request.
+      required: 'true'
+      type: Integer
+  Output parameters:
+    ReservationStatus:
+      description: The status of the reservation request, indicating whether it was
+        confirmed or failed.
+      required: 'false'
+      type: Categorical

@@ -1,0 +1,21 @@
+- API: spaceship_life_support
+  API description: Manages the life support parameters based on the input specifications
+    of the spaceship's equipment.
+  Input parameters:
+    ColorOfSecondCable:
+      description: Color Of Second Cable
+      required: true
+      type: ShortString
+    ColorOfTopCable:
+      description: Color Of Top Cable
+      required: true
+      type: ShortString
+    LockManufacturer:
+      description: Lock Manufacturer
+      required: true
+      type: ShortString
+  Output parameters:
+    Message:
+      description: Message
+      required: false
+      type: ShortString

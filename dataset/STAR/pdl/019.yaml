@@ -1,0 +1,41 @@
+Name: Spaceship Access Codes
+Desc: Gathers and verifies access codes for spaceship entry
+
+SLOTs:
+  - name: UserName
+  - name: UserRank
+  - name: Code
+  - name: CodeType
+
+APIs:
+  - name: spaceship_access_codes
+    request: [UserRank, CodeType, Code, UserName]
+    response: [Message]
+
+ANSWERs:
+  - name: AccessGranted
+    desc: Inform the user of the successful access request and ask if they need assistance with anything else.
+    precondition: [spaceship_access_codes]
+  - name: AccessDenied
+    desc: Inform the user that their access request has been denied and ask if they need assistance with anything else.
+    precondition: [spaceship_access_codes]
+  - name: NoFurtherAssistance
+    desc: Say goodbye and end the interaction if the user indicates no further assistance is needed.
+    precondition: [AccessGranted, AccessDenied]
+
+PDL: |
+  [UserName] = ASKSLOT()
+  [UserRank] = ASKSLOT()
+  [Code] = ASKSLOT()
+  [CodeType] = ASKSLOT()
+  [Message] = API_spaceship_access_codes([UserRank, CodeType, Code, UserName])
+  if Message == "Access Granted":
+      AccessGranted()
+      further_assistance = ASKSLOT()
+      if further_assistance == "No":
+          ANSWER_NoFurtherAssistance()
+  else:
+      AccessDenied()
+      further_assistance = ASKSLOT()
+      if further_assistance == "No":
+          ANSWER_NoFurtherAssistance()

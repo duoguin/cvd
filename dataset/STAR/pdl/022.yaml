@@ -1,0 +1,45 @@
+Name: Trivia Game
+Desc: Conduct a trivia game with the user, asking questions and responding based on the user's answers.
+
+SLOTs:
+  - name: QuestionNum
+  - name: UserAnswer
+  - name: CurrentQuestion
+  - name: CorrectAnswer
+
+APIs:
+  - name: TriviaGameStart
+    request: [QuestionNum]
+    response: []
+  - name: FetchQuestion
+    request: []
+    response: [CurrentQuestion, CorrectAnswer]
+
+ANSWERs:
+  - name: CorrectAnswerResponse
+    desc: Inform the user that their answer is correct and proceed to the next question.
+    precondition: [FetchQuestion]
+  - name: IncorrectAnswerResponse
+    desc: Inform the user that their answer is incorrect and proceed to the next question.
+    precondition: [FetchQuestion]
+  - name: ReminderToAnswer
+    desc: Remind the user to provide an answer and ask the question again.
+    precondition: [FetchQuestion]
+  - name: TriviaCompletion
+    desc: Inform the user that the trivia session has ended and ask if they would like to do anything else.
+    precondition: [FetchQuestion]
+
+PDL: |
+  [QuestionNum] = ASKSLOT()
+  API_TriviaGameStart([QuestionNum])
+  for i in range(QuestionNum):
+    [CurrentQuestion, CorrectAnswer] = API_FetchQuestion()
+    ANSWER(CurrentQuestion)
+    [UserAnswer] = ASKSLOT()
+    if UserAnswer == "":
+        ANSWER_ReminderToAnswer()
+    elif UserAnswer == CorrectAnswer:
+        ANSWER_CorrectAnswerResponse()
+    else:
+        ANSWER_IncorrectAnswerResponse()
+  ANSWER_TriviaCompletion()

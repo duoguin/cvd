@@ -1,0 +1,7 @@
+Step 1:::Process:::Inform the user to provide search criteria for the restaurant search:::next::Step 2
+Step 2:::Process:::Perform a query based on the user input to find matching restaurants using the generic_sample API:::next::Step 3
+Step 3:::Process:::Inform the user about the search results obtained from the query:::next::Step 4
+Step 4:::Decision:::Ask the user if they want to continue searching for restaurants:::Yes::Step 1::No::Step 5
+Step 5:::Process:::End the process with a goodbye message:::next::Step 6
+Step 6:::Decision:::Ask if there is anything else the user needs help with:::Yes::Step 1::No::Step 7
+Step 7:::Terminal:::Thank the user and end the conversation:::

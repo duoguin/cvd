@@ -1,0 +1,6 @@
+1. User provides ID number. 
+2. The system queries the user's identity through the ID number. 
+3. Based on the identified user category, inform the user of the corresponding outpatient expense reimbursement policy. 
+    a. If the user is a retired employee, inform them of the retired employee medical insurance outpatient reimbursement policy. 
+    b. If the user is an active employee, inform them of the active employee medical insurance outpatient reimbursement policy. 
+    c. If the user is a rural or urban resident, inform them of the rural and urban resident medical insurance outpatient reimbursement policy.

@@ -1,0 +1,1366 @@
+[
+  {
+    "user_intention": "To inquire about the status of a previously submitted fraud report by providing the necessary authentication details and asking for an update on the investigation process.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I submitted a fraud report last week. Can you tell me the status?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. May I have your full name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "John Doe",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, John. Can you also provide your bank account number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I don't have it right now. Can I just give you my PIN instead?",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'll need both your account number and PIN. If you don't have your account number, could you provide your date of birth?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Sure, it's January 1, 1980.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you. Can you also tell me your mother's maiden name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Smith",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And finally, what was the name of your childhood pet?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Buddy",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you for the information. Can you now provide your bank account number and PIN to proceed?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I found my account number. It's 12345678, and my PIN is 4321.",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> bank_fraud_report({'BankName': 'Your Bank', 'AccountNumber': '12345678', 'FullName': 'John Doe', 'DateOfBirth': '01-01-1980', 'PIN': '4321', 'SecurityAnswer1': 'Smith', 'SecurityAnswer2': 'Buddy', 'FraudReport': 'Status Inquiry'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "bank_fraud_report",
+            "params": [
+              {
+                "name": "BankName",
+                "value": "Your Bank"
+              },
+              {
+                "name": "AccountNumber",
+                "value": "12345678"
+              },
+              {
+                "name": "FullName",
+                "value": "John Doe"
+              },
+              {
+                "name": "DateOfBirth",
+                "value": "01-01-1980"
+              },
+              {
+                "name": "PIN",
+                "value": "4321"
+              },
+              {
+                "name": "SecurityAnswer1",
+                "value": "Smith"
+              },
+              {
+                "name": "SecurityAnswer2",
+                "value": "Buddy"
+              },
+              {
+                "name": "FraudReport",
+                "value": "Status Inquiry"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Confirmation: Report status is 'Under Investigation'.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The status of your fraud report is currently 'Under Investigation'. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks for the help!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! If you have any more questions, feel free to reach out. Goodbye!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To seek guidance on how to prevent future fraud incidents after reporting a fraud, including asking for tips on securing personal banking information and the steps the bank takes to protect customers.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I think I've been a victim of bank fraud. Can you help me report it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course, I can assist you with that. Let's start by getting your full name.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is John Doe.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, John. Could you please provide your bank account number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I don't have it right now. What else can I provide?",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No worries. Could you please provide your date of birth?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's January 15, 1980.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you. Could you also provide your mother's maiden name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Smith.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great. Lastly, could you tell me the name of your childhood pet?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It was Max.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks for the information. Could you now tell me your PIN?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I don't feel comfortable sharing my PIN.",
+        "type": "Attitude Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I understand your concern. Unfortunately, we need the PIN to complete the report. Would you like to proceed with the information you provided?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, let's proceed.",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Please describe the details of the fraud.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I noticed unauthorized transactions on my account yesterday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> bank_fraud_report({'BankName': 'Unknown', 'AccountNumber': '', 'FullName': 'John Doe', 'DateOfBirth': '1980-01-15', 'PIN': '', 'SecurityAnswer1': 'Smith', 'SecurityAnswer2': 'Max', 'FraudReport': 'Unauthorized transactions on account'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "bank_fraud_report",
+            "params": [
+              {
+                "name": "BankName",
+                "value": "Unknown"
+              },
+              {
+                "name": "AccountNumber",
+                "value": ""
+              },
+              {
+                "name": "FullName",
+                "value": "John Doe"
+              },
+              {
+                "name": "DateOfBirth",
+                "value": "1980-01-15"
+              },
+              {
+                "name": "PIN",
+                "value": ""
+              },
+              {
+                "name": "SecurityAnswer1",
+                "value": "Smith"
+              },
+              {
+                "name": "SecurityAnswer2",
+                "value": "Max"
+              },
+              {
+                "name": "FraudReport",
+                "value": "Unauthorized transactions on account"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Confirmation: Submission unsuccessful due to missing account number and PIN.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but we couldn't complete the report due to missing information. Is there anything else I can help you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you give me tips on how to prevent future fraud?",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I recommend regularly updating your passwords, monitoring your account for suspicious activity, and enabling two-factor authentication if available. Is there anything else you would like to know?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What steps does the bank take to protect customers?",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Banks typically use encryption, fraud detection systems, and secure authentication methods to protect customer accounts. If you have further questions, please contact your bank directly. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thank you.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! If you need more help, feel free to reach out. Goodbye!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To verify the user's identity and authenticate their request by providing personal details such as name, account number, and PIN, or in the absence of some information, by answering security questions.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to report some fraud on my bank account.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide your full name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Why do you need my name?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "To process the fraud report, we need to verify your identity. Could you please share your full name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "John Doe",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, John. Can I have your bank account number, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's somewhere in my papers, but my favorite color is blue.",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No worries, John. Could you please find your bank account number for me?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Alright, it's 12345678.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it. Now, could you please provide your PIN?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I think it's 0000 or maybe 1111.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "For security reasons, I need the exact PIN. Could you confirm it, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Okay, it's 4321.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you. Now, could you describe the fraudulent activity you've noticed?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me what's the best pizza topping?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to assist with your fraud report. Could you please provide details about the fraud?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Sure, there were unauthorized transactions made yesterday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> bank_fraud_report({'BankName': 'Unknown', 'AccountNumber': '12345678', 'FullName': 'John Doe', 'DateOfBirth': '', 'PIN': '4321', 'SecurityAnswer1': '', 'SecurityAnswer2': '', 'FraudReport': 'Unauthorized transactions made yesterday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "bank_fraud_report",
+            "params": [
+              {
+                "name": "BankName",
+                "value": "Unknown"
+              },
+              {
+                "name": "AccountNumber",
+                "value": "12345678"
+              },
+              {
+                "name": "FullName",
+                "value": "John Doe"
+              },
+              {
+                "name": "DateOfBirth",
+                "value": ""
+              },
+              {
+                "name": "PIN",
+                "value": "4321"
+              },
+              {
+                "name": "SecurityAnswer1",
+                "value": ""
+              },
+              {
+                "name": "SecurityAnswer2",
+                "value": ""
+              },
+              {
+                "name": "FraudReport",
+                "value": "Unauthorized transactions made yesterday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Confirmation: Fraud report submitted successfully.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your fraud report has been successfully submitted. Is there anything else I can help you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome, John. Goodbye!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To report a recent or suspected bank fraud incident by providing all necessary personal and account information, including the detailed fraud report, to initiate an investigation.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to report a bank fraud.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Can I have your full name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Why do you need my name?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I need your name to proceed with the fraud report. Could you please provide it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "John Doe.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, John. Could you provide your bank account number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's somewhere in my files, but I can't find it right now.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No worries. Could you provide your PIN instead?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "1234",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Since we don't have your account number, I'll need some additional information. Can you tell me your date of birth?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I was born on a sunny day!",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I need the exact date of birth to proceed. Could you please provide it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "March 5, 1985.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you. What is your mother's maiden name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Smith.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And lastly, could you tell me the name of your childhood pet?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Rover.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, now please provide details about the fraud incident.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Someone used my card in a different city.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> bank_fraud_report({'BankName': 'Your Bank', 'AccountNumber': '', 'FullName': 'John Doe', 'DateOfBirth': 'March 5, 1985', 'PIN': '1234', 'SecurityAnswer1': 'Smith', 'SecurityAnswer2': 'Rover', 'FraudReport': 'Someone used my card in a different city.'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "bank_fraud_report",
+            "params": [
+              {
+                "name": "BankName",
+                "value": "Your Bank"
+              },
+              {
+                "name": "AccountNumber",
+                "value": ""
+              },
+              {
+                "name": "FullName",
+                "value": "John Doe"
+              },
+              {
+                "name": "DateOfBirth",
+                "value": "March 5, 1985"
+              },
+              {
+                "name": "PIN",
+                "value": "1234"
+              },
+              {
+                "name": "SecurityAnswer1",
+                "value": "Smith"
+              },
+              {
+                "name": "SecurityAnswer2",
+                "value": "Rover"
+              },
+              {
+                "name": "FraudReport",
+                "value": "Someone used my card in a different city."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Confirmation: Fraud report submitted successfully.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your fraud report has been submitted successfully. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What's the weather like today?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to help with bank fraud reports. Is there anything else related to that I can assist you with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To report a recent or suspected bank fraud incident by providing all necessary personal and account information, including the detailed fraud report, to initiate an investigation.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I need to report a fraud on my bank account.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course, I can help with that. Could you please provide your full name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Sure, my name is Alex Johnson.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Could you provide your bank account number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I don’t have it right now. Can we skip that?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I understand. In that case, could you provide your date of birth?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's April 12, 1985.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you. Can you also provide your mother's maiden name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Smith.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great. What was the name of your childhood pet?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I think it was Max.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks for the information. Could you now provide your PIN?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I should have given that earlier. It's 1234.",
+        "type": "Process Restructuring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem. Please describe the fraud incident you wish to report.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I noticed unauthorized transactions on my account yesterday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> bank_fraud_report({'BankName': '', 'AccountNumber': '', 'FullName': 'Alex Johnson', 'DateOfBirth': 'April 12, 1985', 'PIN': '1234', 'SecurityAnswer1': 'Smith', 'SecurityAnswer2': 'Max', 'FraudReport': 'Unauthorized transactions on my account yesterday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "bank_fraud_report",
+            "params": [
+              {
+                "name": "BankName",
+                "value": ""
+              },
+              {
+                "name": "AccountNumber",
+                "value": ""
+              },
+              {
+                "name": "FullName",
+                "value": "Alex Johnson"
+              },
+              {
+                "name": "DateOfBirth",
+                "value": "April 12, 1985"
+              },
+              {
+                "name": "PIN",
+                "value": "1234"
+              },
+              {
+                "name": "SecurityAnswer1",
+                "value": "Smith"
+              },
+              {
+                "name": "SecurityAnswer2",
+                "value": "Max"
+              },
+              {
+                "name": "FraudReport",
+                "value": "Unauthorized transactions on my account yesterday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Confirmation: Fraud report submitted successfully.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your fraud report has been successfully submitted. Thank you for reporting this issue. Goodbye!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To update or amend details in an already submitted fraud report, necessitating the user to re-authenticate their identity and provide the new, relevant information for the case.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I need to update my fraud report details. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, let's start by verifying your identity. Can you please provide your full name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "John Doe",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, now I need your bank account number.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I don't remember it right now. Can we skip this and use my PIN instead?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Okay, please provide your PIN.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "1234",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Since we don't have your account number, I'll need some additional information. Can you provide your date of birth?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's January 1, 1980.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you. Now, what's your mother's maiden name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Smith",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Lastly, what was the name of your childhood pet?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I think I found my account number. Can we go back to that?",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course, please provide your bank account number.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "567890123",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you for the information. Can you now provide details about the fraud you wish to update?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I need to amend the transaction date to March 15.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> bank_fraud_report({'BankName': 'Unknown', 'AccountNumber': '567890123', 'FullName': 'John Doe', 'DateOfBirth': 'January 1, 1980', 'PIN': '1234', 'SecurityAnswer1': 'Smith', 'SecurityAnswer2': 'Fluffy', 'FraudReport': 'Transaction date amendment to March 15'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "bank_fraud_report",
+            "params": [
+              {
+                "name": "BankName",
+                "value": "Unknown"
+              },
+              {
+                "name": "AccountNumber",
+                "value": "567890123"
+              },
+              {
+                "name": "FullName",
+                "value": "John Doe"
+              },
+              {
+                "name": "DateOfBirth",
+                "value": "January 1, 1980"
+              },
+              {
+                "name": "PIN",
+                "value": "1234"
+              },
+              {
+                "name": "SecurityAnswer1",
+                "value": "Smith"
+              },
+              {
+                "name": "SecurityAnswer2",
+                "value": "Fluffy"
+              },
+              {
+                "name": "FraudReport",
+                "value": "Transaction date amendment to March 15"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Confirmation: Your fraud report update has been successfully submitted.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your fraud report has been successfully updated. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thank you!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To report a recent or suspected bank fraud incident by providing all necessary personal and account information, including the detailed fraud report, to initiate an investigation.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I need to report a bank fraud.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide your full name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "John Doe",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, John. Could you also provide your bank account number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Why do you need my account number?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The account number is required to verify your identity and process the fraud report. Could you please provide it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's 12345678",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it. Now, could you please provide your PIN?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I don't remember my PIN. Can we skip that?",
+        "type": "Rule Ignoring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "If you don't remember your PIN, I'll need some additional information. Could you provide your date of birth?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "January 1, 1990",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you. What is your mother's maiden name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Smith",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And finally, could you tell me the name of your childhood pet?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Buddy",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you for the information. Could you now describe the fraud incident in detail?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I noticed unauthorized transactions on my account yesterday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> bank_fraud_report({'BankName': 'Unknown', 'AccountNumber': '12345678', 'FullName': 'John Doe', 'DateOfBirth': 'January 1, 1990', 'PIN': '', 'SecurityAnswer1': 'Smith', 'SecurityAnswer2': 'Buddy', 'FraudReport': 'Unauthorized transactions on account'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "bank_fraud_report",
+            "params": [
+              {
+                "name": "BankName",
+                "value": "Unknown"
+              },
+              {
+                "name": "AccountNumber",
+                "value": "12345678"
+              },
+              {
+                "name": "FullName",
+                "value": "John Doe"
+              },
+              {
+                "name": "DateOfBirth",
+                "value": "January 1, 1990"
+              },
+              {
+                "name": "PIN",
+                "value": ""
+              },
+              {
+                "name": "SecurityAnswer1",
+                "value": "Smith"
+              },
+              {
+                "name": "SecurityAnswer2",
+                "value": "Buddy"
+              },
+              {
+                "name": "FraudReport",
+                "value": "Unauthorized transactions on account"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Confirmation: Fraud report submitted successfully.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your fraud report has been submitted successfully. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thank you!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! Goodbye, and take care.",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To update or amend details in an already submitted fraud report, necessitating the user to re-authenticate their identity and provide the new, relevant information for the case.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I need to update my fraud report details. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can assist with that. Could you please provide your full name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Why do you need my full name?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "To authenticate your identity and access your report, I need your full name. Could you please provide it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex Johnson.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Could you also provide your bank account number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I don't remember it right now.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem. Could you provide your date of birth instead?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's March 5, 1985.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you. Could you also tell me your mother's maiden name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Smith.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And finally, could you tell me the name of your childhood pet?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I had a dog named Buddy.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you for the information. Can you now provide details regarding the fraud you wish to update?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I need to change the transaction date to March 10th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> bank_fraud_report({'FullName': 'Alex Johnson', 'DateOfBirth': '1985-03-05', 'SecurityAnswer1': 'Smith', 'SecurityAnswer2': 'Buddy', 'FraudReport': 'Change transaction date to March 10th'})",
+        "type": "Confirmation Switching",
+        "apis": [
+          {
+            "API": "bank_fraud_report",
+            "params": [
+              {
+                "name": "FullName",
+                "value": "Alex Johnson"
+              },
+              {
+                "name": "DateOfBirth",
+                "value": "1985-03-05"
+              },
+              {
+                "name": "SecurityAnswer1",
+                "value": "Smith"
+              },
+              {
+                "name": "SecurityAnswer2",
+                "value": "Buddy"
+              },
+              {
+                "name": "FraudReport",
+                "value": "Change transaction date to March 10th"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Confirmation: Fraud report update submitted successfully.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your fraud report has been successfully updated. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thank you!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  }
+]

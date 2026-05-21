@@ -1,0 +1,8 @@
+Step 1:::Process:::Ask the user for their name:::next::Step 2
+Step 2:::Process:::Inquire about the lock manufacturer of the spaceship:::next::Step 3
+Step 3:::Process:::Ask for the color of the top cable in the system:::next::Step 4
+Step 4:::Process:::Ask for the color of the second cable in the system:::next::Step 5
+Step 5:::Process:::Execute a query based on the provided information to find a resolution for the life support issue:::next::Step 6
+Step 6:::Process:::Inform the user of the outcome of the query:::next::Step 7
+Step 7:::Decision:::Check if the user needs further assistance:::Yes::Step 1::No::Step 8
+Step 8:::Terminal:::Say goodbye to the user:::

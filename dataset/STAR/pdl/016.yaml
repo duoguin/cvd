@@ -1,0 +1,48 @@
+Name: Book Ride
+Desc: The process of booking a ride based on the user's input and preferences
+
+SLOTs:
+  - name: CustomerName
+  - name: ArrivalLocation
+  - name: DepartureLocation
+  - name: Price
+  - name: AllowsChanges
+  - name: MinutesTillPickup
+  - name: ServiceProvider
+  - name: DriverName
+  - name: CarModel
+  - name: RequestType
+  - name: LicensePlate
+  - name: Confirmation
+
+APIs:
+  - name: RideBooking
+    request: [CustomerName, DepartureLocation, ArrivalLocation, Price, AllowsChanges, MinutesTillPickup, ServiceProvider, DriverName, CarModel, RequestType, LicensePlate]
+    response: [Price, AllowsChanges, DurationMinutes, ServiceProvider, DriverName, CarModel, LicensePlate, id]
+
+ANSWERs:
+  - name: InformSearchCriteria
+    desc: Inform the user about the search criteria being used to find the ride.
+  - name: ConfirmBookingSuccess
+    desc: Confirm the booking to the user.
+    precondition: [RideBooking]
+  - name: OfferAdjustSearch
+    desc: Inform the user to adjust search criteria if they decline the booking or if no ride is found.
+  - name: AnythingElse
+    desc: Ask the user if there's anything else they need help with.
+
+PDL: |
+  [CustomerName] = ASKSLOT()
+  [ArrivalLocation] = ASKSLOT()
+  [DepartureLocation] = ASKSLOT()
+  ANSWER_InformSearchCriteria()
+  ride_available_check = API_RideBooking([CustomerName, DepartureLocation, ArrivalLocation, Price, AllowsChanges, MinutesTillPickup, ServiceProvider, DriverName, CarModel, RequestType, LicensePlate])
+  if ride_available_check:
+      [Confirmation] = ASKSLOT()
+      if Confirmation == 'yes':
+          ANSWER_ConfirmBookingSuccess()
+      else:
+          ANSWER_OfferAdjustSearch()
+  else:
+      ANSWER_OfferAdjustSearch()
+  ANSWER_AnythingElse()

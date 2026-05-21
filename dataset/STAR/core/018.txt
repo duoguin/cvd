@@ -1,0 +1,7 @@
+Step 1:::Process:::Ask the user for their name:::next::Step 2
+Step 2:::Process:::Ask the user for their ride booking number:::next::Step 3
+Step 3:::Process:::Call ride_status with id and CustomerName to query the ride status:::next::Step 4
+Step 4:::Process:::Provide the user with the status of their booking, including Price, AllowsChanges, DurationMinutes, ServiceProvider, DriverName, CarModel, LicensePlate, id, RideStatus, and RideWait:::next::Step 5
+Step 5:::Process:::Provide any updates regarding the booking status:::next::Step 6
+Step 6:::Decision:::Ask the user if they need assistance with anything else:::Yes::Step 1::No::Step 7
+Step 7:::Terminal:::Thank the user and offer further assistance in the future:::

@@ -1,0 +1,34 @@
+- API: query_goods_list
+  API description: Query the list of goods that can be shipped to a specified country
+  Input parameters:
+    country:
+      categories: []
+      description: The target country
+      required: true
+      type: string
+  Output parameters:
+    goods_list:
+      description: A list of categories of goods that can be shipped to the specified
+        country, e.g. ['Books', 'Clothing', 'Cosmetics', ...]
+      type: array
+- API: query_shipping_status
+  API description: Check if a specific good can be shipped to a specified country
+  Input parameters:
+    country:
+      categories: []
+      description: The target country
+      required: true
+      type: string
+    goods:
+      categories: []
+      description: The good that the user wants to ship
+      required: true
+      type: string
+  Output parameters:
+    isValid:
+      description: True indicates that shipping is supported, false indicates that
+        shipping is not supported
+      type: boolean
+    status:
+      description: 'Status code: 200 indicates success, others indicate an error'
+      type: integer

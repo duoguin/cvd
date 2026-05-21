@@ -1,0 +1,55 @@
+Name: Plane Search
+Desc: Search for plane flights based on user inputs such as departure city, arrival city, and date.
+
+SLOTs:
+  - name: UserName
+  - name: DepartureCity
+  - name: ArrivalCity
+  - name: Date
+  - name: Price
+  - name: ArrivalTime
+  - name: Class
+  - name: DurationHours
+  - name: Airline
+  - name: SearchAgain
+
+APIs:
+  - name: PlaneSearch
+    request: [DepartureCity, ArrivalCity, Price, Date, ArrivalTime, Class, DurationHours, Airline]
+    response: [DepartureCity, ArrivalCity, Price, Date, ArrivalTime, Class, DurationHours, Airline, id]
+
+ANSWERs:
+  - name: FlightDetails
+    desc: Inform the user about the flight details found.
+    precondition: [PlaneSearch]
+  - name: GoodbyeMessage
+    desc: End the conversation with a goodbye message.
+    precondition: []
+  - name: SearchAgainPrompt
+    desc: Ask the user if they want to search for more flights.
+    precondition: [PlaneSearch]
+
+PDL: |
+  [UserName] = ASKSLOT("What is your name?")
+  [DepartureCity] = ASKSLOT("From which city will you depart?")
+  [ArrivalCity] = ASKSLOT("What is your destination city?")
+  [Date] = ASKSLOT("What is the date of your flight?")
+  [Price] = ASKSLOT("Do you have a price range in mind?", optional=True)
+  [ArrivalTime] = ASKSLOT("Do you prefer a specific arrival time?", optional=True)
+  [Class] = ASKSLOT("Do you have a preferred class?", optional=True)
+  [DurationHours] = ASKSLOT("Are you looking for flights with a specific duration?", optional=True)
+  [Airline] = ASKSLOT("Do you have a preferred airline?", optional=True)
+  [DepartureCity, ArrivalCity, Price, Date, ArrivalTime, Class, DurationHours, Airline, id] = API_PlaneSearch([DepartureCity, ArrivalCity, Price, Date, ArrivalTime, Class, DurationHours, Airline])
+  ANSWER_FlightDetails()
+  [SearchAgain] = ASKSLOT("Do you want to search for more flights?", options=["Yes", "No"])
+  if SearchAgain == "Yes":
+      [Price] = ASKSLOT("Do you have a price range in mind?", optional=True)
+      [ArrivalTime] = ASKSLOT("Do you prefer a specific arrival time?", optional=True)
+      [Class] = ASKSLOT("Do you have a preferred class?", optional=True)
+      [DurationHours] = ASKSLOT("Are you looking for flights with a specific duration?", optional=True)
+      [Airline] = ASKSLOT("Do you have a preferred airline?", optional=True)
+      [DepartureCity, ArrivalCity, Price, Date, ArrivalTime, Class, DurationHours, Airline, id] = API_PlaneSearch([DepartureCity, ArrivalCity, Price, Date, ArrivalTime, Class, DurationHours, Airline])
+      ANSWER_FlightDetails()
+      ANSWER_SearchAgainPrompt()
+  else:
+      ANSWER_GoodbyeMessage("Thank you for using our service. Goodbye!")

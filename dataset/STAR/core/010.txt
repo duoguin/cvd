@@ -1,0 +1,14 @@
+Step 1:::Process:::Ask the user for their preferred venue:::next::Step 2
+Step 2:::Process:::Ask the user for their name:::next::Step 3
+Step 3:::Process:::Ask the user to specify the day they want to have the party:::next::Step 4
+Step 4:::Process:::Ask the user for the starting time of the party:::next::Step 5
+Step 5:::Process:::Ask the user for the number of guests they are expecting:::next::Step 6
+Step 6:::Process:::Inform the user about the food and drink criteria:::next::Step 7
+Step 7:::Decision:::Call party_plan to check if the selected venue is available:::Yes::Step 8::No::Step 12
+Step 8:::Process:::Ask the user to confirm the booking:::next::Step 9
+Step 9:::Decision:::Attempt to book the venue through party_plan:::Yes::Step 10::No::Step 11
+Step 10:::Process:::Inform the user that the booking was successful:::next::Step 13
+Step 11:::Process:::Inform the user that the booking failed:::next::Step 13
+Step 12:::Process:::Inform the user that the venue is not available:::next::Step 13
+Step 13:::Process:::Ask the user if there is anything else they need help with:::Yes::Step 1::No::Step 14
+Step 14:::Terminal:::Thank the user and end the conversation:::

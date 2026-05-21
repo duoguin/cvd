@@ -1,0 +1,47 @@
+- API: get_service_point_city_list
+  API description: Retrieve the list of service point cities
+  Input parameters: {}
+  Output parameters:
+    service_point_cities:
+      description: List of service point cities
+      type: array
+- API: validate_service_point_city
+  API description: Validate a service point city
+  Input parameters:
+    city:
+      categories: null
+      description: Name of the city to be validated
+      required: true
+      type: string
+  Output parameters:
+    errcode:
+      description: 200 indicates success, other values indicate an error
+      type: integer
+- API: get_service_points
+  API description: Retrieve information about service points
+  Input parameters:
+    city:
+      categories: null
+      description: Name of the city for which service point information is to be retrieved
+      required: true
+      type: string
+  Output parameters:
+    errcode:
+      description: 200 indicates success, other values indicate an error
+      type: integer
+    service_points:
+      description: List of service point information
+      items:
+        address:
+          description: Address of the service point
+          type: string
+        business_hours:
+          description: Business hours of the service point
+          type: string
+        name:
+          description: Name of the service point
+          type: string
+        phone_number:
+          description: Contact phone number of the service point
+          type: string
+      type: array

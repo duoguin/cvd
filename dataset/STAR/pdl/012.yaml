@@ -1,0 +1,46 @@
+Name: Plane Reserve
+Desc: Reserve a flight based on the user's preferences
+
+SLOTs:
+  - name: CustomerName
+  - name: FlightID
+  - name: RequestType
+
+APIs:
+  - name: PlaneBook
+    request: [FlightID, CustomerName, RequestType]
+    response: [ReservationStatus]
+
+ANSWERs:
+  - name: BookingSuccess
+    desc: Confirm that the reservation succeeded.
+    precondition: [PlaneBook]
+  - name: BookingFailure
+    desc: Inform the user that the reservation failed.
+    precondition: [PlaneBook]
+  - name: FlightUnavailable
+    desc: Inform the user that the flight is unavailable.
+    precondition: []
+
+PDL: |
+  [CustomerName] = ASKSLOT()
+  while True:
+      [FlightID] = ASKSLOT()
+      [RequestType] = "CheckAvailability"
+      [ReservationStatus] = API_PlaneBook([FlightID, CustomerName, RequestType])
+      if ReservationStatus == "Available":
+          [UserConfirmation] = ASKSLOT("Do you want to proceed with booking this flight? Yes or No")
+          if UserConfirmation == "Yes":
+              [RequestType] = "BookFlight"
+              [ReservationStatus] = API_PlaneBook([FlightID, CustomerName, RequestType])
+              if ReservationStatus == "Success":
+                  ANSWER_BookingSuccess()
+                  break
+              else:
+                  ANSWER_BookingFailure()
+                  break
+          else:
+              continue
+      else:
+          ANSWER_FlightUnavailable()
+  [AnythingElse] = ASKSLOT("Is there anything else I can help you with?")

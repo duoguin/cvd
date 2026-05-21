@@ -1,0 +1,912 @@
+[
+  {
+    "user_intention": "The user is looking to add additional stops or change the route for their booked ride to accommodate a change in plans.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to change my ride booking.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. Could you provide your booking number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I think I might cancel it instead.",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I understand. Would you like to proceed with the cancellation, or should we continue with the changes?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's go ahead with the changes. My booking number is 12345.",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great. What changes would you like to make to your booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'd like to add an additional stop at Central Park.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_change({'id': '12345', 'CustomerName': 'Alex', 'ChangeDescription': 'Add stop at Central Park'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_change",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "ChangeDescription",
+                "value": "Add stop at Central Park"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "ChangeStatus: Success",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your ride has been successfully updated with an additional stop at Central Park. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you also change the pickup time to 3 PM?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_change({'id': '12345', 'CustomerName': 'Alex', 'ChangeDescription': 'Change pickup time to 3 PM'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_change",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "ChangeDescription",
+                "value": "Change pickup time to 3 PM"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "ChangeStatus: Success",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The pickup time has been successfully changed to 3 PM. Anything else you'd like to modify?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks for your help!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome, Alex! If you need any more assistance, feel free to ask. Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user wants to change the pickup or drop-off location of their ride because they made a mistake during the initial booking or their destination has changed.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I need to change the pickup location for my ride.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Can you provide the booking number for the ride you wish to change?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I might need to change the drop-off location instead.",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem. Let's first get your booking number, and then we can update the details.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "The booking number is 12345.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great. What changes would you like to make to your booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Change the drop-off location to 456 Elm Street.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_change({'id': '12345', 'CustomerName': 'Alex', 'ChangeDescription': 'Change drop-off to 456 Elm Street'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_change",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "ChangeDescription",
+                "value": "Change drop-off to 456 Elm Street"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "ChangeStatus: Success",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your drop-off location has been successfully changed to 456 Elm Street. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you cancel the change? I think I made a mistake.",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but once a change is confirmed, it cannot be canceled through this service. You might need to contact customer support for further assistance. Is there anything else I can help you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks for your help.",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user intends to update the date or time of their existing ride booking due to a change in their schedule.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to change my ride booking.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I think it's sunny today.",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I need your name to proceed with the booking change. Could you please provide it?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. Can you give me the booking number for the ride you wish to change?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "12345",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "What changes would you like to make to your booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I want to change the date and time.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_change({'id': '12345', 'CustomerName': 'Alex', 'ChangeDescription': 'Change date and time'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_change",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "ChangeDescription",
+                "value": "Change date and time"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "ChangeStatus: Success",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your booking has been successfully updated. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "By the way, what's the capital of France?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to assist with ride bookings. If you need help with anything else related to your ride, feel free to ask!",
+        "type": "Vague Answer",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user is looking to add additional stops or change the route for their booked ride to accommodate a change in plans.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to change my ride booking. Can you help?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course! Can I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, Alex. Could you provide the booking number for the ride you wish to change?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Sure, it's 12345.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "What changes would you like to make to your booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I want to add a stop at the mall and maybe change the route a bit.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_change({'id': '12345', 'CustomerName': 'Alex', 'ChangeDescription': 'Add stop at the mall, change route'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_change",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "ChangeDescription",
+                "value": "Add stop at the mall, change route"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "ChangeStatus: Success",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your changes have been successfully made. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, do you know what time the mall closes?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to assist with ride bookings, but you might want to check online for the mall's closing time. Can I help you with anything else related to your ride?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user is looking to add additional stops or change the route for their booked ride to accommodate a change in plans.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I need to change my ride booking because my plans have changed.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you just change the route first?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "To proceed, I'll need your name first. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, right. It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. Could you also provide the booking number of the ride you wish to change?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I don't have it right now. Can we skip this and change the route?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, I need the booking number to make any changes. Could you find it and let me know?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Alright, it's 12345.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great! What changes would you like to make to your booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I need to add a stop at the downtown area.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_change({'id': '12345', 'CustomerName': 'Alex', 'ChangeDescription': 'Add stop at downtown'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_change",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "ChangeDescription",
+                "value": "Add stop at downtown"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "ChangeStatus: Success",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your changes have been successfully made. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you remind me of the steps we did?",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! First, I asked for your name, then your booking number, and finally, the changes you wanted to make. We successfully added a stop at the downtown area. Anything else you'd like to know?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user seeks to cancel their current ride booking and inquire if they can book a new ride immediately through the same service.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I want to cancel my ride booking and book a new one immediately. Can you help?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course! Could you please start by telling me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, let's skip to the booking number. It's 12345.",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Alright, I can work with that. Can you confirm your name for me?",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. What changes would you like to make to your booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Just cancel it for now.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_change({'id': '12345', 'CustomerName': 'Alex', 'ChangeDescription': 'Cancel ride'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_change",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "ChangeDescription",
+                "value": "Cancel ride"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "ChangeStatus: Success",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your ride has been successfully canceled. Would you like to book a new ride now?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, can I book a new ride immediately?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only assist with changes to existing bookings. You might want to use our app or website to book a new ride. Is there anything else I can help you with?",
+        "type": "Rule Ignoring",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user seeks to cancel their current ride booking and inquire if they can book a new ride immediately through the same service.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to cancel my current ride booking.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Can I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I was also wondering if it's going to rain today.",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to help with your ride booking. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. Could you provide the booking number of the ride you wish to cancel?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I also want to book a new ride immediately. Can I do that?",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Let's first handle the cancellation. Can you give me your booking number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Sure, it's 12345.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_change({'id': '12345', 'CustomerName': 'Alex', 'ChangeDescription': 'Cancel ride'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_change",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "ChangeDescription",
+                "value": "Cancel ride"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "ChangeStatus: Success",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your ride has been successfully canceled. Would you like to proceed with booking a new ride now?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I want to book a new ride.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "While I can't book a new ride directly, I can guide you to the booking page. Is there anything else you need?",
+        "type": "Rule Ignoring",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user is looking to add additional stops or change the route for their booked ride to accommodate a change in plans.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to change my ride booking details.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. Could you also provide your booking number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's 12345.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great. What changes would you like to make to your booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I want to add an extra stop at the bookstore.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_change({'id': '12345', 'CustomerName': 'Alex', 'ChangeDescription': 'Add stop at bookstore'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_change",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "ChangeDescription",
+                "value": "Add stop at bookstore"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "ChangeStatus: Success",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your booking has been successfully updated to include a stop at the bookstore. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you cancel the booking instead?",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, I can only assist with changes to your ride. For cancellations, please contact customer support directly. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me the weather forecast for my ride?",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm focused on managing ride bookings. For weather updates, please check a weather service. Is there anything else related to your ride booking I can help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome, Alex! Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  }
+]

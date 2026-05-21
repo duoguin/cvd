@@ -1,0 +1,964 @@
+[
+  {
+    "user_intention": "Request the weather forecast for today in their current location to decide on the day's attire and whether to carry an umbrella.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, can you tell me the weather forecast for today in my city?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that! Which city are you currently in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm in Springfield.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Springfield', 'Day': 'Today'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Springfield"
+              },
+              {
+                "name": "Day",
+                "value": "Today"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Springfield, Weather: Sunny, TemperatureCelsius: 25, Day: Today",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The weather in Springfield today is sunny with a temperature of 25°C. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you check if it's going to rain tomorrow instead?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Springfield', 'Day': 'Tomorrow'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Springfield"
+              },
+              {
+                "name": "Day",
+                "value": "Tomorrow"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Springfield, Weather: Rainy, TemperatureCelsius: 18, Day: Tomorrow",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Tomorrow in Springfield, it's expected to be rainy with a temperature of 18°C. Would you like to know anything else?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "Request Cancellation",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Inquire about the weather forecast for a future event in a specific city to help with planning logistics and ensuring attendee comfort.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, can you tell me the weather forecast for Metropolis next Friday?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Can you please confirm the day you want the weather information for?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I actually meant Saturday, not Friday.",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it, you want the weather forecast for Metropolis on Saturday. Let me check that for you.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Metropolis, Weather: Sunny, TemperatureCelsius: 25, Day: Saturday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The weather forecast for Metropolis on Saturday is sunny with a temperature of 25°C. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you check for Gotham instead?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Certainly, let me get the weather forecast for Gotham on Saturday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Gotham, Weather: Cloudy, TemperatureCelsius: 18, Day: Saturday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The weather forecast for Gotham on Saturday is cloudy with a temperature of 18°C. Anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Compare the weather forecast of two different cities for the same day to decide on a weekend getaway location.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hey, can you tell me the weather forecast for Springfield this weekend?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Which day are you interested in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Saturday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And which city would you like the forecast for?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I said Springfield, but also check Metropolis for comparison.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Springfield', 'Day': 'Saturday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Springfield"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Springfield, Weather: Sunny, TemperatureCelsius: 25, Day: Saturday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Metropolis', 'Day': 'Saturday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Metropolis"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Metropolis, Weather: Cloudy, TemperatureCelsius: 22, Day: Saturday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "For Saturday, Springfield is expected to be sunny with a temperature of 25°C, while Metropolis will be cloudy with 22°C. Anything else you'd like to know?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me about the service points in Metropolis?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm focused on weather forecasts, but you can check service points through our customer service. Is there anything else related to the weather I can assist with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Find out the weather forecast for a specific city on a particular day, including temperature and whether it's likely to rain or snow.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "What's the weather forecast for Gotham tomorrow?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, let me get that information for you. Can you confirm if you're interested in the temperature as well?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I'd like to know the temperature too.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Gotham', 'Day': 'tomorrow'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Gotham"
+              },
+              {
+                "name": "Day",
+                "value": "tomorrow"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Gotham, Weather: Rainy, TemperatureCelsius: 22, Day: tomorrow",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The weather in Gotham tomorrow is expected to be rainy with a temperature of 22°C. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me about the service points in Gotham?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only provide weather information. You might want to check with a service directory for that. Anything else I can help with regarding the weather?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Compare the weather forecast of two different cities for the same day to decide on a weekend getaway location.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to compare the weather forecast for two cities for a weekend getaway.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me which day you are planning for?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you just give me the weather for Metropolis first?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "To provide accurate information, I need to know the day you're interested in.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Okay, let's do Saturday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great! Now, could you please tell me the first city you're interested in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Metropolis.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Metropolis', 'Day': 'Saturday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Metropolis"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Metropolis, Weather: Sunny, TemperatureCelsius: 25, Day: Saturday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The forecast for Metropolis on Saturday is sunny with a temperature of 25°C. What's the second city you're considering?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Gotham.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Gotham', 'Day': 'Saturday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Gotham"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Gotham, Weather: Cloudy, TemperatureCelsius: 18, Day: Saturday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "In Gotham on Saturday, it's expected to be cloudy with a temperature of 18°C. Do you need any more information?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me the weather for Sunday in Metropolis?",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Metropolis', 'Day': 'Sunday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Metropolis"
+              },
+              {
+                "name": "Day",
+                "value": "Sunday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Metropolis, Weather: Rainy, TemperatureCelsius: 20, Day: Sunday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "For Metropolis on Sunday, the forecast is rainy with a temperature of 20°C. Anything else you'd like to know?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Check the weather conditions for a series of days in a given week to plan outdoor activities or travel accordingly.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I want to know the weather for the upcoming week.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me the city you're interested in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's start with Metropolis.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great! For which day would you like the weather forecast?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can we do the whole week?",
+        "type": "Step Splitting",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I can provide the forecast one day at a time. How about we start with Monday?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Sure, Monday works.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Metropolis', 'Day': 'Monday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Metropolis"
+              },
+              {
+                "name": "Day",
+                "value": "Monday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Metropolis, Weather: Sunny, TemperatureCelsius: 25, Day: Monday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "On Monday in Metropolis, it will be sunny with a temperature of 25°C. Would you like to know about another day?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, how about Tuesday?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Metropolis', 'Day': 'Tuesday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Metropolis"
+              },
+              {
+                "name": "Day",
+                "value": "Tuesday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Metropolis, Weather: Cloudy, TemperatureCelsius: 22, Day: Tuesday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "On Tuesday, it will be cloudy with a temperature of 22°C. Anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can we go back and check Monday again?",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Metropolis', 'Day': 'Monday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Metropolis"
+              },
+              {
+                "name": "Day",
+                "value": "Monday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Metropolis, Weather: Sunny, TemperatureCelsius: 25, Day: Monday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "As a reminder, Monday's forecast is sunny with 25°C. Need anything else?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now, thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Compare the weather forecast of two different cities for the same day to decide on a weekend getaway location.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I want to know the weather forecast for a weekend getaway.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, can you tell me which day you're planning for?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Saturday sounds good. Can you check for Metropolis?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Metropolis', 'Day': 'Saturday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Metropolis"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Metropolis, Weather: Sunny, TemperatureCelsius: 25, Day: Saturday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The weather in Metropolis on Saturday will be sunny with a temperature of 25°C. Would you like to know about another city?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "How about Gotham? I want to compare.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Gotham', 'Day': 'Saturday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Gotham"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Gotham, Weather: Cloudy, TemperatureCelsius: 18, Day: Saturday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "In Gotham, the weather on Saturday will be cloudy with a temperature of 18°C. Does this help you decide?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Maybe, but how about the weather in Star City?",
+        "type": "Attitude Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Star City', 'Day': 'Saturday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Star City"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Star City, Weather: Rainy, TemperatureCelsius: 15, Day: Saturday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Star City will have rainy weather with a temperature of 15°C on Saturday. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What's the weather like in the place where it never rains?",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Could you specify a city for me to check the weather?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh right, let's go back to Metropolis. Can you confirm the weather again?",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Metropolis', 'Day': 'Saturday'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Metropolis"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Metropolis, Weather: Sunny, TemperatureCelsius: 25, Day: Saturday",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Certainly! Metropolis will be sunny with a temperature of 25°C on Saturday. Anything else you'd like to know?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Request the weather forecast for today in their current location to decide on the day's attire and whether to carry an umbrella.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Can you tell me what the weather is like today?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me the location you're interested in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I just want to know if I need an umbrella.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I understand. To provide the weather forecast, could you please specify your location?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Right, I'm in Springfield.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Springfield', 'Day': 'Today'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Springfield"
+              },
+              {
+                "name": "Day",
+                "value": "Today"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Springfield, Weather: Sunny, TemperatureCelsius: 25, Day: Today",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The weather in Springfield today is sunny with a temperature of 25°C. It looks like you won't need an umbrella. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me about tomorrow's weather instead?",
+        "type": "Attitude Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course, I can check that for you. Let me just confirm, you want the weather forecast for Springfield tomorrow?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, that's correct.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'City': 'Springfield', 'Day': 'Tomorrow'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "City",
+                "value": "Springfield"
+              },
+              {
+                "name": "Day",
+                "value": "Tomorrow"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "City: Springfield, Weather: Rainy, TemperatureCelsius: 18, Day: Tomorrow",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Tomorrow in Springfield, it will be rainy with a temperature of 18°C. You might want to carry an umbrella. Anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  }
+]

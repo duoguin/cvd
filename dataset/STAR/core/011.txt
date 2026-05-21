@@ -1,0 +1,11 @@
+Step 1:::Process:::Ask the attendee for their name:::next::Step 2
+Step 2:::Process:::Inquire about the venue of the party:::next::Step 3
+Step 3:::Process:::Ask who is hosting the party:::next::Step 4
+Step 4:::Process:::Request the attendee's planned arrival time:::next::Step 5
+Step 5:::Process:::Ask how many guests the attendee will bring:::next::Step 6
+Step 6:::Process:::Inquire if the attendee needs parking:::next::Step 7
+Step 7:::Process:::Ask about any dietary restrictions the attendee or their guests might have:::next::Step 8
+Step 8:::Process:::call party_rsvp to process the RSVP:::next::Step 9
+Step 9:::Process:::Confirm the RSVP with the attendee based on the returned Message:::next::Step 10
+Step 10:::Decision:::Ask if there is anything else the attendee needs:::Yes::Step 1::No::Step 11
+Step 11:::Terminal:::Thank the attendee and end the conversation:::

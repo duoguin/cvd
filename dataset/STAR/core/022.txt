@@ -1,0 +1,10 @@
+Step 1:::Process:::Ask the user how many questions they want for the trivia game:::next::Step 2
+Step 2:::Process:::Call trivia API with the number of questions as input:::next::Step 3
+Step 3:::Process:::Ask the first trivia question to the user:::next::Step 4
+Step 4:::Decision:::Check the user's answer:::Correct::Step 5::Incorrect::Step 6::No Answer::Step 7
+Step 5:::Process:::Inform the user that their answer is correct. Ask the next question:::next::Step 4
+Step 6:::Process:::Inform the user that their answer is incorrect. Ask the next question:::next::Step 4
+Step 7:::Process:::Remind the user to answer the question and ask the next question:::next::Step 4
+Step 8:::Decision:::Check if all questions have been answered or if the user decides to end trivia:::Yes::Step 9::No::Step 4
+Step 9:::Process:::Ask the user if they want to do anything else:::Yes::Step 1::No::Step 10
+Step 10:::Terminal:::Thank the user for participating in the trivia game and inform them they are welcome to return for more activities:::

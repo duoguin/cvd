@@ -1,0 +1,796 @@
+[
+  {
+    "user_intention": "Inquire about the doctor's instructions or advice following the appointment query results.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to know the follow-up instructions from my doctor.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. May I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex Johnson.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Could you please provide the name of your doctor?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Dr. Smith, but can you also check Dr. Brown's instructions?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> followup_doctor_appointment({'Name': 'Dr. Smith', 'PatientName': 'Alex Johnson'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "followup_doctor_appointment",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Dr. Smith"
+              },
+              {
+                "name": "PatientName",
+                "value": "Alex Johnson"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Dr. Smith advises rest and hydration for the next few days.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Dr. Smith advises rest and hydration for the next few days. Would you like me to check Dr. Brown's instructions as well?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's fine. Actually, I'm not feeling well about this advice. Can I cancel the request?",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I understand. If you have any concerns, it's best to contact Dr. Smith's office directly. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thank you.",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Update personal information (e.g., name) for the appointment to ensure accurate records.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to update my appointment details with Dr. Smith.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. May I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's John Doe. Also, I might need to change the appointment time.",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, John. I'll first update your personal information. Can you confirm the doctor's name for the follow-up appointment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Dr. Smith, but actually, I think I want to cancel it.",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I understand. Would you like me to proceed with canceling the appointment, or do you still want to update your details first?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, let's just update my details for now.",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> followup_doctor_appointment({'Name': 'Dr. Smith', 'PatientName': 'John Doe'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "followup_doctor_appointment",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Dr. Smith"
+              },
+              {
+                "name": "PatientName",
+                "value": "John Doe"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Your details have been updated successfully for Dr. Smith's follow-up appointment.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your details have been updated successfully for Dr. Smith's follow-up appointment. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I also wanted to add my new phone number to the records.",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I apologize, but I can only update appointment details here. Please contact the clinic directly to update your phone number. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Check the availability of a particular doctor for a follow-up appointment before scheduling.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, can you help me check if Dr. Smith is available for a follow-up appointment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course! Can I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Why do you need my name? Can't you just check?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I need your name to proceed with checking the appointment details. Could you please provide it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Sure, it's Alex Johnson.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Could you also tell me the name of the doctor for the follow-up appointment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Dr. Smith. By the way, did you know penguins can't fly?",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> followup_doctor_appointment({'Name': 'Dr. Smith', 'PatientName': 'Alex Johnson'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "followup_doctor_appointment",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Dr. Smith"
+              },
+              {
+                "name": "PatientName",
+                "value": "Alex Johnson"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Dr. Smith is available next Tuesday at 3 PM. Please confirm if you'd like to schedule.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Dr. Smith is available next Tuesday at 3 PM. Would you like to schedule this appointment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me what Dr. Smith's favorite color is?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm afraid I can't help with that. Is there anything else you need assistance with regarding the appointment?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Update personal information (e.g., name) for the appointment to ensure accurate records.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to update my appointment details. Can you help me?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Why do you need my name? Can't you just find it?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I need your name to access your appointment details accurately. Could you please provide it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's John Doe.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, John. May I have the name of the doctor for your follow-up appointment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Dr. Smith, but I think it's Dr. Who actually!",
+        "type": "Incorrect Response",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Let's go with Dr. Smith for now. I'll check your follow-up appointment details.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your appointment with Dr. Smith is confirmed for next Tuesday at 10 AM. Please bring your previous medical reports.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your appointment with Dr. Smith is confirmed for next Tuesday at 10 AM. Please remember to bring your previous medical reports. Anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What if I wanted to know the weather for that day?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I can only assist with your appointment details. You might want to check a weather app for that. Is there anything else regarding your appointment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Update personal information (e.g., name) for the appointment to ensure accurate records.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to update my information for a follow-up appointment.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you first tell me what information you have?",
+        "type": "Process Restructuring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I currently don't have access to your information without your name. Could you provide it so I can assist you better?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, right. My name is Alex Johnson.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Could you also tell me the name of the doctor for your follow-up appointment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can I change my name to Alexander Johnson instead?",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Certainly, I've updated your name to Alexander Johnson. Now, could you please provide the doctor's name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Dr. Smith.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> followup_doctor_appointment({'Name': 'Dr. Smith', 'PatientName': 'Alexander Johnson'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "followup_doctor_appointment",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Dr. Smith"
+              },
+              {
+                "name": "PatientName",
+                "value": "Alexander Johnson"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Dr. Smith advises a follow-up in two weeks. Please confirm your availability.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Dr. Smith advises a follow-up in two weeks. Would you like to confirm your availability, or do you need help with anything else?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can we go back to the beginning? I forgot to mention something.",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course, we can start over. What would you like to update or add?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, everything is fine. Thanks for your help!",
+        "type": "Rule Ignoring",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Schedule a new follow-up appointment with a specific doctor by providing their own and the doctor's name.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to schedule a follow-up appointment with Dr. Smith.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Can I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you first tell me if Dr. Smith is available next week?",
+        "type": "Process Restructuring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I need your name to check the schedule. Could you please provide it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, right. My name is Alex Johnson.",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Now, let me confirm the doctor’s availability. Could you remind me of the doctor's name again?",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Dr. Smith.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> followup_doctor_appointment({'Name': 'Dr. Smith', 'PatientName': 'Alex Johnson'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "followup_doctor_appointment",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Dr. Smith"
+              },
+              {
+                "name": "PatientName",
+                "value": "Alex Johnson"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Dr. Smith is available for a follow-up appointment next week. Please call the office to confirm the exact time.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Dr. Smith is available for a follow-up appointment next week. Please call the office to confirm the exact time. Is there anything else I can help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you also tell me what Dr. Smith's instructions were from the last visit?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only assist with scheduling follow-up appointments. For previous instructions, please refer to your visit summary or contact the office directly. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Inquire about the doctor's instructions or advice following the appointment query results.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to know what my doctor advised after my last appointment.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex Johnson.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Can you also tell me the name of your doctor?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I wanted to ask about the weather today.",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to assist with your follow-up appointment. Could you please provide your doctor's name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Dr. Smith.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> followup_doctor_appointment({'Name': 'Dr. Smith', 'PatientName': 'Alex Johnson'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "followup_doctor_appointment",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Dr. Smith"
+              },
+              {
+                "name": "PatientName",
+                "value": "Alex Johnson"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Dr. Smith advises to continue the current medication and schedule a follow-up in two weeks.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Dr. Smith advises you to continue your current medication and schedule a follow-up in two weeks. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Did you need my name again?",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No need to repeat your name. Is there anything else related to your appointment that I can help with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Update personal information (e.g., name) for the appointment to ensure accurate records.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I need to update my name for a follow-up appointment with my doctor.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Can you please provide your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex Johnson.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Could you tell me the name of the doctor for your follow-up appointment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Dr. Smith.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> followup_doctor_appointment({'Name': 'Dr. Smith', 'PatientName': 'Alex Johnson'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "followup_doctor_appointment",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Dr. Smith"
+              },
+              {
+                "name": "PatientName",
+                "value": "Alex Johnson"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your follow-up appointment with Dr. Smith is confirmed. Please arrive 15 minutes early.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your follow-up appointment with Dr. Smith is confirmed. Please arrive 15 minutes early. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Wait, I actually need to change my name to Alexander Johnson.",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Alright, let's update that. Could you confirm Dr. Smith is still the doctor for your appointment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, it's still Dr. Smith.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> followup_doctor_appointment({'Name': 'Dr. Smith', 'PatientName': 'Alexander Johnson'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "followup_doctor_appointment",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Dr. Smith"
+              },
+              {
+                "name": "PatientName",
+                "value": "Alexander Johnson"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your follow-up appointment with Dr. Smith is confirmed under the name Alexander Johnson.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your follow-up appointment is now confirmed under the name Alexander Johnson. Anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What's the weather like today?",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, I can only assist with your follow-up appointment. Is there anything else you need help with regarding that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you remind me what I need for the appointment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Please arrive 15 minutes early for your appointment with Dr. Smith. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I just wanted to confirm the doctor's name again. It's Dr. Smith, right?",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Yes, your appointment is with Dr. Smith. Let me know if there's anything else!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+Step 1:::Process:::Ask the user for their name:::next::Step 2
+Step 2:::Process:::Request the user's bank account number:::next::Step 3
+Step 3:::Process:::Request the user's PIN:::next::Step 4
+Step 4:::Decision:::Check if the account number or PIN is missing:::Yes::Step 5::No::Step 7
+Step 5:::Process:::Ask for the user's date of birth:::next::Step 6
+Step 6:::Process:::Ask for the user's mother's maiden name. Ask for the user's childhood pet's name:::next::Step 7
+Step 7:::Decision:::Check if additional information is still missing after step 4:::Yes::Step 8::No::Step 9
+Step 8:::Process:::Inform the user that authentication cannot be completed:::next::Step 13
+Step 9:::Process:::Ask the user for details regarding the fraud:::next::Step 10
+Step 10:::Process:::Attempt to submit the fraud report using bank_fraud_report API:::next::Step 11
+Step 11:::Decision:::Check if the submission is successful based on the returned Confirmation:::Yes::Step 12::No::Step 8
+Step 12:::Process:::Inform the user that the fraud report has been submitted:::next::Step 13
+Step 13:::Terminal:::End the task with a goodbye message:::

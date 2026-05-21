@@ -1,0 +1,54 @@
+Name: Hotel Reservation
+Desc: A process for reserving a hotel room based on user input and availability.
+
+SLOTs:
+  - name: CustomerName
+  - name: Hotel
+  - name: StartDate
+  - name: EndDate
+  - name: CustomerRequest
+  - name: Confirmation
+
+APIs:
+  - name: CheckAvailability
+    request: [Hotel, StartDate, EndDate]
+    response: [Availability]
+  - name: AttemptBooking
+    request: [CustomerName, StartDate, EndDate, Hotel, CustomerRequest, "Reservation"]
+    response: [Message]
+    precondition: [CheckAvailability, Confirmation]
+
+ANSWERs:
+  - name: BookingSuccess
+    desc: Inform the user that the hotel reservation succeeded.
+    precondition: [AttemptBooking]
+  - name: BookingFailure
+    desc: Inform the user that the hotel reservation failed and suggest checking other dates or hotels.
+    precondition: [AttemptBooking]
+  - name: HotelUnavailable
+    desc: Inform the user that the hotel is unavailable for the chosen dates and ask them to choose a different hotel.
+    precondition: [CheckAvailability]
+  - name: AskForAnotherService
+    desc: Ask the user if they need assistance with anything else.
+    precondition: [BookingSuccess, BookingFailure, HotelUnavailable]
+
+PDL: |
+  [CustomerName] = ASKSLOT()
+  [Hotel] = ASKSLOT()
+  [StartDate] = ASKSLOT()
+  [EndDate] = ASKSLOT()
+  [CustomerRequest] = ASKSLOT()
+  [Availability] = API_CheckAvailability([Hotel, StartDate, EndDate])
+  if Availability == True:
+      [Confirmation] = ASKSLOT()
+      if Confirmation == True:
+          [Message] = API_AttemptBooking([CustomerName, StartDate, EndDate, Hotel, CustomerRequest, "Reservation"])
+          if Message == "Success":
+              ANSWER_BookingSuccess()
+          else:
+              ANSWER_BookingFailure()
+      else:
+          [Hotel] = ASKSLOT()
+  else:
+      ANSWER_HotelUnavailable()
+  ANSWER_AskForAnotherService()

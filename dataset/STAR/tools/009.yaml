@@ -1,0 +1,96 @@
+- API: meeting_schedule
+  API description: Schedules a meeting for a user with a specified guest on a specific
+    day and time.
+  Input parameters:
+    Day:
+      categories:
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+      description: Day
+      required: 'true'
+      type: Categorical
+    EndTimeHour:
+      categories:
+      - 12 am
+      - 1 am
+      - 2 am
+      - 3 am
+      - 4 am
+      - 5 am
+      - 6 am
+      - 7 am
+      - 8 am
+      - 9 am
+      - 10 am
+      - 11 am
+      - 12 pm
+      - 1 pm
+      - 2 pm
+      - 3 pm
+      - 4 pm
+      - 5 pm
+      - 6 pm
+      - 7 pm
+      - 8 pm
+      - 9 pm
+      - 10 pm
+      - 11 pm
+      description: End Time Hour
+      required: 'true'
+      type: Categorical
+    MeetingReason:
+      description: Meeting Reason
+      required: 'false'
+      type: LongString
+    Name:
+      categories:
+      - John
+      - Michael
+      - Fred
+      - George
+      description: Guest Name
+      required: 'true'
+      type: Categorical
+    StartTimeHour:
+      categories:
+      - 12 am
+      - 1 am
+      - 2 am
+      - 3 am
+      - 4 am
+      - 5 am
+      - 6 am
+      - 7 am
+      - 8 am
+      - 9 am
+      - 10 am
+      - 11 am
+      - 12 pm
+      - 1 pm
+      - 2 pm
+      - 3 pm
+      - 4 pm
+      - 5 pm
+      - 6 pm
+      - 7 pm
+      - 8 pm
+      - 9 pm
+      - 10 pm
+      - 11 pm
+      description: Start Time Hour
+      required: 'true'
+      type: Categorical
+    UserName:
+      description: User Name
+      required: 'true'
+      type: ShortString
+  Output parameters:
+    Message:
+      description: Message
+      required: 'false'
+      type: ShortString

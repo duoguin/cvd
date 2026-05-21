@@ -1,0 +1,1518 @@
+[
+  {
+    "user_intention": "The user wants to modify or cancel an existing reservation, which may involve changing the dates of their stay, switching hotels, or adding special requests to their booking.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to change my hotel reservation.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Can you please provide your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex Johnson.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Which hotel is your current reservation with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I think it's the Grand Plaza, but I want to switch to the City Inn.",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it. Could you please tell me your new check-in and check-out dates for the City Inn?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Check-in on March 10th and check-out on March 15th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any specific requests for your stay at the City Inn?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I need a late check-out and a room with a view.",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> hotel_reserve({'Name': 'City Inn', 'StartDate': 'March 10', 'EndDate': 'March 15', 'CustomerName': 'Alex Johnson', 'CustomerRequest': 'Late check-out and room with a view', 'RequestType': 'Modify'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "hotel_reserve",
+            "params": [
+              {
+                "name": "Name",
+                "value": "City Inn"
+              },
+              {
+                "name": "StartDate",
+                "value": "March 10"
+              },
+              {
+                "name": "EndDate",
+                "value": "March 15"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex Johnson"
+              },
+              {
+                "name": "CustomerRequest",
+                "value": "Late check-out and room with a view"
+              },
+              {
+                "name": "RequestType",
+                "value": "Modify"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: The City Inn is available for your requested dates and preferences. Would you like to confirm this modification?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The City Inn is available for your requested dates and preferences. Would you like to confirm this modification?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I might need to cancel it. Can you help with that?",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I can assist with cancellation. Are you sure you want to cancel your reservation entirely?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please cancel it.",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> hotel_reserve({'Name': 'City Inn', 'StartDate': 'March 10', 'EndDate': 'March 15', 'CustomerName': 'Alex Johnson', 'CustomerRequest': 'Cancel reservation', 'RequestType': 'Cancel'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "hotel_reserve",
+            "params": [
+              {
+                "name": "Name",
+                "value": "City Inn"
+              },
+              {
+                "name": "StartDate",
+                "value": "March 10"
+              },
+              {
+                "name": "EndDate",
+                "value": "March 15"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex Johnson"
+              },
+              {
+                "name": "CustomerRequest",
+                "value": "Cancel reservation"
+              },
+              {
+                "name": "RequestType",
+                "value": "Cancel"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your reservation at the City Inn has been successfully canceled.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your reservation at the City Inn has been successfully canceled. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thank you!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user is looking for recommendations on which hotel to choose based on their preferences or specific needs, such as location, amenities, or pricing.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I'm planning a trip and need some hotel recommendations.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Can you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. Do you have a specific hotel in mind, or would you like some suggestions based on your preferences?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I’d like a hotel with a good gym and close to the city center.",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great! Let me find some options for you. What are your check-in and check-out dates?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Check-in on the 15th and check-out on the 20th of next month.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it. Do you have any other specific requests for your stay?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you also check if there's a pool?",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Absolutely. Let me check the availability of hotels with these amenities for your dates.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, available_hotels: ['City Center Hotel', 'Urban Stay']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found two options: City Center Hotel and Urban Stay. Both have gyms and are close to the city center. City Center Hotel also has a pool. Would you like to proceed with one of these?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's go with City Center Hotel.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Please confirm your booking for City Center Hotel from the 15th to the 20th. Shall I proceed?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can I change the check-out date to the 22nd?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem. Let me check the availability for the new dates.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, availability: true",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The City Center Hotel is available for your new dates. Would you like to confirm the booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please book it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> hotel_reserve({'Name': 'City Center Hotel', 'StartDate': '2023-11-15', 'EndDate': '2023-11-22', 'CustomerName': 'Alex', 'CustomerRequest': 'Gym and Pool', 'RequestType': 'Booking'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "hotel_reserve",
+            "params": [
+              {
+                "name": "Name",
+                "value": "City Center Hotel"
+              },
+              {
+                "name": "StartDate",
+                "value": "2023-11-15"
+              },
+              {
+                "name": "EndDate",
+                "value": "2023-11-22"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "CustomerRequest",
+                "value": "Gym and Pool"
+              },
+              {
+                "name": "RequestType",
+                "value": "Booking"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Reservation confirmed successfully.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your reservation at City Center Hotel has been confirmed from the 15th to the 22nd. Can I assist you with anything else?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user intends to reserve a hotel room by providing their name, selecting a hotel, specifying check-in and check-out dates, and mentioning any special requests they might have for their stay.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I'd like to book a hotel room.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! Can I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Why do you need my name?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I need it to personalize your booking experience. Could you please provide your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Okay, my name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Which hotel would you like to stay at?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Somewhere nice.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Could you specify a hotel name from your preferred choices?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's go with the Grand Plaza.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great choice! What is your check-in date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'll check in on the 15th.",
+        "type": "Partial Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And what about the check-out date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'll leave on the 20th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any special requests for your stay?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me a joke instead?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'd be happy to help with your booking. Any special requests for your stay?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I would like a room with a sea view.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> hotel_reserve({'Name': 'Grand Plaza', 'StartDate': '2023-10-15', 'EndDate': '2023-10-20', 'CustomerName': 'Alex', 'CustomerRequest': 'Sea view', 'RequestType': 'Booking'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "hotel_reserve",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Grand Plaza"
+              },
+              {
+                "name": "StartDate",
+                "value": "2023-10-15"
+              },
+              {
+                "name": "EndDate",
+                "value": "2023-10-20"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "CustomerRequest",
+                "value": "Sea view"
+              },
+              {
+                "name": "RequestType",
+                "value": "Booking"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Reservation confirmed at Grand Plaza with a sea view from October 15 to October 20.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your reservation at the Grand Plaza with a sea view has been confirmed from October 15 to October 20. Is there anything else I can help you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What time is check-in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Check-in is usually at 3 PM. Is there anything else you need?",
+        "type": "Partial Answer",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user seeks to confirm the details of their booking, including the hotel name, check-in and check-out dates, and any special requests made, to ensure everything is correct before their stay.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I just want to confirm my hotel booking details. Can you help?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course! Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex Johnson.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, Alex. Can you tell me which hotel you booked?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I think it was the Grand Plaza... or maybe the Royal Inn?",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Let's go with the Grand Plaza for now. What are your check-in and check-out dates?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Check-in is on the 15th of March, and check-out is on the 20th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any special requests for your stay?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I asked for a room with a view and extra pillows.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> hotel_reserve({'Name': 'Grand Plaza', 'StartDate': '2023-03-15', 'EndDate': '2023-03-20', 'CustomerName': 'Alex Johnson', 'CustomerRequest': 'Room with a view, extra pillows', 'RequestType': 'Confirm'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "hotel_reserve",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Grand Plaza"
+              },
+              {
+                "name": "StartDate",
+                "value": "2023-03-15"
+              },
+              {
+                "name": "EndDate",
+                "value": "2023-03-20"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex Johnson"
+              },
+              {
+                "name": "CustomerRequest",
+                "value": "Room with a view, extra pillows"
+              },
+              {
+                "name": "RequestType",
+                "value": "Confirm"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your booking at Grand Plaza from March 15th to March 20th with special requests for a room with a view and extra pillows is confirmed.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your booking at Grand Plaza from March 15th to March 20th with a room with a view and extra pillows is confirmed. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, what's the weather going to be like during my stay?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only help with hotel reservations. You might want to check a weather app for that. Anything else I can assist with regarding your booking?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user seeks to confirm the details of their booking, including the hotel name, check-in and check-out dates, and any special requests made, to ensure everything is correct before their stay.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I just wanted to confirm the details of my hotel booking.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course! Let's start by confirming your name. Could you please provide it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can we skip that and go straight to the hotel name?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, which hotel are you booked with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm staying at the Grand Plaza.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great choice! Now, could you tell me your check-in date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I think it's the 15th of next month.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And your check-out date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh wait, can we go back? I need to confirm the check-in date first.",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem at all. Let's confirm your check-in date first. Do you have the exact date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, it's the 14th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you! And your check-out date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It should be the 21st.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any specific requests for your stay?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I requested a room with a view, but can you confirm that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> hotel_reserve({'Name': 'Grand Plaza', 'StartDate': '14th', 'EndDate': '21st', 'CustomerName': '', 'CustomerRequest': 'Room with a view', 'RequestType': 'Confirm'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "hotel_reserve",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Grand Plaza"
+              },
+              {
+                "name": "StartDate",
+                "value": "14th"
+              },
+              {
+                "name": "EndDate",
+                "value": "21st"
+              },
+              {
+                "name": "CustomerName",
+                "value": ""
+              },
+              {
+                "name": "CustomerRequest",
+                "value": "Room with a view"
+              },
+              {
+                "name": "RequestType",
+                "value": "Confirm"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your booking at Grand Plaza from 14th to 21st with a room with a view is confirmed.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your booking at the Grand Plaza from the 14th to the 21st with a room with a view is confirmed. Is there anything else you'd like to check?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can we repeat the check-out date step? I want to make sure it's correct.",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Certainly! Your check-out date is the 21st. Would you like to change it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's perfect. Thank you!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! If there's anything else you need, feel free to ask.",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user is looking for recommendations on which hotel to choose based on their preferences or specific needs, such as location, amenities, or pricing.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for hotel recommendations. Can you help me out?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course! Could you please tell me your name to get started?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you first tell me about hotels with a pool?",
+        "type": "Process Restructuring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. We have several hotels with pools. Could you let me know your name so I can personalize the options for you?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, Alex. Now, could you choose a hotel from our list, or should I recommend some options?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you recommend something near the beach?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Certainly! I recommend the Beachside Resort or the Oceanview Hotel. Which one would you prefer?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's go with Oceanview Hotel.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Perfect choice! What would be your check-in date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'll check in on the 15th of next month.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And when will you be checking out?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I forgot. Can we go back to choosing a hotel? I might want to change it.",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem at all! Would you like to hear the recommendations again or choose a different hotel?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, let's stick with Oceanview Hotel. Sorry for the confusion!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No worries! So, check-in on the 15th. When would you like to check out?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'll check out on the 20th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it. Do you have any specific requests for your stay?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I need a room with a sea view.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> hotel_reserve({'Name': 'Oceanview Hotel', 'StartDate': '15th', 'EndDate': '20th', 'CustomerName': 'Alex', 'CustomerRequest': 'Sea view room', 'RequestType': 'Special'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "hotel_reserve",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Oceanview Hotel"
+              },
+              {
+                "name": "StartDate",
+                "value": "15th"
+              },
+              {
+                "name": "EndDate",
+                "value": "20th"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "CustomerRequest",
+                "value": "Sea view room"
+              },
+              {
+                "name": "RequestType",
+                "value": "Special"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: The room is available. Would you like to confirm the booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The room with a sea view is available. Would you like to confirm your booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please confirm it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> hotel_reserve({'Name': 'Oceanview Hotel', 'StartDate': '15th', 'EndDate': '20th', 'CustomerName': 'Alex', 'CustomerRequest': 'Sea view room', 'RequestType': 'Confirm'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "hotel_reserve",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Oceanview Hotel"
+              },
+              {
+                "name": "StartDate",
+                "value": "15th"
+              },
+              {
+                "name": "EndDate",
+                "value": "20th"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "CustomerRequest",
+                "value": "Sea view room"
+              },
+              {
+                "name": "RequestType",
+                "value": "Confirm"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your reservation at Oceanview Hotel has been successfully booked.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your reservation at Oceanview Hotel has been successfully booked. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user is looking for recommendations on which hotel to choose based on their preferences or specific needs, such as location, amenities, or pricing.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm thinking of booking a hotel but need some recommendations. Can you help?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course! Could you please tell me your name first?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. Do you have a specific location or amenities in mind for your hotel stay?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I want something near the beach with a pool.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great choice! Here are a few options: Beachside Resort, Ocean View Hotel, and Seaside Inn. Which one would you like to know more about?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's go with Ocean View Hotel.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "What would be your check-in date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Check-in on October 10th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And your check-out date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "October 15th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any specific requests for your stay?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can I cancel this and start over? I might want a different hotel.",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem at all. Let's start from the beginning. Could you confirm your name again?",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. Do you have a different location or amenities in mind this time?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'd like something downtown, close to restaurants.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Here are some options: Downtown Suites, City Center Hotel, and Urban Stay. Which one would you prefer?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "City Center Hotel sounds good.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "What would be your check-in date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "October 10th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And your check-out date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "October 15th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any specific requests for your stay?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Just need a late check-out.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> hotel_reserve({'Name': 'City Center Hotel', 'StartDate': 'October 10th', 'EndDate': 'October 15th', 'CustomerName': 'Alex', 'CustomerRequest': 'Late check-out', 'RequestType': 'Booking'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "hotel_reserve",
+            "params": [
+              {
+                "name": "Name",
+                "value": "City Center Hotel"
+              },
+              {
+                "name": "StartDate",
+                "value": "October 10th"
+              },
+              {
+                "name": "EndDate",
+                "value": "October 15th"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "CustomerRequest",
+                "value": "Late check-out"
+              },
+              {
+                "name": "RequestType",
+                "value": "Booking"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Reservation successful at City Center Hotel from October 10th to 15th with a late check-out request.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your reservation at City Center Hotel from October 10th to 15th is confirmed, including your late check-out request. Is there anything else you need assistance with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks for your help!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "The user intends to reserve a hotel room by providing their name, selecting a hotel, specifying check-in and check-out dates, and mentioning any special requests they might have for their stay.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'd like to book a hotel room.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Which hotel would you like to stay at?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I want to stay at the Grand Hotel.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great choice! What is your check-in date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'll check in on July 10th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And when will you be checking out?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'll check out on July 15th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any specific requests for your stay?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'd like a room with a sea view.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> hotel_reserve({'Name': 'Grand Hotel', 'StartDate': 'July 10', 'EndDate': 'July 15', 'CustomerName': 'Alex', 'CustomerRequest': 'sea view', 'RequestType': 'booking'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "hotel_reserve",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Grand Hotel"
+              },
+              {
+                "name": "StartDate",
+                "value": "July 10"
+              },
+              {
+                "name": "EndDate",
+                "value": "July 15"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "CustomerRequest",
+                "value": "sea view"
+              },
+              {
+                "name": "RequestType",
+                "value": "booking"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: The Grand Hotel is available for your requested dates.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The Grand Hotel is available from July 10th to 15th with a sea view. Would you like to confirm the booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can I cancel this request?",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem. The request has been canceled. Would you like to start over or need help with something else?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's start over. I'd like to book again.",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course. Could you please tell me your name again?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Which hotel would you like to stay at this time?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "The City Inn.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And your check-in date?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "July 20th, but I forgot the check-out date.",
+        "type": "Partial Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No worries. When would you like to check out?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "July 25th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any specific requests for your stay?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Just a quiet room, please.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> hotel_reserve({'Name': 'The City Inn', 'StartDate': 'July 20', 'EndDate': 'July 25', 'CustomerName': 'Alex', 'CustomerRequest': 'quiet room', 'RequestType': 'booking'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "hotel_reserve",
+            "params": [
+              {
+                "name": "Name",
+                "value": "The City Inn"
+              },
+              {
+                "name": "StartDate",
+                "value": "July 20"
+              },
+              {
+                "name": "EndDate",
+                "value": "July 25"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              },
+              {
+                "name": "CustomerRequest",
+                "value": "quiet room"
+              },
+              {
+                "name": "RequestType",
+                "value": "booking"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: The City Inn is available for your requested dates.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The City Inn is available from July 20th to 25th with a quiet room. Would you like to confirm the booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please confirm it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your booking has been confirmed. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thank you!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  }
+]

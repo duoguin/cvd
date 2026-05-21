@@ -1,0 +1,26 @@
+Name: Follow-Up Doctor Appointment
+Desc: Handle the process for a follow-up doctor appointment
+
+SLOTs:
+  - name: UserName
+  - name: DoctorName
+
+APIs:
+  - name: FollowUpDoctorAppointmentQuery
+    request: [UserName, DoctorName]
+    response: [Message]
+
+ANSWERs:
+  - name: AppointmentInstructions
+    desc: Inform the user of the doctor's instructions based on the query result.
+    precondition: [FollowUpDoctorAppointmentQuery]
+  - name: AssistanceQuery
+    desc: Check if the user needs more assistance with anything else.
+    precondition: [FollowUpDoctorAppointmentQuery]
+
+PDL: |
+  [UserName] = ASKSLOT()
+  [DoctorName] = ASKSLOT()
+  [Message] = API_FollowUpDoctorAppointmentQuery([UserName, DoctorName])
+  ANSWER_AppointmentInstructions()
+  ANSWER_AssistanceQuery()

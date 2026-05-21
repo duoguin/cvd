@@ -1,0 +1,51 @@
+Name: Schedule Meeting
+Desc: Schedule a meeting based on the user's preferences
+
+SLOTs:
+  - name: UserName
+  - name: GuestName
+  - name: Day
+  - name: StartTimeHour
+  - name: EndTimeHour
+  - name: MeetingReason
+
+APIs:
+  - name: meeting_schedule
+    request: [UserName, GuestName, Day, StartTimeHour, EndTimeHour, MeetingReason]
+    response: [Message]
+
+ANSWERs:
+  - name: MeetingConfirmed
+    desc: Inform the user that the meeting has been confirmed.
+    precondition: [meeting_schedule]
+  - name: MeetingFailed
+    desc: Inform the user that the requested time is unavailable and ask if they want to choose a different time.
+    precondition: [meeting_schedule]
+  - name: Goodbye
+    desc: Say goodbye to the user if they do not want to choose a different time.
+    precondition: [MeetingFailed]
+  - name: AnythingElse
+    desc: Ask the user if there is anything else they need help with after scheduling or deciding not to reschedule the meeting.
+    precondition: [MeetingConfirmed, Goodbye]
+
+PDL: |
+  [UserName] = ASKSLOT()
+  [GuestName] = ASKSLOT()
+  repeat:
+      [Day] = ASKSLOT()
+      [StartTimeHour] = ASKSLOT()
+      [EndTimeHour] = ASKSLOT()
+      [MeetingReason] = ASKSLOT()
+      [Message] = API_meeting_schedule([UserName, GuestName, Day, StartTimeHour, EndTimeHour, MeetingReason])
+      if Message == "Success":
+          ANSWER_MeetingConfirmed()
+          break
+      else:
+          ANSWER_MeetingFailed()
+          wantToReschedule = ASKSLOT("Do you want to choose a different time? Yes or No")
+          if wantToReschedule == "No":
+              ANSWER_Goodbye()
+              break
+  [AnythingElse] = ASKSLOT("Is there anything else I can help with?")
+  if AnythingElse == "No":
+      ANSWER_Goodbye()

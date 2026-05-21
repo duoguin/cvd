@@ -1,0 +1,6 @@
+Step 1:::Process:::Ask the user for the day they want the weather information for:::next::Step 2
+Step 2:::Process:::Ask the user for the location they are interested in getting the weather forecast for:::next::Step 3
+Step 3:::Process:::Call generic_sample with City, Weather, TemperatureCelsius, Day as inputs:::next::Step 4
+Step 4:::Process:::Provide the user with the weather forecast for the specified day and location, including City, Weather, TemperatureCelsius, Day:::next::Step 5
+Step 5:::Decision:::Ask the user if there is anything else they need help with:::Yes::Step 1::No::Step 6
+Step 6:::Terminal:::Thank the user and offer further assistance in the future:::

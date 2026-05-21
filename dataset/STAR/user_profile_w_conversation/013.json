@@ -1,0 +1,1236 @@
+[
+  {
+    "user_intention": "To find and book a flight from a specific departure city to a desired destination city on a particular date, including preferences for flight class, arrival time, and choice of airline.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I'm looking to book a flight.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! Could I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. From which city will you be departing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'll be leaving from New York.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great! What's your destination city?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I want to go to Los Angeles.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And on what date would you like to fly?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "March 15th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any preferences for your flight, such as class, arrival time, or airline?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'd prefer a morning flight in business class with Delta.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> plane_search({'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Date': 'March 15', 'Class': 'Business', 'Airline': 'Delta'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "plane_search",
+            "params": [
+              {
+                "name": "DepartureCity",
+                "value": "New York"
+              },
+              {
+                "name": "ArrivalCity",
+                "value": "Los Angeles"
+              },
+              {
+                "name": "Date",
+                "value": "March 15"
+              },
+              {
+                "name": "Class",
+                "value": "Business"
+              },
+              {
+                "name": "Airline",
+                "value": "Delta"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, flights: [{'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Price': 350, 'Date': 'March 15', 'ArrivalTime': '10:00 AM', 'Class': 'Business', 'DurationHours': 6, 'Airline': 'Delta', 'id': 'DL123'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found a flight for you: New York to Los Angeles on March 15th, arriving at 10:00 AM in business class with Delta for $350. Would you like to search for more flights?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you check for an evening flight instead?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> plane_search({'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Date': 'March 15', 'Class': 'Business', 'Airline': 'Delta', 'ArrivalTime': 'Evening'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "plane_search",
+            "params": [
+              {
+                "name": "DepartureCity",
+                "value": "New York"
+              },
+              {
+                "name": "ArrivalCity",
+                "value": "Los Angeles"
+              },
+              {
+                "name": "Date",
+                "value": "March 15"
+              },
+              {
+                "name": "Class",
+                "value": "Business"
+              },
+              {
+                "name": "Airline",
+                "value": "Delta"
+              },
+              {
+                "name": "ArrivalTime",
+                "value": "Evening"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, flights: [{'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Price': 370, 'Date': 'March 15', 'ArrivalTime': '6:00 PM', 'Class': 'Business', 'DurationHours': 6, 'Airline': 'Delta', 'id': 'DL456'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found an evening flight for you: New York to Los Angeles on March 15th, arriving at 6:00 PM in business class with Delta for $370. Would you like to proceed with this flight?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I changed my mind. Can we cancel this request?",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem, Alex. I've canceled the request. If you need any more assistance, feel free to ask. Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To explore options for direct flights versus flights with layovers, including the duration of the flight and layover times, to decide on the most convenient or shortest travel time.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I'm planning a trip and need some help finding flights.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! May I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. From which city will you be departing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'll be leaving from New York.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great! And where is your destination city?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm heading to Los Angeles.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "When would you like to fly?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm thinking about the 15th of next month.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any specific preferences or requirements for your flight?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'd like to compare direct flights with those that have layovers to see which offers the shortest travel time.",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> plane_search({'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Date': '2023-11-15'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "plane_search",
+            "params": [
+              {
+                "name": "DepartureCity",
+                "value": "New York"
+              },
+              {
+                "name": "ArrivalCity",
+                "value": "Los Angeles"
+              },
+              {
+                "name": "Date",
+                "value": "2023-11-15"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, flights: [{'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Price': 300, 'Date': '2023-11-15', 'ArrivalTime': '14:00', 'Class': 'Economy', 'DurationHours': 6, 'Airline': 'Airways A', 'id': 1}, {'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Price': 250, 'Date': '2023-11-15', 'ArrivalTime': '16:00', 'Class': 'Economy', 'DurationHours': 8, 'Airline': 'Airways B', 'id': 2, 'Layover': 'Chicago, 2 hours'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found a direct flight with Airways A that takes 6 hours and costs $300. There's also a flight with Airways B that has a 2-hour layover in Chicago, taking 8 hours total and costing $250. Which option would you prefer?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you check if there are any flights with a morning departure?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> plane_search({'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Date': '2023-11-15', 'DepartureTime': 'morning'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "plane_search",
+            "params": [
+              {
+                "name": "DepartureCity",
+                "value": "New York"
+              },
+              {
+                "name": "ArrivalCity",
+                "value": "Los Angeles"
+              },
+              {
+                "name": "Date",
+                "value": "2023-11-15"
+              },
+              {
+                "name": "DepartureTime",
+                "value": "morning"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, flights: [{'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Price': 320, 'Date': '2023-11-15', 'ArrivalTime': '10:00', 'Class': 'Economy', 'DurationHours': 6, 'Airline': 'Airways C', 'id': 3}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "There's a morning flight with Airways C, departing at 7:00 AM, arriving at 10:00 AM, taking 6 hours, and costing $320. Does that suit your needs?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "That works! But wait, can I also know if there's an evening flight option?",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> plane_search({'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Date': '2023-11-15', 'DepartureTime': 'evening'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "plane_search",
+            "params": [
+              {
+                "name": "DepartureCity",
+                "value": "New York"
+              },
+              {
+                "name": "ArrivalCity",
+                "value": "Los Angeles"
+              },
+              {
+                "name": "Date",
+                "value": "2023-11-15"
+              },
+              {
+                "name": "DepartureTime",
+                "value": "evening"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, flights: [{'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Price': 280, 'Date': '2023-11-15', 'ArrivalTime': '22:00', 'Class': 'Economy', 'DurationHours': 6, 'Airline': 'Airways D', 'id': 4}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "There's an evening flight with Airways D, departing at 4:00 PM, arriving at 10:00 PM, taking 6 hours, and costing $280. Would you like to book this one or any other?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I think I need to rethink my travel plans. Can we cancel this request for now?",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem, Alex. If you need assistance in the future, feel free to reach out. Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To request information on the amenities provided on different flights, such as in-flight entertainment, meal service, and baggage allowance, based on the airline and class of service.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I'm curious about the amenities on different flights. Can you help?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help you find flights. First, may I have your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Why do you need my name?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "It's just to personalize our conversation. If you'd rather not, that's okay! Could you tell me your departure city?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm leaving from New York.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great! And where are you headed?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm going to Los Angeles.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "When would you like to fly?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Sometime next month.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Could you please provide a specific date for your flight?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's say the 15th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any preferences or requirements for the flight?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm interested in the in-flight entertainment and meal options.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> plane_search({'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Date': '2023-11-15'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "plane_search",
+            "params": [
+              {
+                "name": "DepartureCity",
+                "value": "New York"
+              },
+              {
+                "name": "ArrivalCity",
+                "value": "Los Angeles"
+              },
+              {
+                "name": "Date",
+                "value": "2023-11-15"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Flights found with various amenities available.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I've found several flights. They offer various amenities like in-flight entertainment and meal services. Would you like more details on a specific airline or class?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What about baggage allowance?",
+        "type": "Partial Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I can help with that. Most airlines offer standard baggage allowances, but it varies by class. Would you like to search for more flights or specific airlines?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me about the weather in Los Angeles?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to assist with flight information. You might want to check a weather service for that. Would you like to continue with flight details?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To check the availability of flights on multiple dates around a preferred date to have flexible travel plans, including the option to specify preferred departure and arrival times.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to check flights around a certain date. Can you help?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course! Can I start by getting your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, that's not important. Just call me Traveler.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Alright, Traveler. Where will you be departing from?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm leaving from New York.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great! What's your destination city?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I want to go to Los Angeles.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And what date are you planning to fly?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Sometime next week, maybe around Thursday.",
+        "type": "Partial Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any specific preferences or requirements for your flight?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I prefer morning flights, but I'm flexible.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> plane_search({'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Date': 'next Thursday', 'ArrivalTime': 'morning'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "plane_search",
+            "params": [
+              {
+                "name": "DepartureCity",
+                "value": "New York"
+              },
+              {
+                "name": "ArrivalCity",
+                "value": "Los Angeles"
+              },
+              {
+                "name": "Date",
+                "value": "next Thursday"
+              },
+              {
+                "name": "ArrivalTime",
+                "value": "morning"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, flights: [{'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Price': '$300', 'Date': 'next Thursday', 'ArrivalTime': '09:00 AM', 'Class': 'Economy', 'DurationHours': '6', 'Airline': 'Airways', 'id': '12345'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found a flight on Thursday morning from New York to Los Angeles for $300. Would you like to search for more flights?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, what's the weather like in Los Angeles?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only help with flight searches. Would you like to explore more flight options?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Sure, can you check for flights on Friday as well?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> plane_search({'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Date': 'next Friday', 'ArrivalTime': 'morning'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "plane_search",
+            "params": [
+              {
+                "name": "DepartureCity",
+                "value": "New York"
+              },
+              {
+                "name": "ArrivalCity",
+                "value": "Los Angeles"
+              },
+              {
+                "name": "Date",
+                "value": "next Friday"
+              },
+              {
+                "name": "ArrivalTime",
+                "value": "morning"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, flights: [{'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Price': '$320', 'Date': 'next Friday', 'ArrivalTime': '08:00 AM', 'Class': 'Economy', 'DurationHours': '6', 'Airline': 'Skyline', 'id': '67890'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "There's a flight on Friday morning for $320. Anything else you'd like to check?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! Have a great day and safe travels!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To inquire about the cheapest flight options available for a given route and date, possibly with flexible dates to find the best deal.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I'm looking for the cheapest flight options from New York to Los Angeles.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! Could I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "John.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, John. When are you planning to fly?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I want to know the cheapest options, maybe with flexible dates.",
+        "type": "Step Splitting",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it. Could you tell me your preferred departure date, and I'll check for flexible options around it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's say October 15th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And do you have any preferences for the flight, like class or airline?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No specific preferences, just the cheapest.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, flights: [{'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Price': 150, 'Date': '2023-10-15', 'ArrivalTime': '10:00 AM', 'Class': 'Economy', 'DurationHours': 6, 'Airline': 'BudgetAir', 'id': 12345}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found a flight from New York to Los Angeles on October 15th for $150 with BudgetAir in Economy class. Would you like to search for more flights?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can I change my destination to San Francisco?",
+        "type": "Process Restructuring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, let's update your destination. When would you like to fly to San Francisco?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Same date, October 15th.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, flights: [{'DepartureCity': 'New York', 'ArrivalCity': 'San Francisco', 'Price': 180, 'Date': '2023-10-15', 'ArrivalTime': '11:00 AM', 'Class': 'Economy', 'DurationHours': 6, 'Airline': 'BudgetAir', 'id': 67890}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found a flight from New York to San Francisco on October 15th for $180 with BudgetAir in Economy class. Would you like to search for more flights?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's fine. Thanks for the help!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome, John! Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To request information on the amenities provided on different flights, such as in-flight entertainment, meal service, and baggage allowance, based on the airline and class of service.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, can you tell me about the amenities on flights?",
+        "type": "Rule Ignoring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with flight searches. Could you please tell me your name first?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm Alex. But really, I'm more interested in the amenities.",
+        "type": "Rule Ignoring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Let's start with the basics. Which city are you departing from?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "New York. And I want to know about the in-flight entertainment.",
+        "type": "Rule Ignoring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it. Where are you flying to?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Los Angeles. Can you also tell me about meal services?",
+        "type": "Rule Ignoring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "When are you planning to fly?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Next Friday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any preferences for the flight, like class or airline?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I prefer economy class. How about the baggage allowance?",
+        "type": "Rule Ignoring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> plane_search({'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Date': 'Next Friday', 'Class': 'Economy'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "plane_search",
+            "params": [
+              {
+                "name": "DepartureCity",
+                "value": "New York"
+              },
+              {
+                "name": "ArrivalCity",
+                "value": "Los Angeles"
+              },
+              {
+                "name": "Date",
+                "value": "Next Friday"
+              },
+              {
+                "name": "Class",
+                "value": "Economy"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, flights: [{'Airline': 'Airways A', 'Amenities': ['In-flight Entertainment', 'Meal Service', 'Baggage Allowance'], 'id': 1}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found a flight with Airways A. It includes in-flight entertainment, meal service, and baggage allowance. Would you like to search for more flights?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all I needed. Thanks!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome, Alex! Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To explore options for direct flights versus flights with layovers, including the duration of the flight and layover times, to decide on the most convenient or shortest travel time.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I'm looking to explore flight options. Can you help me?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course! May I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, Alex. From which city will you be departing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'll be leaving from Chicago.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And what's your destination city?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm heading to New York.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Could you tell me the date of your flight?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm thinking about flying on the 15th of next month.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any specific preferences or requirements for your flight?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm interested in comparing direct flights with those that have layovers, especially looking at the duration.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> plane_search({'DepartureCity': 'Chicago', 'ArrivalCity': 'New York', 'Date': '15th of next month'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "plane_search",
+            "params": [
+              {
+                "name": "DepartureCity",
+                "value": "Chicago"
+              },
+              {
+                "name": "ArrivalCity",
+                "value": "New York"
+              },
+              {
+                "name": "Date",
+                "value": "15th of next month"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, flights: [{'DepartureCity': 'Chicago', 'ArrivalCity': 'New York', 'Price': '$200', 'Date': '15th of next month', 'ArrivalTime': '10:00 AM', 'Class': 'Economy', 'DurationHours': 2, 'Airline': 'Airways A', 'id': 1}, {'DepartureCity': 'Chicago', 'ArrivalCity': 'New York', 'Price': '$150', 'Date': '15th of next month', 'ArrivalTime': '1:00 PM', 'Class': 'Economy', 'DurationHours': 4, 'Airline': 'Airways B', 'id': 2}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found a direct flight with Airways A for $200, taking 2 hours, and another with a layover with Airways B for $150, taking 4 hours. Do you want to explore more flights?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me about the weather in New York?",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to help with flight searches. For weather, you might want to check a weather service. Would you like to continue with flight options?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, let's look for more flights.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any new preferences or requirements for the next search?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, never mind, I want to cancel this request.",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem, Alex. If you need help with flight searches in the future, feel free to ask. Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To find and book a flight from a specific departure city to a desired destination city on a particular date, including preferences for flight class, arrival time, and choice of airline.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to book a flight.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. May I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "John Doe.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, John. Which city will you be departing from?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'll be leaving from New York.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great! And what's your destination city?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I want to go to Los Angeles.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "When would you like to fly?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm thinking about next Friday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any specific preferences for your flight, like class, arrival time, or airline?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me the weather in Los Angeles?",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm focused on booking flights, so I can't provide weather updates. Do you have any preferences for your flight?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'd like to fly business class and prefer a morning arrival.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> plane_search({'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Date': 'next Friday', 'Class': 'Business', 'ArrivalTime': 'Morning'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "plane_search",
+            "params": [
+              {
+                "name": "DepartureCity",
+                "value": "New York"
+              },
+              {
+                "name": "ArrivalCity",
+                "value": "Los Angeles"
+              },
+              {
+                "name": "Date",
+                "value": "next Friday"
+              },
+              {
+                "name": "Class",
+                "value": "Business"
+              },
+              {
+                "name": "ArrivalTime",
+                "value": "Morning"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Flights found: [{'DepartureCity': 'New York', 'ArrivalCity': 'Los Angeles', 'Price': '$500', 'Date': 'next Friday', 'ArrivalTime': '10:00 AM', 'Class': 'Business', 'DurationHours': 6, 'Airline': 'Airways', 'id': '123'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found a business class flight from New York to Los Angeles arriving at 10:00 AM next Friday with Airways for $500. Would you like to search for more flights?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I need to cancel this search.",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem, John. If you need anything else, feel free to ask. Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  }
+]

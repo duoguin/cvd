@@ -1,0 +1,98 @@
+Name: 114 Registration
+Desc: Provides registration services, allowing users to query and recommend hospitals and departments in Beijing.
+Detailed_desc: Queries the availability of appointment slots based on the user's specified hospital, department, and time, and attempts to register; if no slots are available at the specified hospital, it will try to register at other hospitals.
+
+SLOTs:
+  - name: hospital_name
+    desc: The name of the hospital where the user wants to register.
+  - name: department_name
+    desc: The name of the department where the user wants to register.
+  - name: appointment_time
+    desc: The time when the user wants to register.
+  - name: id_number
+    desc: The user's ID number.
+  - name: registration_type
+    desc: The type of registration (specialist or general).
+  - name: doctor_name
+    desc: The name of the doctor the user wants to register with.
+  - name: registration_willingness
+    desc: Whether the user is willing to register at other hospitals.
+  - name: registration_status
+    desc: The result of the registration as returned by the API, where 1 indicates success and 0 indicates failure.
+
+APIs:
+  - name: check_hospital
+    request: [hospital_name]
+    response: [hospital_exists]
+    precondition: []
+  - name: check_department
+    request: [department_name, hospital_name]
+    response: [department_exists]
+    precondition: [check_hospital]
+  - name: query_appointment
+    request: [hospital_name, department_name, appointment_time]
+    response: [available_slots, available_list, specialist_count, general_count]
+    precondition: [check_hospital, check_department]
+  - name: recommend_other_hospitals
+    desc: Searches for available slots at other hospitals for the specified department and time.
+    request: [department_name, appointment_time]
+    response: [available_slots, available_list]
+    precondition: [check_department]
+  - name: register_hospital
+    request: [id_number, registration_type, hospital_name, department_name, appointment_time]
+    response: [registration_status]
+    precondition: [query_appointment]
+  - name: register_other_hospital
+    request: [id_number, hospital_name, doctor_name]
+    response: [registration_status]
+    precondition: [recommend_other_hospitals]
+
+ANSWERs:
+  - name: Hospital not found
+    desc: Sorry, we currently cannot provide registration services for this hospital. Please contact the hospital directly or consider other hospitals.
+  - name: Department not found
+    desc: $hospital_name does not have the department you are looking for. I will transfer you to a customer service representative for further assistance. Please wait.
+  - name: No available slots
+    desc: We apologize, but there are no available slots for the department you want to register at any hospital on our platform. Please follow the WeChat public account "Beijing 114 Appointment Registration" to register as per your needs. Thank you for calling, and have a nice day.
+  - name: Registration refused
+    desc: Please follow the WeChat public account "Beijing 114 Appointment Registration" to register as per your needs. Thank you for calling, and have a nice day.
+  - name: Hospital registration successful
+    desc: Your registration at $hospital_name $department_name for $appointment_time has been successful. A confirmation message will be sent to your phone number shortly. Is there anything else I can help you with?
+  - name: Hospital registration failed
+    desc: We apologize, but there are no available $registration_type slots at $hospital_name $department_name for $appointment_time. Please follow the WeChat public account "Beijing 114 Appointment Registration" to register as per your needs. Thank you for calling, and have a nice day.
+  - name: Other hospital registration successful
+    desc: Your registration at $recommend_other_hospitals-hospital_name with $recommend_other_hospitals-doctor_name for $appointment_time has been successful. A confirmation message will be sent to your phone number shortly. Is there anything else I can help you with?
+  - name: Other hospital registration failed
+    desc: We apologize, but the ID information is incorrect, and we cannot proceed with the registration. Please follow the WeChat public account "Beijing 114 Appointment Registration" to register as per your needs. Thank you for calling, and have a nice day.
+  - name: Other free response questions
+  - name: Please provide necessary information
+
+PDL: |
+  [hospital_exists] = API_check_hospital([hospital_name])
+  if hospital_exists == false:
+      ANSWER_Hospital_not_found()
+  elif hospital_exists == true:
+      [department_exists] = API_check_department([department_name, hospital_name])
+      if department_exists == false:
+          ANSWER_Department_not_found()
+      elif department_exists == true:
+          [available_slots, available_list, specialist_count, general_count] = API_query_appointment([hospital_name, department_name, appointment_time])
+          if available_slots > 0:
+              [registration_status] = API_register_hospital([id_number, registration_type, hospital_name, department_name, appointment_time])
+              if registration_status == "1":
+                  ANSWER_Hospital_registration_successful()
+              elif registration_status == "0":
+                  ANSWER_Hospital_registration_failed()
+          elif available_slots == 0:
+              [available_slots, available_list] = API_recommend_other_hospitals([department_name, appointment_time])
+              if available_slots > 0:
+                  if registration_willingness == "true":
+                      [registration_status] = API_register_other_hospital([id_number, hospital_name, doctor_name])
+                      if registration_status == "1":
+                          ANSWER_Other_hospital_registration_successful()
+                      elif registration_status == "0":
+                          ANSWER_Other_hospital_registration_failed()
+                  elif registration_willingness == "false":
+                      ANSWER_Registration_refused()
+              elif available_slots == 0:
+                  ANSWER_No_available_slots()

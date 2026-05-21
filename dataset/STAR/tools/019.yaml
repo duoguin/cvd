@@ -1,0 +1,33 @@
+- API: spaceship_access_codes
+  API description: Validates and processes access codes for different ranks within
+    a spaceship, ensuring security and proper access control.
+  Input parameters:
+    Code:
+      description: The actual code string that is being inputted for verification.
+      required: 'true'
+      type: ShortString
+    CodeType:
+      categories:
+      - Clearance
+      - Access Code
+      description: The type of code being used, whether it is for clearance or access.
+      required: 'true'
+      type: Categorical
+    UserName:
+      description: The name of the user attempting to use the code.
+      required: 'true'
+      type: ShortString
+    UserRank:
+      categories:
+      - Captain
+      - First Officer
+      - Chief Engineer
+      - Bartender
+      description: The rank of the user trying to access or perform an operation.
+      required: 'true'
+      type: Categorical
+  Output parameters:
+    Message:
+      description: A message indicating the result of the access code verification.
+      required: 'false'
+      type: ShortString

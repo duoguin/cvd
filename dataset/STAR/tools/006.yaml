@@ -1,0 +1,105 @@
+- API: hotel_reserve
+  API description: Reserve a hotel room given the hotel name, start and end dates,
+    customer name, customer request, and request type.
+  Input parameters:
+    CustomerName:
+      description: Customer Name
+      required: 'true'
+      type: ShortString
+    CustomerRequest:
+      description: Customer Request
+      required: 'false'
+      type: LongString
+    EndDate:
+      categories:
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - 5th
+      - 6th
+      - 7th
+      - 8th
+      - 9th
+      - 10th
+      - 11th
+      - 12th
+      - 13th
+      - 14th
+      - 15th
+      - 16th
+      - 17th
+      - 18th
+      - 19th
+      - 20th
+      - 21st
+      - 22nd
+      - 23rd
+      - 24th
+      - 25th
+      - 26th
+      - 27th
+      - 28th
+      - 29th
+      - 30th
+      - 31st
+      description: End Day (1 - 31)
+      required: 'true'
+      type: Categorical
+    Name:
+      categories:
+      - Shadyside Inn
+      - Hilton Hotel
+      - Hyatt Hotel
+      - Old Town Inn
+      description: Hotel Name
+      required: 'true'
+      type: Categorical
+    RequestType:
+      categories:
+      - Check
+      - Book
+      description: Request Type
+      required: 'true'
+      type: RequestType
+    StartDate:
+      categories:
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - 5th
+      - 6th
+      - 7th
+      - 8th
+      - 9th
+      - 10th
+      - 11th
+      - 12th
+      - 13th
+      - 14th
+      - 15th
+      - 16th
+      - 17th
+      - 18th
+      - 19th
+      - 20th
+      - 21st
+      - 22nd
+      - 23rd
+      - 24th
+      - 25th
+      - 26th
+      - 27th
+      - 28th
+      - 29th
+      - 30th
+      - 31st
+      description: Start Day (1 - 31)
+      required: 'true'
+      type: Categorical
+  Output parameters:
+    Message:
+      description: Message indicating whether the reservation was successful or failed.
+      required: 'false'
+      type: Categorical

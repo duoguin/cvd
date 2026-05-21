@@ -1,0 +1,8 @@
+Step 1:::Process:::Inform the user to input search criteria for hotels (Name, Cost, TakesReservations, Service, AverageRating, Location):::next::Step 2
+Step 2:::Process:::Query the database or search engine with the provided criteria to find matching hotels:::next::Step 3
+Step 3:::Process:::Provide the search results to the user, showing the available hotels that meet the criteria:::next::Step 4
+Step 4:::Decision:::Ask the user if they want to search for more hotels:::Yes::Step 5::No::Step 6
+Step 5:::Process:::Ask again for the search criteria and loop back to querying:::next::Step 2
+Step 6:::Process:::Proceed to say goodbye:::next::Step 7
+Step 7:::Decision:::Ask if the user needs assistance with anything else:::Yes::Step 1::No::Step 8
+Step 8:::Terminal:::End of interaction. The user is welcome to contact again for future needs:::

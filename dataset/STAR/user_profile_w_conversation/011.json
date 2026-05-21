@@ -1,0 +1,1223 @@
+[
+  {
+    "user_intention": "Inquire about the details of the party such as the venue location, the host's name, and the best arrival time to ensure they don't miss any key events.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need some details about the party venue and host.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you first let me know your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex. By the way, I'm not sure if I need parking yet.",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. Where is the party taking place?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's at the Riverside Club, I think. Who's hosting it again?",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Can you confirm the host's name for me?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh right, it's hosted by Jamie.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, and what time are you planning to arrive?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I was thinking around 7 PM, but is there a better time?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Arriving at 7 PM is perfect since you'll catch the opening speech. How many guests will you be bringing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Just one guest.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you or your guest have any dietary restrictions?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, we're good with anything.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> party_rsvp({'Name': 'Alex', 'ArrivalTime': '7 PM', 'HostName': 'Jamie', 'GuestName': 'Alex', 'NumberGuests': 1, 'NeedParking': 'Unsure', 'DietaryRestrictions': 'None'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "party_rsvp",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Alex"
+              },
+              {
+                "name": "ArrivalTime",
+                "value": "7 PM"
+              },
+              {
+                "name": "HostName",
+                "value": "Jamie"
+              },
+              {
+                "name": "GuestName",
+                "value": "Alex"
+              },
+              {
+                "name": "NumberGuests",
+                "value": 1
+              },
+              {
+                "name": "NeedParking",
+                "value": "Unsure"
+              },
+              {
+                "name": "DietaryRestrictions",
+                "value": "None"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: RSVP confirmed for Alex and 1 guest at 7 PM.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your RSVP is confirmed, Alex. You and your guest are all set for 7 PM. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Update their previously submitted RSVP information, such as changing the number of guests they're bringing or updating their arrival time.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to update my RSVP for the party.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex Johnson. I think I also need to change the number of guests.",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it, Alex. Could you let me know the venue of the party?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I think it's at the Grand Hall.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And who is hosting the party?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's hosted by Emily Carter.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks! What time are you planning to arrive?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I need to update that too. I'll be there at 7 PM instead of 6 PM.",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Noted. How many guests will you be bringing now?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'll bring 3 guests instead of 2.",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you need parking for your vehicle?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I'll need parking.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Are there any dietary restrictions for you or your guests?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "One of my guests is vegetarian.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> party_rsvp({'Name': 'Alex Johnson', 'ArrivalTime': '7 PM', 'HostName': 'Emily Carter', 'GuestName': 'Alex Johnson', 'NumberGuests': 3, 'NeedParking': true, 'DietaryRestrictions': 'Vegetarian'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "party_rsvp",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Alex Johnson"
+              },
+              {
+                "name": "ArrivalTime",
+                "value": "7 PM"
+              },
+              {
+                "name": "HostName",
+                "value": "Emily Carter"
+              },
+              {
+                "name": "GuestName",
+                "value": "Alex Johnson"
+              },
+              {
+                "name": "NumberGuests",
+                "value": 3
+              },
+              {
+                "name": "NeedParking",
+                "value": true
+              },
+              {
+                "name": "DietaryRestrictions",
+                "value": "Vegetarian"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your RSVP has been updated successfully.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your RSVP has been updated successfully. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I might need to cancel. Can I do that later?",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Yes, you can cancel anytime before the event. Just let me know when you're ready. Anything else I can assist you with now?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Update their previously submitted RSVP information, such as changing the number of guests they're bringing or updating their arrival time.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hey, I need to update my RSVP for the party.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's John. But do you know who won the game last night?",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to help with your RSVP. Could you please let me know the venue of the party?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, somewhere downtown I think.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No worries. Can you tell me who is hosting the party?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Why do you need to know that?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I need it to process your RSVP update. Could you please provide the host's name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Sarah.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, and what time are you planning to arrive?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I might show up around 7, or maybe 8.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it. How many guests will you be bringing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Just one, or maybe two, you know how it is.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Understood. Do you need parking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Parking is always tricky, isn't it?",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I can help with that. Do you need parking reserved?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks! Do you or your guests have any dietary restrictions?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Nope, we're all good.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> party_rsvp({'Name': 'John', 'ArrivalTime': '7 or 8', 'HostName': 'Sarah', 'GuestName': 'John', 'NumberGuests': '1 or 2', 'NeedParking': 'Yes', 'DietaryRestrictions': 'None'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "party_rsvp",
+            "params": [
+              {
+                "name": "Name",
+                "value": "John"
+              },
+              {
+                "name": "ArrivalTime",
+                "value": "7 or 8"
+              },
+              {
+                "name": "HostName",
+                "value": "Sarah"
+              },
+              {
+                "name": "GuestName",
+                "value": "John"
+              },
+              {
+                "name": "NumberGuests",
+                "value": "1 or 2"
+              },
+              {
+                "name": "NeedParking",
+                "value": "Yes"
+              },
+              {
+                "name": "DietaryRestrictions",
+                "value": "None"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your RSVP has been updated successfully.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your RSVP has been updated successfully. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, did you see the latest movie trailer?",
+        "type": "Topic Shift",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Inquire about the details of the party such as the venue location, the host's name, and the best arrival time to ensure they don't miss any key events.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I'm interested in the party details. Can you tell me where it's happening?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! Can I have your name first, please?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, right. It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Could you tell me who is hosting the party?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I think it's someone famous, maybe an actor?",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Alright, let's find out more. What's your planned arrival time?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I might just show up whenever.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No worries! How many guests will you be bringing along?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Just me and my invisible friend.",
+        "type": "Incorrect Response",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it. Do you need parking at the venue?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Maybe. Depends on the weather.",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Understood. Are there any dietary restrictions we should know about?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No peanuts for my imaginary friend.",
+        "type": "Incorrect Response",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> party_rsvp({'Name': 'Alex', 'ArrivalTime': 'Whenever', 'HostName': 'Someone famous', 'GuestName': 'Alex', 'NumberGuests': 1, 'NeedParking': 'Maybe', 'DietaryRestrictions': 'No peanuts'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "party_rsvp",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Alex"
+              },
+              {
+                "name": "ArrivalTime",
+                "value": "Whenever"
+              },
+              {
+                "name": "HostName",
+                "value": "Someone famous"
+              },
+              {
+                "name": "GuestName",
+                "value": "Alex"
+              },
+              {
+                "name": "NumberGuests",
+                "value": 1
+              },
+              {
+                "name": "NeedParking",
+                "value": "Maybe"
+              },
+              {
+                "name": "DietaryRestrictions",
+                "value": "No peanuts"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: RSVP processed successfully.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your RSVP has been processed successfully. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me the best time to arrive so I don't miss anything important?",
+        "type": "Partial Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I recommend arriving at the start to catch all the key events. Is there anything else I can help with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Update their previously submitted RSVP information, such as changing the number of guests they're bringing or updating their arrival time.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to update my RSVP for the party.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that! Can I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex. Can we skip to the part where I change the number of guests?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course, how many guests will you be bringing now?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I’ll be bringing three guests instead of two.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it. Can you also remind me of your planned arrival time?",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I’ll arrive at 7 PM.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you. Who is hosting the party?",
+        "type": "Process Restructuring",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's hosted by Jamie.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you need parking for your guests?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Are there any dietary restrictions I should note?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No dietary restrictions.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> party_rsvp({'Name': 'Alex', 'ArrivalTime': '7 PM', 'HostName': 'Jamie', 'GuestName': 'Alex', 'NumberGuests': 3, 'NeedParking': 'Yes', 'DietaryRestrictions': 'None'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "party_rsvp",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Alex"
+              },
+              {
+                "name": "ArrivalTime",
+                "value": "7 PM"
+              },
+              {
+                "name": "HostName",
+                "value": "Jamie"
+              },
+              {
+                "name": "GuestName",
+                "value": "Alex"
+              },
+              {
+                "name": "NumberGuests",
+                "value": 3
+              },
+              {
+                "name": "NeedParking",
+                "value": "Yes"
+              },
+              {
+                "name": "DietaryRestrictions",
+                "value": "None"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your RSVP has been updated successfully.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your RSVP has been updated successfully. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Inquire about the details of the party such as the venue location, the host's name, and the best arrival time to ensure they don't miss any key events.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I'm interested in the party details like the venue and the host. Can you help me?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! Can I start by getting your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's skip that for now. Where's the party happening?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I need your name to proceed. Could you please provide it?",
+        "type": "Rule Ignoring",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Okay, my name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Now, do you know who is hosting the party?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I think it's Emily. But can you tell me the best time to arrive?",
+        "type": "Process Restructuring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'll need to confirm a few details first. How many guests will you be bringing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, just me. But back to the arrival time, please.",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Could you let me know if you need parking?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, I don't need parking. Now, about the arrival time?",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks for confirming. Do you or your guests have any dietary restrictions?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Nope, we're good. What's next?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> party_rsvp({'Name': 'Alex', 'ArrivalTime': '', 'HostName': 'Emily', 'GuestName': '', 'NumberGuests': 1, 'NeedParking': False, 'DietaryRestrictions': ''})",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'RSVP processed successfully.'",
+        "type": ""
+      },
+      {
+        "role": "BOT",
+        "content": "Your RSVP has been processed successfully. I recommend arriving at the start time to not miss any key events. Is there anything else you need?",
+        "type": ""
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks for your help!",
+        "type": ""
+      }
+    ]
+  },
+  {
+    "user_intention": "Inquire about the details of the party such as the venue location, the host's name, and the best arrival time to ensure they don't miss any key events.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I'm planning to attend a party and need some details about it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! Can you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex. By the way, where is the party going to be held?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'll need to know who is hosting the party to provide the venue information. Can you tell me the host's name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, it's hosted by Jamie. And what time should I arrive?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, Jamie's party is at the Downtown Event Hall. What time do you plan to arrive?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I was thinking around 7 PM. How many guests can I bring?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You can bring up to three guests. How many will you be bringing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I’ll bring two. Do I need parking?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "If you need parking, we can arrange it for you. Would you like to request parking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please. Also, are there any dietary restrictions I should mention?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Please let me know if you or your guests have any dietary restrictions.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No restrictions for us.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> party_rsvp({'Name': 'Alex', 'ArrivalTime': '7 PM', 'HostName': 'Jamie', 'GuestName': 'Alex', 'NumberGuests': 2, 'NeedParking': 'Yes', 'DietaryRestrictions': 'None'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "party_rsvp",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Alex"
+              },
+              {
+                "name": "ArrivalTime",
+                "value": "7 PM"
+              },
+              {
+                "name": "HostName",
+                "value": "Jamie"
+              },
+              {
+                "name": "GuestName",
+                "value": "Alex"
+              },
+              {
+                "name": "NumberGuests",
+                "value": 2
+              },
+              {
+                "name": "NeedParking",
+                "value": "Yes"
+              },
+              {
+                "name": "DietaryRestrictions",
+                "value": "None"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your RSVP for Jamie's party at Downtown Event Hall has been confirmed. See you at 7 PM!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your RSVP for Jamie's party at Downtown Event Hall has been confirmed. See you at 7 PM! Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Confirm their RSVP for the party including providing their name, the number of guests they're bringing, and any specific dietary restrictions they or their guests might have.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to RSVP for the party.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great! Can I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex Johnson.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Could you tell me where the party is being held?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I think it's at the downtown venue.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And who is hosting the party?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's being hosted by Emma.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "What time do you plan to arrive at the party?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Probably around 7 PM.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "How many guests will you be bringing with you?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'll bring two guests.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you need parking at the venue?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I might need parking.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Are there any dietary restrictions we should be aware of for you or your guests?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, one of my guests is vegan.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> party_rsvp({'Name': 'Alex Johnson', 'ArrivalTime': '7 PM', 'HostName': 'Emma', 'GuestName': 'Alex Johnson', 'NumberGuests': 2, 'NeedParking': 'Yes', 'DietaryRestrictions': 'Vegan'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "party_rsvp",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Alex Johnson"
+              },
+              {
+                "name": "ArrivalTime",
+                "value": "7 PM"
+              },
+              {
+                "name": "HostName",
+                "value": "Emma"
+              },
+              {
+                "name": "GuestName",
+                "value": "Alex Johnson"
+              },
+              {
+                "name": "NumberGuests",
+                "value": 2
+              },
+              {
+                "name": "NeedParking",
+                "value": "Yes"
+              },
+              {
+                "name": "DietaryRestrictions",
+                "value": "Vegan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your RSVP has been successfully registered.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your RSVP has been successfully registered. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can I change the arrival time to 8 PM?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> party_rsvp({'Name': 'Alex Johnson', 'ArrivalTime': '8 PM', 'HostName': 'Emma', 'GuestName': 'Alex Johnson', 'NumberGuests': 2, 'NeedParking': 'Yes', 'DietaryRestrictions': 'Vegan'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "party_rsvp",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Alex Johnson"
+              },
+              {
+                "name": "ArrivalTime",
+                "value": "8 PM"
+              },
+              {
+                "name": "HostName",
+                "value": "Emma"
+              },
+              {
+                "name": "GuestName",
+                "value": "Alex Johnson"
+              },
+              {
+                "name": "NumberGuests",
+                "value": 2
+              },
+              {
+                "name": "NeedParking",
+                "value": "Yes"
+              },
+              {
+                "name": "DietaryRestrictions",
+                "value": "Vegan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Your RSVP has been updated successfully.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I've updated your arrival time to 8 PM. Anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks for your help!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,872 @@
+[
+  {
+    "user_intention": "Get detailed information about a restaurant's average rating, average wait minutes, and maximum party size they can accommodate.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for restaurant details like average rating, wait time, and party size.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide the location or any other specific criteria for the search?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's start with restaurants in Downtown.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'Location': 'Downtown'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "Location",
+                "value": "Downtown"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, restaurants: [{'Name': 'The Gourmet Spot', 'AverageRating': 4.5, 'AverageWaitMinutes': 15, 'MaxPartySize': 6}, {'Name': 'Downtown Diner', 'AverageRating': 4.0, 'AverageWaitMinutes': 10, 'MaxPartySize': 8}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Here are some options: 'The Gourmet Spot' with an average rating of 4.5, a wait time of 15 minutes, and a maximum party size of 6. 'Downtown Diner' has an average rating of 4.0, a wait time of 10 minutes, and accommodates up to 8 people. Would you like to search for more restaurants?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you check for places that do delivery instead?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'Location': 'Downtown', 'DoesDelivery': true})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "Location",
+                "value": "Downtown"
+              },
+              {
+                "name": "DoesDelivery",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, restaurants: [{'Name': 'Urban Eats', 'AverageRating': 4.2, 'AverageWaitMinutes': 20, 'MaxPartySize': 5}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found 'Urban Eats', which offers delivery, has an average rating of 4.2, a wait time of 20 minutes, and a maximum party size of 5. Would you like to continue searching?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! If you need anything else, feel free to ask. Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Discover restaurants that are currently open, by specifying a desired time for dining.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for restaurants that are open now. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! Could you please specify the time you'd like to dine so I can find restaurants that are open?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's say around 7 PM.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'OpenTimeHour': 19})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "OpenTimeHour",
+                "value": 19
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, restaurants: ['The Gourmet Spot', 'Evening Eats']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found two restaurants open at 7 PM: The Gourmet Spot and Evening Eats. Would you like to continue searching for restaurants?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you check for places open at 8 PM instead?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'OpenTimeHour': 20})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "OpenTimeHour",
+                "value": 20
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, restaurants: ['Night Bites', 'Late Dinner House']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "For 8 PM, I found Night Bites and Late Dinner House. Would you like to search again or is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's fine. Thank you!",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! If you need any more help, feel free to ask. Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Find a restaurant that matches specific criteria such as cuisine type, cost, and whether it takes reservations or does delivery.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for a restaurant that serves Italian food and takes reservations. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, could you also let me know your preferred cost range and location?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I meant to say I want Chinese food. Also, can you find places with delivery options?",
+        "type": "Incorrect Response",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'Food': 'Chinese', 'TakesReservations': true, 'DoesDelivery': true})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "Food",
+                "value": "Chinese"
+              },
+              {
+                "name": "TakesReservations",
+                "value": true
+              },
+              {
+                "name": "DoesDelivery",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, results: [{'Name': 'Dragon Palace', 'Cost': '$$', 'TakesReservations': true, 'DoesDelivery': true, 'AverageRating': 4.5, 'Location': 'Downtown'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found Dragon Palace in Downtown. It takes reservations and offers delivery. Would you like to search for more options?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Why do you think people prefer delivery over dining in?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "That's an interesting question! Preferences can vary. Would you like to continue searching for restaurants?",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, but I want something less expensive.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'Food': 'Chinese', 'TakesReservations': true, 'DoesDelivery': true, 'Cost': '$'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "Food",
+                "value": "Chinese"
+              },
+              {
+                "name": "TakesReservations",
+                "value": true
+              },
+              {
+                "name": "DoesDelivery",
+                "value": true
+              },
+              {
+                "name": "Cost",
+                "value": "$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, results: [{'Name': 'Noodle House', 'Cost': '$', 'TakesReservations': true, 'DoesDelivery': true, 'AverageRating': 4.0, 'Location': 'Uptown'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Noodle House in Uptown fits your criteria. It's more budget-friendly. Anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me what time it opens?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "It opens in the morning.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Okay, I guess that's fine. Thanks for your help!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! If you need more restaurant suggestions, feel free to ask. Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Discover restaurants that are currently open, by specifying a desired time for dining.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for restaurants that are open around 7 PM. Can you help me find some?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! Could you provide any additional criteria for the restaurant search, like location or type of cuisine?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me what you'd like to eat at 7 PM?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to help you find restaurants. Could you let me know if you have a preference for a specific location or type of food?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I meant to say, somewhere downtown with Italian cuisine.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'Location': 'downtown', 'Food': 'Italian', 'OpenTimeHour': 19})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "Location",
+                "value": "downtown"
+              },
+              {
+                "name": "Food",
+                "value": "Italian"
+              },
+              {
+                "name": "OpenTimeHour",
+                "value": 19
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, restaurants: [{'Name': 'Pasta Palace', 'Cost': '$$', 'TakesReservations': true, 'DoesDelivery': false, 'AverageRating': 4.5, 'Food': 'Italian', 'AverageWaitMinutes': 15, 'OpenTimeHour': 17, 'CloseTimeHour': 22, 'MaxPartySize': 6, 'Location': 'downtown'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found 'Pasta Palace' in downtown. It has a 4.5-star rating and is open until 10 PM. Would you like to continue searching for more options?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me what the weather is like downtown?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm focused on restaurant searches, but you might want to check a weather app for that information. Would you like to search for more restaurants?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all I needed. Thanks!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! If you need any more help in the future, feel free to reach out. Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "After receiving search results, decide whether to continue searching with different criteria or conclude the search process.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for a place to eat. Can you help me find a restaurant?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! Could you please provide some criteria for your restaurant search, like cuisine type, budget, or location?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I want something Italian in downtown, but no reservations needed.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'Food': 'Italian', 'Location': 'downtown', 'TakesReservations': false})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "Food",
+                "value": "Italian"
+              },
+              {
+                "name": "Location",
+                "value": "downtown"
+              },
+              {
+                "name": "TakesReservations",
+                "value": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, restaurants: [{'Name': 'Pasta Place', 'Cost': '$$', 'DoesDelivery': true, 'AverageRating': 4.5, 'OpenTimeHour': 11, 'CloseTimeHour': 22}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found 'Pasta Place' in downtown. It doesn't require reservations, has a rating of 4.5, and offers delivery. Would you like to continue searching for more options?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me if they have vegan options?",
+        "type": "Rule Ignoring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, I can only provide information about the restaurant's general services and not specific menu items. Would you like to search for another restaurant or need help with something else?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's search again. This time, I want something cheap, maybe Asian cuisine.",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'Cost': '$', 'Food': 'Asian'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "Cost",
+                "value": "$"
+              },
+              {
+                "name": "Food",
+                "value": "Asian"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, restaurants: [{'Name': 'Noodle House', 'Cost': '$', 'DoesDelivery': false, 'AverageRating': 4.0, 'OpenTimeHour': 10, 'CloseTimeHour': 21}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found 'Noodle House'. It's affordable with a rating of 4.0. They don't offer delivery. Would you like to search again or is there something else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, let's go back to Italian and see if there's anything else.",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'Food': 'Italian'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "Food",
+                "value": "Italian"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, restaurants: [{'Name': 'Pizza Palace', 'Cost': '$$', 'DoesDelivery': true, 'AverageRating': 4.2, 'OpenTimeHour': 12, 'CloseTimeHour': 23}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found 'Pizza Palace'. It has a rating of 4.2 and offers delivery. Do you want to continue searching or is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Get detailed information about a restaurant's average rating, average wait minutes, and maximum party size they can accommodate.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for a restaurant with a good average rating and short wait times. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! Could you please provide more details like the location or type of food you're interested in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I just want to know about the average rating and wait times for any restaurant nearby.",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'AverageRating': 'high', 'AverageWaitMinutes': 'short'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "AverageRating",
+                "value": "high"
+              },
+              {
+                "name": "AverageWaitMinutes",
+                "value": "short"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, restaurants: [{'Name': 'The Gourmet Spot', 'AverageRating': 4.5, 'AverageWaitMinutes': 15, 'MaxPartySize': 4, 'Location': 'Downtown'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found 'The Gourmet Spot' in Downtown with an average rating of 4.5 and a 15-minute wait time. They can accommodate up to 4 people. Would you like more options?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you check if they take reservations?",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'Name': 'The Gourmet Spot', 'TakesReservations': 'true'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "Name",
+                "value": "The Gourmet Spot"
+              },
+              {
+                "name": "TakesReservations",
+                "value": "true"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, restaurants: [{'Name': 'The Gourmet Spot', 'TakesReservations': true}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "'The Gourmet Spot' does take reservations. Would you like to continue searching for other restaurants?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all I needed. Thanks!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! If you need any more help, feel free to ask. Goodbye!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Get detailed information about a restaurant's average rating, average wait minutes, and maximum party size they can accommodate.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I want to know about restaurants with good ratings and quick service.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Could you please provide more details like the location or specific cuisine you're interested in?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, just tell me about the average rating, wait time, and party size for any restaurant.",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'AverageRating': 'high', 'AverageWaitMinutes': 'short', 'MaxPartySize': 'large'})",
+        "type": "Step Skipping",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "AverageRating",
+                "value": "high"
+              },
+              {
+                "name": "AverageWaitMinutes",
+                "value": "short"
+              },
+              {
+                "name": "MaxPartySize",
+                "value": "large"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, results: [{'Name': 'The Gourmet Spot', 'AverageRating': 4.8, 'AverageWaitMinutes': 10, 'MaxPartySize': 12, 'Location': 'Downtown'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found 'The Gourmet Spot' with an average rating of 4.8, an average wait time of 10 minutes, and they can accommodate up to 12 people. Would you like to search for more options?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's enough. Thanks!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome! If you need help with anything else, feel free to ask. Goodbye!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Compare restaurants based on their location, to choose a restaurant in a specific area like South, West, East, North, or Center.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm trying to find a restaurant in the South area. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure! Could you please provide any specific criteria like cost, type of food, or if you need delivery?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you just find something with good ratings?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'AverageRating': '4+', 'Location': 'South'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "AverageRating",
+                "value": "4+"
+              },
+              {
+                "name": "Location",
+                "value": "South"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, restaurants: [{'Name': 'Southern Delights', 'AverageRating': '4.5', 'Location': 'South'}, {'Name': 'Taste of South', 'AverageRating': '4.2', 'Location': 'South'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I found two highly-rated restaurants in the South area: Southern Delights with a 4.5 rating and Taste of South with a 4.2 rating. Would you like to search for more options or is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you check the West area instead?",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> generic_sample({'AverageRating': '4+', 'Location': 'West'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "generic_sample",
+            "params": [
+              {
+                "name": "AverageRating",
+                "value": "4+"
+              },
+              {
+                "name": "Location",
+                "value": "West"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, restaurants: [{'Name': 'Western Bites', 'AverageRating': '4.6', 'Location': 'West'}, {'Name': 'Westside Eats', 'AverageRating': '4.4', 'Location': 'West'}]",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "In the West area, we have Western Bites with a 4.6 rating and Westside Eats with a 4.4 rating. Would you like more information on these or another search?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What's the best time to visit Western Bites?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I can only help with finding restaurants. You might want to check their website for visiting hours. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  }
+]

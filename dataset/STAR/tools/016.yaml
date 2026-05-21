@@ -1,0 +1,113 @@
+- API: ride_book
+  API description: Books a ride or checks the availability based on the given parameters
+  Input parameters:
+    AllowsChanges:
+      description: Allows Changes
+      required: false
+      type: Boolean
+    ArrivalLocation:
+      description: Arrival Location
+      required: true
+      type: ShortString
+    CarModel:
+      categories:
+      - Honda
+      - Toyota
+      - Corolla
+      - Tesla
+      - BMW
+      - Ford
+      description: Car Model
+      required: false
+      type: Categorical
+    CustomerName:
+      description: Customer Name
+      required: true
+      type: ShortString
+    DepartureLocation:
+      description: Departure Location
+      required: true
+      type: ShortString
+    DriverName:
+      categories:
+      - Mark
+      - Ella
+      - Dave
+      - Zoe
+      - Alex
+      - Sirius
+      description: Driver Name
+      required: false
+      type: Categorical
+    LicensePlate:
+      categories:
+      - 432 LSA
+      - 313 EA9
+      - 901 FSA
+      - 019 EAS
+      - 031 NGA
+      description: License Plate
+      required: false
+      type: Categorical
+    MinutesTillPickup:
+      description: Minutes until pickup
+      required: false
+      type: Integer
+    Price:
+      description: Price
+      required: false
+      type: Integer
+    RequestType:
+      categories:
+      - Check
+      - Book
+      description: Request Type
+      required: true
+      type: RequestType
+    ServiceProvider:
+      categories:
+      - Uber
+      - Lyft
+      - Taxi
+      description: Service Provider
+      required: false
+      type: Categorical
+  Output parameters:
+    AllowsChanges:
+      description: Allows Changes
+      required: false
+      type: Boolean
+    CarModel:
+      description: Car Model
+      required: false
+      type: Categorical
+    DriverName:
+      categories:
+      - Mark
+      - John
+      - Dave
+      - Connor
+      - Alex
+      description: Driver Name
+      required: false
+      type: Categorical
+    DurationMinutes:
+      description: Duration Minutes
+      required: false
+      type: Integer
+    LicensePlate:
+      description: License Plate
+      required: false
+      type: Categorical
+    Price:
+      description: Price
+      required: false
+      type: Integer
+    ServiceProvider:
+      description: Service Provider
+      required: false
+      type: Categorical
+    id:
+      description: id
+      required: false
+      type: Integer

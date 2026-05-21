@@ -1,0 +1,73 @@
+- API: doctor_schedule
+  API description: Schedules an appointment or checks availability with a doctor for
+    a given day and time.
+  Input parameters:
+    Day:
+      categories:
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+      description: Day
+      required: 'true'
+      type: Categorical
+    Name:
+      categories:
+      - Dr. Johnson
+      - Dr. Morgan
+      - Dr. Alexis
+      description: Doctor Name
+      required: 'true'
+      type: Categorical
+    PatientName:
+      description: Patient Name
+      required: 'true'
+      type: ShortString
+    RequestType:
+      categories:
+      - Check
+      - Book
+      description: Request Type
+      required: 'true'
+      type: RequestType
+    StartTimeHour:
+      categories:
+      - 12 am
+      - 1 am
+      - 2 am
+      - 3 am
+      - 4 am
+      - 5 am
+      - 6 am
+      - 7 am
+      - 8 am
+      - 9 am
+      - 10 am
+      - 11 am
+      - 12 pm
+      - 1 pm
+      - 2 pm
+      - 3 pm
+      - 4 pm
+      - 5 pm
+      - 6 pm
+      - 7 pm
+      - 8 pm
+      - 9 pm
+      - 10 pm
+      - 11 pm
+      description: Start Time Hour
+      required: 'true'
+      type: Categorical
+    Symptoms:
+      description: Symptoms
+      required: 'true'
+      type: LongString
+  Output parameters:
+    Message:
+      description: Message
+      required: 'false'
+      type: ShortString

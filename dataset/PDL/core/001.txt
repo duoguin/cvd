@@ -1,0 +1,7 @@
+Step 1:::Process:::Ask the user for their news query requirements, including location, type, and time:::next::Step 2
+Step 2:::Process:::Call the API 'query_news' with the user's provided location, type, and time as request parameters:::next::Step 3
+Step 3:::Decision:::Check if the 'news_list' is retrieved from the API response:::Yes::Step 4::No::Step 5
+Step 4:::Process:::Inform the user that the 'News Query' operation was successful and return the retrieved news list:::next::Step 6
+Step 5:::Process:::Inform the user that the query failed and broadcast the day's headline news:::next::Step 6
+Step 6:::Process:::Handle other free response questions or request necessary information from the user:::next::Step 7
+Step 7:::Terminal:::End of the news query task:::

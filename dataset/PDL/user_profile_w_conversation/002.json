@@ -1,0 +1,1030 @@
+[
+  {
+    "user_intention": "To provide incomplete item or country information initially and then supply the necessary details as prompted by the chatbot for a shipping eligibility check.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Can you check if my item can be shipped?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide the item details and the destination country?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's a book.",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks for that. Could you also tell me the destination country?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, right. It's Canada.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Canada', 'goods': 'book'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              },
+              {
+                "name": "goods",
+                "value": "book"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: true",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The book can be shipped to Canada. Please note that this information is for reference only, and the final decision is based on the destination customs clearance requirements. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I meant to say Australia, not Canada.",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Australia', 'goods': 'book'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Australia"
+              },
+              {
+                "name": "goods",
+                "value": "book"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: false",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_goods_list({'country': 'Australia'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_goods_list",
+            "params": [
+              {
+                "name": "country",
+                "value": "Australia"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "goods_list: ['electronics', 'clothing']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, the book cannot be shipped to Australia. However, you can ship items like electronics and clothing. Please note that this information is for reference only, and the final decision is based on the destination customs clearance requirements. Anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks!",
+        "type": "Request Cancellation",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To inquire about the shipping status of an item to a specific country and seek further assistance or alternative solutions if the query fails.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Can you check if a laptop can be shipped to Canada?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Canada', 'goods': 'laptop'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              },
+              {
+                "name": "goods",
+                "value": "laptop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: false",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_goods_list({'country': 'Canada'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_goods_list",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "goods_list: ['books', 'clothing', 'electronics']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, the laptop cannot be shipped to Canada. However, you can ship items like books, clothing, and electronics. Please note that this information is for reference only, and the final decision is based on the destination customs clearance requirements. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you check for a smartphone instead?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Canada', 'goods': 'smartphone'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              },
+              {
+                "name": "goods",
+                "value": "smartphone"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: true",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great news! The smartphone can be shipped to Canada. Please remember that this information is for reference only, and the final decision is based on the destination customs clearance requirements. Anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Never mind, I don't need to ship anything right now.",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem at all. If you need any assistance in the future, feel free to ask. Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To inquire about the shipping status of an item to a specific country and seek further assistance or alternative solutions if the query fails.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Can you tell me if I can ship a laptop to Canada?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Canada', 'goods': 'laptop'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              },
+              {
+                "name": "goods",
+                "value": "laptop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: true",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Yes, you can ship a laptop to Canada. Please note that this information is for reference only, and the final decision is based on the destination customs clearance requirements. Is there anything else I can help you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What about shipping a smartphone to Australia?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Australia', 'goods': 'smartphone'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Australia"
+              },
+              {
+                "name": "goods",
+                "value": "smartphone"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: false",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_goods_list({'country': 'Australia'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_goods_list",
+            "params": [
+              {
+                "name": "country",
+                "value": "Australia"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "goods_list: ['books', 'clothing', 'toys']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, a smartphone cannot be shipped to Australia. However, you can ship items like books, clothing, and toys. This information is for reference only, and the final decision is based on the destination customs clearance requirements. Anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can I send a package to Mars?",
+        "type": "Incorrect Response",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm afraid we don't have shipping services to Mars just yet! Is there anything else I can assist you with?",
+        "type": "Incorrect Response",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me the weather in Australia?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only provide information about shipping items. You might want to check a weather service for that information. Is there anything else I can assist you with regarding shipping?",
+        "type": "Topic Shift",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To get a list of categories of goods that can be shipped to a specified country without specifying any particular item first.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Can you tell me what categories of goods can be shipped to Canada?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_goods_list({'country': 'Canada'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_goods_list",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "goods_list: ['Electronics', 'Clothing', 'Books']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The categories of goods that can be shipped to Canada include Electronics, Clothing, and Books. Please note that this information is for reference only, and the final decision is based on the destination customs clearance requirements. Is there anything else I can help you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What about shipping a car to Canada?",
+        "type": "Partial Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Canada', 'goods': 'Car'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              },
+              {
+                "name": "goods",
+                "value": "Car"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "isValid: false, status: 200",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, a car cannot be shipped to Canada. However, you can ship items like Electronics, Clothing, and Books. This information is for reference only, and the final decision is based on the destination customs clearance requirements. Anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me the best time to visit Canada?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to help with shipping inquiries. For travel advice, you might want to check a travel guide. Is there anything else related to shipping I can assist you with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To find out if a specific item can be shipped to a particular country and, if not, what items are generally allowed to be shipped there.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Can you tell me if I can ship a laptop to Canada?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Canada', 'goods': 'laptop'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              },
+              {
+                "name": "goods",
+                "value": "laptop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: false",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_goods_list({'country': 'Canada'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_goods_list",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "goods_list: ['books', 'clothing', 'toys']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, a laptop cannot be shipped to Canada. However, items like books, clothing, and toys can be shipped. Please note that this information is for reference only and the final decision is based on the destination customs clearance requirements.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What about shipping a phone to Canada?",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Canada', 'goods': 'phone'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              },
+              {
+                "name": "goods",
+                "value": "phone"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: true",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Yes, a phone can be shipped to Canada. Please remember that this information is for reference only and the final decision is based on the destination customs clearance requirements.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I meant to ask about shipping to Australia. Can you check that for me?",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Australia', 'goods': 'phone'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Australia"
+              },
+              {
+                "name": "goods",
+                "value": "phone"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: false",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_goods_list({'country': 'Australia'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_goods_list",
+            "params": [
+              {
+                "name": "country",
+                "value": "Australia"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "goods_list: ['electronics', 'books', 'furniture']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "A phone cannot be shipped to Australia. However, electronics, books, and furniture can be shipped. Please note that this information is for reference only and the final decision is based on the destination customs clearance requirements.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you just tell me what items can be shipped to Australia without checking specific items?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, items like electronics, books, and furniture can be shipped to Australia. Please remember that this information is for reference only and the final decision is based on the destination customs clearance requirements.",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To provide incomplete item or country information initially and then supply the necessary details as prompted by the chatbot for a shipping eligibility check.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Can you check if a laptop can be shipped?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Could you please provide the destination country for shipping?",
+        "type": "Step Splitting",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I forgot to mention. It's for Canada.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Canada', 'goods': 'laptop'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              },
+              {
+                "name": "goods",
+                "value": "laptop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: false",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, a laptop cannot be shipped to Canada. Let me check what items can be shipped there.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_goods_list({'country': 'Canada'})",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "SYSTEM",
+        "content": "goods_list: ['books', 'clothing', 'toys']",
+        "type": ""
+      },
+      {
+        "role": "BOT",
+        "content": "Laptops cannot be shipped to Canada. However, items like books, clothing, and toys can be shipped. Please note that this information is for reference only and the final decision is based on the destination customs clearance requirements.",
+        "type": ""
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I meant to ask about shipping to Australia. Can you check that instead?",
+        "type": "Returning to Initial Steps"
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Australia', 'goods': 'laptop'})",
+        "type": ""
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: true",
+        "type": ""
+      },
+      {
+        "role": "BOT",
+        "content": "A laptop can be shipped to Australia. Please note that this information is for reference only and the final decision is based on the destination customs clearance requirements. Is there anything else I can assist you with?",
+        "type": ""
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me what other electronics can be shipped to Australia?",
+        "type": "Step Repetition"
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_goods_list({'country': 'Australia'})",
+        "type": ""
+      },
+      {
+        "role": "SYSTEM",
+        "content": "goods_list: ['laptops', 'phones', 'tablets']",
+        "type": ""
+      },
+      {
+        "role": "BOT",
+        "content": "In addition to laptops, phones and tablets can also be shipped to Australia. Is there anything else you need?",
+        "type": ""
+      }
+    ]
+  },
+  {
+    "user_intention": "To provide incomplete item or country information initially and then supply the necessary details as prompted by the chatbot for a shipping eligibility check.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Can you tell me if I can ship something?",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide the item and the destination country?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's a book.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it. Could you also let me know the country you want to ship to?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, right. It's France.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'France', 'goods': 'book'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "France"
+              },
+              {
+                "name": "goods",
+                "value": "book"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: true",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The book can be shipped to France. Please note that this information is for reference only, and the final decision is based on the destination customs clearance requirements. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, never mind. I don't need to ship it anymore.",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem at all. If you need any assistance in the future, feel free to ask. Have a great day!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To find out if a specific item can be shipped to a particular country and, if not, what items are generally allowed to be shipped there.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Can you tell me if I can ship a laptop to Canada?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Canada', 'goods': 'laptop'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              },
+              {
+                "name": "goods",
+                "value": "laptop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: false",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_goods_list({'country': 'Canada'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_goods_list",
+            "params": [
+              {
+                "name": "country",
+                "value": "Canada"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "goods_list: ['books', 'clothing', 'toys']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, a laptop cannot be shipped to Canada. However, items like books, clothing, and toys can be shipped. Please note that this information is for reference only and the final decision is based on the destination customs clearance requirements.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I see. Can you cancel this request?",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "There's no need to cancel as no shipment was initiated. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What about shipping a phone to Australia?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Australia', 'goods': 'phone'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Australia"
+              },
+              {
+                "name": "goods",
+                "value": "phone"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: true",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Yes, a phone can be shipped to Australia. Please remember that this information is for reference only and the final decision is based on the destination customs clearance requirements.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me what items are allowed in Australia?",
+        "type": "Process Restructuring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_goods_list({'country': 'Australia'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_goods_list",
+            "params": [
+              {
+                "name": "country",
+                "value": "Australia"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "goods_list: ['electronics', 'books', 'clothing']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "In Australia, you can ship items like electronics, books, and clothing. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Maybe. Can you ship something to Europe?",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Could you please specify the country in Europe and the item you wish to ship?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's say a camera to Germany.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> query_shipping_status({'country': 'Germany', 'goods': 'camera'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "query_shipping_status",
+            "params": [
+              {
+                "name": "country",
+                "value": "Germany"
+              },
+              {
+                "name": "goods",
+                "value": "camera"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "status: 200, isValid: true",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "A camera can be shipped to Germany. Please note that this information is for reference only and the final decision is based on the destination customs clearance requirements.",
+        "type": "",
+        "apis": []
+      }
+    ]
+  }
+]

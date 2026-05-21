@@ -1,0 +1,32 @@
+Name: Weather Forecast Information
+Desc: Provide the weather forecast information based on the day and location specified by the user
+
+SLOTs:
+  - name: Day
+  - name: Location
+
+APIs:
+  - name: generic_sample
+    request: [Day, Location]
+    response: [City, Weather, TemperatureCelsius, Day]
+
+ANSWERs:
+  - name: WeatherForecastSuccess
+    desc: Inform the user of the weather forecast for the specified day and location, including city, weather condition, and temperature in Celsius.
+    precondition: [generic_sample]
+  - name: WeatherForecastFailure
+    desc: Inform the user that the weather forecast could not be retrieved at the moment and suggest checking back later or trying a different location.
+    precondition: [generic_sample]
+  - name: AdditionalHelpQuery
+    desc: Ask the user if there is anything else they need help with.
+    precondition: [WeatherForecastSuccess, WeatherForecastFailure]
+
+PDL: |
+  [Day] = ASKSLOT()
+  [Location] = ASKSLOT()
+  [City, Weather, TemperatureCelsius, Day] = API_generic_sample([Day, Location])
+  if City and Weather and TemperatureCelsius:
+      ANSWER_WeatherForecastSuccess()
+  else:
+      ANSWER_WeatherForecastFailure()
+  ANSWER_AdditionalHelpQuery()

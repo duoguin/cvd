@@ -1,0 +1,74 @@
+Name: Tongcheng Invoice Issuance
+Desc: Methods and progress for querying invoice issuance
+Detailed_desc: First, query the invoice issuance method based on the order information provided by the user. For platform-issued cases, execute different invoice issuance methods based on the user's membership card level.
+
+SLOTs:
+  - name: order_id
+    desc: Order ID
+  - name: name
+    desc: User Name
+  - name: card_id
+    desc: User Membership Card ID, needs to be asked
+  - name: invoice_method
+    desc: Includes Issued by Platform and Issued by Hotel
+  - name: invoice_progress
+    desc: Whether there is invoice information in the backend database
+  - name: card_type
+  - name: invoice_type
+    desc: The type of invoice the user wants to issue, including ["Electronic Regular Invoice", "Paper Regular Invoice", "Paper Special Invoice"]
+
+APIs:
+  - name: Query Invoice Method
+    request: [order_id]
+    response: [invoice_method]
+  - name: Query Invoice Progress
+    request: [name]
+    response: [invoice_progress]
+  - name: Query Member Status
+    request: [card_id]
+    response: [card_type]
+
+ANSWERs:
+  - name: Issued by Hotel
+    desc: Your Tongcheng invoice operation has been successfully executed, and the invoice method is issued by the hotel.
+  - name: Invoice Information Not Found
+    desc: No invoice information was found. Please visit the MIS after-sales map to view detailed progress.
+  - name: Platinum Electronic Regular Invoice Issuance
+    desc: The content supported by the electronic regular invoice is the booking accommodation fee or booking room fee.\n\nYou can submit an application to open an electronic regular invoice, which will redirect to the corresponding order invoice page; after submission, it will be sent to your email within 24 hours after the check-out date.
+  - name: Platinum Paper Regular Invoice Issuance
+    desc: The content supported by the paper regular invoice is the booking accommodation fee or booking room fee.\n\nYou can submit an application to open a paper regular invoice, which will redirect to the corresponding order invoice page; after submission, it will be delivered within 5 working days after check-out.
+  - name: Platinum Paper Special Invoice Issuance
+    desc: ① Please provide - invoice title, taxpayer identification number, registered address, company phone, bank name, bank account number, invoice amount  \n② Do you need to note the order information (hotel name, check-in date, check-out date)?  \n③ Please provide the recipient's name, contact phone number, and address (province, city, district)
+  - name: Non-Platinum Electronic Regular Invoice Issuance
+    desc: The content supported by the electronic regular invoice is the booking accommodation fee or booking room fee. \n\nYou can submit an application to open an electronic regular invoice, which will redirect to the corresponding order invoice page; after submission, it will be sent to your email within 24 hours after the check-out date.
+  - name: Non-Platinum Paper Regular Invoice Issuance
+    desc: The content supported by the paper regular invoice is the booking accommodation fee or booking room fee.\n\nYou can submit an application to open a paper regular invoice, which will redirect to the corresponding order invoice page; after submission, it will be delivered within 5 working days after check-out.\n\nBased on your membership level, applying for a paper invoice mailing requires a 10 yuan postage fee. After a successful application, a payment short link will be sent to your order phone number, and you can click the short link to pay.
+  - name: Non-Platinum Paper Special Invoice Issuance
+    desc: The content supported by the paper special invoice is the booking accommodation fee or booking room fee.\n\nYou can submit an application to open a paper special invoice, which will redirect to the corresponding order invoice page; after submission, it will be delivered within 5 working days after check-out.\n\nBased on your membership level, applying for a paper invoice mailing requires a 10 yuan postage fee. After a successful application, a payment short link will be sent to your order phone number, and you can click the short link to pay.
+  - name: Other Free Response Questions
+  - name: Please Provide Necessary Information
+
+PDL: |
+  [invoice_method] = API_query_invoice_method([order_id])
+  if invoice_method == "Issued by Platform":
+      [invoice_progress] = API_query_invoice_progress([name])
+      if invoice_progress == "null":
+          ANSWER_Invoice Information Not Found()
+      else:
+          [card_type] = API_query_member_status([card_id])
+          if card_type == "Platinum Card":
+              if invoice_type == "Electronic Regular Invoice":
+                  ANSWER_Platinum Electronic Regular Invoice Issuance()
+              elif invoice_type == "Paper Regular Invoice":
+                  ANSWER_Platinum Paper Regular Invoice Issuance()
+              elif invoice_type == "Paper Special Invoice":
+                  ANSWER_Platinum Paper Special Invoice Issuance()
+          elif card_type == "Non-Platinum Card":
+              if invoice_type == "Electronic Regular Invoice":
+                  ANSWER_Non-Platinum Electronic Regular Invoice Issuance()
+              elif invoice_type == "Paper Regular Invoice":
+                  ANSWER_Non-Platinum Paper Regular Invoice Issuance()
+              elif invoice_type == "Paper Special Invoice":
+                  ANSWER_Non-Platinum Paper Special Invoice Issuance()
+  elif invoice_method == "Issued by Hotel":
+      ANSWER_Issued by Hotel()

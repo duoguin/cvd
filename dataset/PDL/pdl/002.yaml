@@ -1,0 +1,48 @@
+Name: Can Items Be Shipped
+Desc: Check if items can be shipped to a specified country based on user-provided information
+Detailed_desc: First, obtain the categories of items supported by the specified country, then check if the item the user wants to ship is supported by calling the API.
+
+SLOTs:
+  - name: country
+    desc: The target country
+  - name: goods
+    desc: The item to be shipped
+  - name: goods_list
+    desc: Categories of items supported by a specific country
+  - name: status
+    desc: Whether the information exists in the database, 200 indicates it exists
+
+APIs:
+  - name: query_goods_list
+    desc: Query the list of goods that can be shipped to a specified country
+    request: [country]
+    response: [goods_list]
+  - name: query_shipping_status
+    desc: Check if a specific good can be shipped to a specified country
+    request: [country, goods]
+    response: [status, isValid]
+
+ANSWERs:
+  - name: Reply Can Be Shipped
+    desc: Inform the user that the item can be shipped. Also, note that the information is for reference only, and the final decision is subject to the destination customs clearance requirements.
+    precondition: [query_shipping_status]
+  - name: Reply Cannot Be Shipped
+    desc: Inform the user that the item cannot be shipped, and provide the categories of items supported by that country. Also, note that the information is for reference only, and the final decision is subject to the destination customs clearance requirements.
+    precondition: [query_shipping_status, query_goods_list]
+  - name: Query Failed
+    desc: The query failed, and information on destination shipping restrictions was not found
+    ref_text: Based on the information you provided, we could not find the destination shipping restrictions. Please contact your local DHL for specific information.\n\n*Information is for reference only, and the final decision is subject to the destination customs clearance requirements.
+    precondition: [query_shipping_status]
+  - name: Other Free Response Questions
+  - name: Please Provide Necessary Information
+
+PDL: |
+  [status, isValid] = API_query_shipping_status([country, goods])
+  if status == 200:
+    if isValid:
+      ANSWER_Reply_Can_Be_Shipped()
+    else:
+      [goods_list] = API_query_goods_list([country])
+      ANSWER_Reply_Cannot_Be_Shipped()
+  else:
+    ANSWER_Query_Failed()

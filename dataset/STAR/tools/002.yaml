@@ -1,0 +1,46 @@
+- API: bank_balance
+  API description: Retrieves the bank balance for a given account from the specified
+    bank.
+  Input parameters:
+    AccountNumber:
+      description: The account number for the bank account.
+      required: 'false'
+      type: ShortString
+    BankName:
+      categories:
+      - Chase
+      - Bank of America
+      - PNC
+      - Wells Fargo
+      description: The name of the bank where the account is held.
+      required: 'false'
+      type: Categorical
+    DateOfBirth:
+      description: The date of birth of the account holder.
+      required: 'false'
+      type: ShortString
+    FullName:
+      description: The full name of the account holder.
+      required: 'false'
+      type: ShortString
+    PIN:
+      description: The personal identification number associated with the account.
+      required: 'false'
+      type: ShortString
+    SecurityAnswer1:
+      description: The answer to the first security question.
+      required: 'false'
+      type: ShortString
+    SecurityAnswer2:
+      description: The answer to the second security question.
+      required: 'false'
+      type: ShortString
+  Output parameters:
+    BankBalance:
+      description: The current balance of the bank account.
+      required: 'false'
+      type: Integer
+    BankName:
+      description: The name of the bank where the account is held.
+      required: 'false'
+      type: Categorical

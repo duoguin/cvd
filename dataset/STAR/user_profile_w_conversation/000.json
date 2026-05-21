@@ -1,0 +1,2028 @@
+[
+  {
+    "user_intention": "To inquire about additional assistance or information after completing or attempting to complete the booking of an apartment viewing, which could include asking for directions, parking information during the viewing, or other services provided by the housing company.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to book a viewing for an apartment.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, Alex. What’s the name of the apartment you’re interested in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm interested in the Maple Apartments.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "When would you like to view the Maple Apartments?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I’d like to do it on Friday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "What time on Friday would you prefer for the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "How about 3 PM?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Have you paid the application fee?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I have.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Would you like to add any custom message for the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's fine.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'RenterName': 'Alex', 'Name': 'Maple Apartments', 'Day': 'Friday', 'StartTimeHour': '15', 'ApplicationFeePaid': 'Yes', 'Message': '', 'RequestType': 'CheckAvailability'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "Name",
+                "value": "Maple Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Friday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "15"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": ""
+              },
+              {
+                "name": "RequestType",
+                "value": "CheckAvailability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Viewing is available.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The viewing is available. Would you like to proceed with booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I might need to change the time. Can we do 4 PM instead?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'RenterName': 'Alex', 'Name': 'Maple Apartments', 'Day': 'Friday', 'StartTimeHour': '16', 'ApplicationFeePaid': 'Yes', 'Message': '', 'RequestType': 'CheckAvailability'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "Name",
+                "value": "Maple Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Friday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "16"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": ""
+              },
+              {
+                "name": "RequestType",
+                "value": "CheckAvailability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Viewing is available.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The new time at 4 PM is also available. Shall I book it for you?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please book it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'RenterName': 'Alex', 'Name': 'Maple Apartments', 'Day': 'Friday', 'StartTimeHour': '16', 'ApplicationFeePaid': 'Yes', 'Message': '', 'RequestType': 'Book'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "Name",
+                "value": "Maple Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Friday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "16"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": ""
+              },
+              {
+                "name": "RequestType",
+                "value": "Book"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Booking successful.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your viewing has been successfully booked for 4 PM on Friday at Maple Apartments. Is there anything else you need assistance with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you give me directions to the apartment?",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only assist with booking viewings. You might want to check a map service for directions. Is there anything else I can help you with regarding your booking?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To add a custom message to their viewing request, expressing specific needs or questions they might have about the apartment or viewing process.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to book a viewing for an apartment.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, Alex. Which apartment are you interested in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm interested in the Greenview Apartments.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "What day would you like to view the apartment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Saturday sounds good.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And what time would you prefer to start the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's say around 10 AM.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Have you paid the application fee for this apartment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I have.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any custom message or specific needs you'd like to add to your request?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I want to ask if pets are allowed.",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Greenview Apartments', 'Day': 'Saturday', 'StartTimeHour': '10', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': 'Are pets allowed?', 'RequestType': 'CheckAvailability'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Greenview Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "10"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": "Are pets allowed?"
+              },
+              {
+                "name": "RequestType",
+                "value": "CheckAvailability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'The requested viewing is available.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The viewing is available on Saturday at 10 AM. Would you like to proceed with the booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can we change it to 11 AM?",
+        "type": "Detail Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Greenview Apartments', 'Day': 'Saturday', 'StartTimeHour': '11', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': 'Are pets allowed?', 'RequestType': 'CheckAvailability'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Greenview Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "11"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": "Are pets allowed?"
+              },
+              {
+                "name": "RequestType",
+                "value": "CheckAvailability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'The requested viewing is available.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The viewing at 11 AM is also available. Shall I book it for you?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please go ahead and book it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Greenview Apartments', 'Day': 'Saturday', 'StartTimeHour': '11', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': 'Are pets allowed?', 'RequestType': 'Book'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Greenview Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "11"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": "Are pets allowed?"
+              },
+              {
+                "name": "RequestType",
+                "value": "Book"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Your viewing has been successfully booked.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your viewing has been successfully booked for Saturday at 11 AM. Is there anything else you need assistance with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To check the availability of an apartment for viewing on a specific day and time, including the provision of their name, the apartment name they are interested in, and the desired day and start time for the viewing.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to check if I can view an apartment.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Why do you need my name?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I need your name to personalize the booking process. Could you please provide it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Alright, it's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Which apartment are you interested in viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm looking at the Greenview Apartments.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great choice! What day would you like to schedule the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "How about next Tuesday?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And what time would you like to start the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, any time after lunch.",
+        "type": "Vague Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Could you specify an exact time, like 2 PM or 3 PM?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's do 3 PM.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Have you paid the application fee?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I have.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you want to add any custom message with your viewing request?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's fine.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Greenview Apartments', 'Day': 'Tuesday', 'StartTimeHour': '15', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': '', 'RequestType': 'CheckAvailability'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Greenview Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Tuesday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "15"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": ""
+              },
+              {
+                "name": "RequestType",
+                "value": "CheckAvailability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'The viewing is available on Tuesday at 3 PM.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The viewing is available on Tuesday at 3 PM. Would you like to proceed with booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me about the local schools instead?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I can only assist with booking apartment viewings. Would you like to proceed with booking your viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please book it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Greenview Apartments', 'Day': 'Tuesday', 'StartTimeHour': '15', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': '', 'RequestType': 'Book'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Greenview Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Tuesday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "15"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": ""
+              },
+              {
+                "name": "RequestType",
+                "value": "Book"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Your viewing has been successfully booked for Tuesday at 3 PM.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your viewing has been successfully booked for Tuesday at 3 PM. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all for now. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To modify an existing viewing request by changing the apartment name or viewing schedule after finding out that the initially requested slot is unavailable.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to modify my viewing request. Can you help?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course! Can I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, my name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, Alex. Which apartment are you interested in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's the Greenview Apartments.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "What day would you like to view the apartment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me if the application fee has been paid first?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'll check that in a moment. First, could you let me know the day you'd like to schedule the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's try Friday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And what time would you prefer to start the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "How about 3 PM?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Has the application fee been paid?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, it has.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any custom message to add?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Just looking forward to it!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Greenview Apartments', 'Day': 'Friday', 'StartTimeHour': '15', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': 'Just looking forward to it!', 'RequestType': 'check'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Greenview Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Friday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "15"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": "Just looking forward to it!"
+              },
+              {
+                "name": "RequestType",
+                "value": "check"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'The requested time slot is unavailable.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, the slot is unavailable. Would you like to change the apartment or the schedule?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you book it for Saturday instead?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Greenview Apartments', 'Day': 'Saturday', 'StartTimeHour': '15', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': 'Just looking forward to it!', 'RequestType': 'check'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Greenview Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "15"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": "Just looking forward to it!"
+              },
+              {
+                "name": "RequestType",
+                "value": "check"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'The requested time slot is available.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The slot on Saturday at 3 PM is available. Would you like to proceed with booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please book it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Greenview Apartments', 'Day': 'Saturday', 'StartTimeHour': '15', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': 'Just looking forward to it!', 'RequestType': 'book'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Greenview Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "15"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": "Just looking forward to it!"
+              },
+              {
+                "name": "RequestType",
+                "value": "book"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Your viewing has been successfully booked!'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your viewing has been successfully booked for Saturday at 3 PM. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What's the weather like on Saturday?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only assist with apartment viewings. Is there anything else related to that I can help you with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To book an apartment viewing after confirming its availability, which involves providing personal details, apartment preference, viewing schedule, and confirming if the application fee has been paid.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to book a viewing for an apartment.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Can you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, Alex. Which apartment are you interested in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm looking at Maple Apartments.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And what day would you like to view the apartment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I forgot. Can we go back to the apartment name?",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course. Which apartment are you interested in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Still Maple Apartments.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Alright, and what day would you like to view it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "This Saturday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "What time would you like to start the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Around 10 AM.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Have you paid the application fee?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I have.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you want to add any custom message for the booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's fine.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Maple Apartments', 'Day': 'Saturday', 'StartTimeHour': '10', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': '', 'RequestType': 'CheckAvailability'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Maple Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "10"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": ""
+              },
+              {
+                "name": "RequestType",
+                "value": "CheckAvailability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Viewing available'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The viewing is available. Would you like to proceed with booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please book it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Maple Apartments', 'Day': 'Saturday', 'StartTimeHour': '10', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': '', 'RequestType': 'Book'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Maple Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "10"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": ""
+              },
+              {
+                "name": "RequestType",
+                "value": "Book"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Booking successful'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your viewing has been successfully booked. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To check the availability of an apartment for viewing on a specific day and time, including the provision of their name, the apartment name they are interested in, and the desired day and start time for the viewing.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to check if I can view an apartment.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, Alex. Which apartment are you interested in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I want to see the Greenview Apartments.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "On which day would you like to schedule the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Saturday works for me.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "What time would you prefer to start the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I forgot to mention, my name is Alexander, not Alex.",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Noted, Alexander. Now, what time would you like to start the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's do 2 PM.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Have you paid the application fee?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I have.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Do you have any custom message you'd like to add?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, just checking availability is fine.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Greenview Apartments', 'Day': 'Saturday', 'StartTimeHour': '14', 'RenterName': 'Alexander', 'ApplicationFeePaid': true, 'Message': '', 'RequestType': 'CheckAvailability'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Greenview Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "14"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alexander"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": true
+              },
+              {
+                "name": "Message",
+                "value": ""
+              },
+              {
+                "name": "RequestType",
+                "value": "CheckAvailability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Viewing is available on Saturday at 2 PM.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The viewing is available on Saturday at 2 PM. Would you like to proceed with booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please book it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Greenview Apartments', 'Day': 'Saturday', 'StartTimeHour': '14', 'RenterName': 'Alexander', 'ApplicationFeePaid': true, 'Message': '', 'RequestType': 'Book'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Greenview Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "14"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alexander"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": true
+              },
+              {
+                "name": "Message",
+                "value": ""
+              },
+              {
+                "name": "RequestType",
+                "value": "Book"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Your viewing has been successfully booked.'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your viewing has been successfully booked. Is there anything else you need assistance with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thank you!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To add a custom message to their viewing request, expressing specific needs or questions they might have about the apartment or viewing process.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to book an apartment viewing.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, Alex. Which apartment are you interested in viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I'm looking at the Greenfield Apartments.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "What day would you like to schedule the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can I add a custom message first?",
+        "type": "Step Splitting",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course. Please provide the custom message you'd like to add.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "I’d like to know if pets are allowed.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Got it. Now, could you tell me the day you wish to view the apartment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Saturday.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "And what time would you like to start the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "In the afternoon.",
+        "type": "Partial Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Could you specify the hour for the start time?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "2 PM.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Has the application fee been paid?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, it has.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Greenfield Apartments', 'Day': 'Saturday', 'StartTimeHour': '14', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': 'I’d like to know if pets are allowed.', 'RequestType': 'CheckAvailability'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Greenfield Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "14"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": "I’d like to know if pets are allowed."
+              },
+              {
+                "name": "RequestType",
+                "value": "CheckAvailability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Viewing is available.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The viewing is available on Saturday at 2 PM. Would you like to proceed with booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can I change the apartment to Bluefield Apartments?",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, let's update that. What day would you like to schedule the new viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Still Saturday, same time.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Bluefield Apartments', 'Day': 'Saturday', 'StartTimeHour': '14', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': 'I’d like to know if pets are allowed.', 'RequestType': 'CheckAvailability'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Bluefield Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "14"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": "I’d like to know if pets are allowed."
+              },
+              {
+                "name": "RequestType",
+                "value": "CheckAvailability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Viewing is available.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The viewing for Bluefield Apartments is available on Saturday at 2 PM. Would you like to proceed with booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please book it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Bluefield Apartments', 'Day': 'Saturday', 'StartTimeHour': '14', 'RenterName': 'Alex', 'ApplicationFeePaid': 'Yes', 'Message': 'I’d like to know if pets are allowed.', 'RequestType': 'Book'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Bluefield Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Saturday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "14"
+              },
+              {
+                "name": "RenterName",
+                "value": "Alex"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": "I’d like to know if pets are allowed."
+              },
+              {
+                "name": "RequestType",
+                "value": "Book"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: Booking successful.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your viewing has been successfully booked for Bluefield Apartments on Saturday at 2 PM. Is there anything else you need assistance with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To modify an existing viewing request by changing the apartment name or viewing schedule after finding out that the initially requested slot is unavailable.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to book a viewing for an apartment.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could I have your name, please?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "John.",
+        "type": "Partial Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, John. What's the name of the apartment you're interested in?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's the Grandview Apartments.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great choice! Which day would you like to schedule the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Next Friday, and maybe in the afternoon.",
+        "type": "Partial Answer",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Could you please specify a start time for the viewing?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "2 PM.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Have you paid the application fee for this apartment?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, I have.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Would you like to add any custom message to the booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's fine.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Grandview Apartments', 'Day': 'Next Friday', 'StartTimeHour': '14', 'RenterName': 'John', 'ApplicationFeePaid': 'Yes', 'Message': '', 'RequestType': 'Check Availability'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Grandview Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Next Friday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "14"
+              },
+              {
+                "name": "RenterName",
+                "value": "John"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": ""
+              },
+              {
+                "name": "RequestType",
+                "value": "Check Availability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Viewing slot unavailable'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, the viewing slot is unavailable. Would you like to modify the apartment name or schedule?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can we try the Lakeside Apartments instead?",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, let's try that. What day do you prefer for the Lakeside Apartments?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Same day, next Friday, but in the morning this time.",
+        "type": "Step Splitting",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Alright, what time in the morning would work for you?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "10 AM.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Lakeside Apartments', 'Day': 'Next Friday', 'StartTimeHour': '10', 'RenterName': 'John', 'ApplicationFeePaid': 'Yes', 'Message': '', 'RequestType': 'Check Availability'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Lakeside Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Next Friday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "10"
+              },
+              {
+                "name": "RenterName",
+                "value": "John"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": ""
+              },
+              {
+                "name": "RequestType",
+                "value": "Check Availability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Viewing slot available'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The viewing slot is available for Lakeside Apartments at 10 AM next Friday. Would you like to proceed with the booking?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please book it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> book_apartment_viewing({'Name': 'Lakeside Apartments', 'Day': 'Next Friday', 'StartTimeHour': '10', 'RenterName': 'John', 'ApplicationFeePaid': 'Yes', 'Message': '', 'RequestType': 'Book'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "book_apartment_viewing",
+            "params": [
+              {
+                "name": "Name",
+                "value": "Lakeside Apartments"
+              },
+              {
+                "name": "Day",
+                "value": "Next Friday"
+              },
+              {
+                "name": "StartTimeHour",
+                "value": "10"
+              },
+              {
+                "name": "RenterName",
+                "value": "John"
+              },
+              {
+                "name": "ApplicationFeePaid",
+                "value": "Yes"
+              },
+              {
+                "name": "Message",
+                "value": ""
+              },
+              {
+                "name": "RequestType",
+                "value": "Book"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Message: 'Booking successful'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your viewing at Lakeside Apartments is successfully booked for 10 AM next Friday. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  }
+]

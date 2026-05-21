@@ -1,0 +1,47 @@
+Name: Service Point Inquiry
+Desc: Query relevant information about DHL service points in domestic cities, including the name, address, phone number, business hours, etc.
+Detailed_desc: First, check if the city the user wants to query is supported, then call the API to get the service point information and provide feedback to the user.
+
+SLOTs:
+  - name: city
+    desc: Select the city where the service point is located
+  - name: errcode
+    desc: API return code, 200 indicates success
+
+APIs:
+  - name: Retrieve Service Point City List
+    request: []
+    response: [service_point_cities]
+  - name: Validate Service Point City
+    desc: Check if the provided city is in the supported list
+    request: [city]
+    response: [errcode]
+  - name: Retrieve Service Points
+    desc: Return the service point information for the queried city, including name, address, phone number, business hours, etc.
+    request: [city]
+    response: [errcode, service_points]
+    precondition: [Validate Service Point City]
+
+ANSWERs:
+  - name: Reply with Correct Service Point City Selection
+    desc: The city you selected is not in the supported list (service_point_cities). Alternatively, you can directly query through the PC [click here](https://www.5idhl.com/#/createExpress/ServiceNetworkStation) or mobile [click here](https://weixin.5idhl.com/serviceLatticePoint).
+  - name: Reply with Service Point Information
+    desc: Return the queried service point information
+    precondition: [Retrieve Service Points]
+  - name: Reply with No Service Point Information Found
+    desc: Currently, no service point information was found for the city you inquired about. It is recommended to query the nearest city.
+    precondition: [Retrieve Service Points]
+  - name: Other Free Response Questions
+  - name: Request User to Provide Necessary Information
+
+PDL: |
+  [service_point_cities] = API_get_service_point_city_list()
+  [errcode] = API_validate_service_point_city([city])
+  if errcode == "200":
+      [errcode, service_points] = API_get_service_points([city])
+      if errcode == "200":
+          ANSWER_Reply with Service Point Information()
+      else:
+          ANSWER_Reply with No Service Point Information Found()
+  else:
+      ANSWER_Reply with Correct Service Point City Selection()

@@ -1,0 +1,37 @@
+- API: query_news
+  API description: Query news based on location, type, and time
+  Input parameters:
+    news_location:
+      categories:
+      - Beijing
+      - Shanghai
+      - Guangzhou
+      - Shenzhen
+      - Hangzhou
+      - Chengdu
+      - Wuhan
+      - Chongqing
+      description: The location of the news
+      required: true
+      type: string
+    news_time:
+      description: The time of the news
+      required: true
+      type: string
+    news_type:
+      categories:
+      - Politics
+      - Economy
+      - Sports
+      - Entertainment
+      - Technology
+      - Education
+      - Health
+      - International
+      description: The type of the news
+      required: true
+      type: string
+  Output parameters:
+    news_list:
+      description: List of queried news
+      type: array

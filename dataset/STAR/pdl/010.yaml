@@ -1,0 +1,58 @@
+Name: Party Plan
+Desc: The process of planning a party, including venue booking and informing about food and drink criteria.
+
+SLOTs:
+  - name: Venue
+  - name: Name
+  - name: Day
+  - name: StartTimeHour
+  - name: NumberGuests
+  - name: FoodRequest
+  - name: DrinksRequest
+  - name: RequestType
+
+APIs:
+  - name: VenueAvailabilityCheck
+    request: [Venue, Day]
+    response: [Availability]
+  - name: PartyPlan
+    request: [Name, Day, StartTimeHour, HostName, NumberGuests, FoodRequest, DrinksRequest, RequestType]
+    response: [Message]
+    precondition: [VenueAvailabilityCheck]
+
+ANSWERs:
+  - name: InformFoodDrinkCriteria
+    desc: Inform the user about the food and drink criteria.
+  - name: VenueAvailableConfirmation
+    desc: Ask the user to confirm the booking if the venue is available.
+    precondition: [VenueAvailabilityCheck]
+  - name: BookingSuccess
+    desc: Inform the user that the booking was successful.
+    precondition: [PartyPlan]
+  - name: BookingFailure
+    desc: Inform the user that the booking failed.
+    precondition: [PartyPlan]
+  - name: VenueNotAvailable
+    desc: Inform the user that the venue is not available.
+    precondition: [VenueAvailabilityCheck]
+
+PDL: |
+  [Venue] = ASKSLOT()
+  [Name] = ASKSLOT()
+  [Day] = ASKSLOT()
+  [StartTimeHour] = ASKSLOT()
+  [NumberGuests] = ASKSLOT()
+  ANSWER_InformFoodDrinkCriteria()
+  [Availability] = API_VenueAvailabilityCheck([Venue, Day])
+  if Availability == "Available":
+      ANSWER_VenueAvailableConfirmation()
+      [HostName] = Name  # Assuming HostName is the same as Name provided by the user
+      [FoodRequest, DrinksRequest, RequestType] = ASKSLOT()  # Collecting all at once for simplicity
+      [Message] = API_PartyPlan([Name, Day, StartTimeHour, HostName, NumberGuests, FoodRequest, DrinksRequest, "BookingRequest"])
+      if Message == "Booking Successful":
+          ANSWER_BookingSuccess()
+      else:
+          ANSWER_BookingFailure()
+  else:
+      ANSWER_VenueNotAvailable()
+  # Assuming there's a mechanism to ASK if the user needs more help, not explicitly included in the PDL

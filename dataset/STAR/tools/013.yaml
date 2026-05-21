@@ -1,0 +1,156 @@
+- API: plane_search
+  API description: Check the ticket availability for a flight given by the user
+  Input parameters:
+    Airline:
+      categories:
+      - American
+      - United
+      - Delta
+      - Virgin
+      description: Airline
+      required: false
+      type: Categorical
+    ArrivalCity:
+      categories:
+      - Los Angeles
+      - San Francisco
+      - Chicago
+      - Detroit
+      - New York City
+      - Pittsburgh
+      description: Arrival City
+      required: true
+      type: Categorical
+    ArrivalTime:
+      categories:
+      - 12 am
+      - 1 am
+      - 2 am
+      - 3 am
+      - 4 am
+      - 5 am
+      - 6 am
+      - 7 am
+      - 8 am
+      - 9 am
+      - 10 am
+      - 11 am
+      - 12 pm
+      - 1 pm
+      - 2 pm
+      - 3 pm
+      - 4 pm
+      - 5 pm
+      - 6 pm
+      - 7 pm
+      - 8 pm
+      - 9 pm
+      - 10 pm
+      - 11 pm
+      description: Arrival Time
+      required: false
+      type: Categorical
+    Class:
+      categories:
+      - First
+      - Business
+      - Economy
+      description: Class
+      required: false
+      type: Categorical
+    Date:
+      categories:
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - 5th
+      - 6th
+      - 7th
+      - 8th
+      - 9th
+      - 10th
+      - 11th
+      - 12th
+      - 13th
+      - 14th
+      - 15th
+      - 16th
+      - 17th
+      - 18th
+      - 19th
+      - 20th
+      - 21st
+      - 22nd
+      - 23rd
+      - 24th
+      - 25th
+      - 26th
+      - 27th
+      - 28th
+      - 29th
+      - 30th
+      - 31st
+      description: Date
+      required: true
+      type: Categorical
+    DepartureCity:
+      categories:
+      - Los Angeles
+      - San Francisco
+      - Chicago
+      - Detroit
+      - New York City
+      - Pittsburgh
+      description: Departure City
+      required: true
+      type: Categorical
+    DurationHours:
+      description: Duration Hours
+      required: false
+      type: Integer
+    Price:
+      description: Price
+      required: false
+      type: Integer
+    id:
+      description: id
+      required: false
+      type: Integer
+  Output parameters:
+    Airline:
+      description: Airline
+      required: false
+      type: Categorical
+    ArrivalCity:
+      description: Arrival City
+      required: false
+      type: Categorical
+    ArrivalTime:
+      description: Arrival Time
+      required: false
+      type: Categorical
+    Class:
+      description: Class
+      required: false
+      type: Categorical
+    Date:
+      description: Date
+      required: false
+      type: Categorical
+    DepartureCity:
+      description: Departure City
+      required: false
+      type: Categorical
+    DurationHours:
+      description: Duration Hours
+      required: false
+      type: Integer
+    Price:
+      description: Price
+      required: false
+      type: Integer
+    id:
+      description: id
+      required: false
+      type: Integer

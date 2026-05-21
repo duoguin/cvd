@@ -1,0 +1,12 @@
+Step 1:::Process:::Ask the user for their name:::next::Step 2
+Step 2:::Process:::Ask the user for their desired destination:::next::Step 3
+Step 3:::Process:::Ask the user for their departure location:::next::Step 4
+Step 4:::Process:::Inform the user about the search criteria being used to find the ride:::next::Step 5
+Step 5:::Decision:::Check if a ride that matches the criteria is available:::Yes::Step 6::No::Step 9
+Step 6:::Process:::Ask the user if they want to confirm the booking:::Yes::Step 7::No::Step 8
+Step 7:::Process:::Proceed to book the ride using ride_book API and then confirm the booking to the user:::next::Step 10
+Step 8:::Process:::Inform the user about the search criteria again to possibly adjust and search again:::next::Step 2
+Step 9:::Process:::Inform the user that no ride was found:::next::Step 10
+Step 10:::Decision:::Offer the user the option to change their search criteria and search again or end the process:::Yes::Step 2::No::Step 11
+Step 11:::Process:::Ask the user if there's anything else they need help with:::next::Step 12
+Step 12:::Terminal:::The user is welcome to contact again for future needs:::

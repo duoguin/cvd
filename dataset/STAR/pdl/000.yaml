@@ -1,0 +1,56 @@
+Name: Book Apartment Viewing
+Desc: A process to assist users in booking a viewing for an apartment.
+
+SLOTs:
+  - name: RenterName
+  - name: ApartmentName
+  - name: Day
+  - name: StartTimeHour
+  - name: ApplicationFeePaid
+  - name: CustomMessage
+  - name: RequestType
+
+APIs:
+  - name: BookApartmentViewing
+    request: [RenterName, ApartmentName, Day, StartTimeHour, ApplicationFeePaid, CustomMessage, RequestType]
+    response: [Message]
+
+ANSWERs:
+  - name: ViewingAvailable
+    desc: Inform the user that the viewing is available and ask if they want to proceed with booking.
+    precondition: [BookApartmentViewing]
+  - name: BookingSuccess
+    desc: Inform the user that the booking was successful.
+    precondition: [BookApartmentViewing]
+  - name: ModifySearchCriteria
+    desc: Ask the user for a different apartment name to modify search criteria.
+    precondition: [BookApartmentViewing]
+  - name: ViewingUnavailable
+    desc: Inform the user that the viewing is unavailable.
+    precondition: [BookApartmentViewing]
+  - name: FurtherAssistance
+    desc: Ask if there's anything else the user needs assistance with.
+    precondition: [BookApartmentViewing]
+
+PDL: |
+  [RenterName] = ASKSLOT()
+  [ApartmentName] = ASKSLOT()
+  [Day] = ASKSLOT()
+  [StartTimeHour] = ASKSLOT()
+  [ApplicationFeePaid] = ASKSLOT()
+  [CustomMessage] = ASKSLOT()
+  [RequestType] = "CheckAvailability"
+  [Message] = API_BookApartmentViewing([RenterName, ApartmentName, Day, StartTimeHour, ApplicationFeePaid, CustomMessage, RequestType])
+  if Message == "Viewing Available":
+      ANSWER_ViewingAvailable()
+      UserWantsToProceed = ASKSLOT()
+      if UserWantsToProceed == "Yes":
+          [RequestType] = "BookViewing"
+          [Message] = API_BookApartmentViewing([RenterName, ApartmentName, Day, StartTimeHour, ApplicationFeePaid, CustomMessage, RequestType])
+          ANSWER_BookingSuccess()
+      else:
+          ANSWER_ModifySearchCriteria()
+          [ApartmentName] = ASKSLOT()
+  elif Message == "Viewing Unavailable":
+      ANSWER_ViewingUnavailable()
+  ANSWER_FurtherAssistance()

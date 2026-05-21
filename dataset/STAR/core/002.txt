@@ -1,0 +1,11 @@
+Step 1:::Process:::Ask the user for their name:::next::Step 2
+Step 2:::Process:::Request the user's account number:::next::Step 3
+Step 3:::Process:::Request the user's PIN for authentication:::next::Step 4
+Step 4:::Decision:::Attempt to query the bank balance using bank_balance API. Check if all required information is provided and correct:::Yes::Step 8::No::Step 5
+Step 5:::Process:::Ask for the user's date of birth, mother's maiden name, and childhood pet's name for further verification:::next::Step 6
+Step 6:::Decision:::Attempt to query the bank balance again with additional information. Check if the query is successful:::Yes::Step 8::No::Step 7
+Step 7:::Process:::Inform the user that authentication cannot be completed:::next::Step 10
+Step 8:::Process:::Inform the user of their bank balance:::next::Step 10
+Step 9:::Process:::Inform the user that authentication cannot be completed:::next::Step 10
+Step 10:::Process:::Ask if the user needs assistance with anything else:::Yes::Step 1::No::Step 11
+Step 11:::Terminal:::Conclude the interaction with a goodbye:::

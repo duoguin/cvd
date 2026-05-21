@@ -1,0 +1,9 @@
+Step 1:::Process:::Ask the user for their name:::next::Step 2
+Step 2:::Process:::Query the user for their rank within the spaceship hierarchy:::next::Step 3
+Step 3:::Process:::Request the access code from the user:::next::Step 4
+Step 4:::Process:::Inquire about the type of access code provided:::next::Step 5
+Step 5:::Decision:::call spaceship_access_codes to verify the provided information, and check the response message:::Valid::Step 6::Invalid::Step 7
+Step 6:::Process:::Inform the user of the outcome of their access request:::next::Step 8
+Step 7:::Process:::Inform the user that the access request has failed and ask if they want to try again:::Yes::Step 1::No::Step 9
+Step 8:::Process:::Ask the user if they need assistance with anything else:::Yes::Step 1::No::Step 9
+Step 9:::Terminal:::Say goodbye and end the interaction:::

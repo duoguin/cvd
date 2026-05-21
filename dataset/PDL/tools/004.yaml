@@ -1,0 +1,39 @@
+- API: query_invoice_method
+  API description: Query Invoice Method
+  Input parameters:
+    order_id:
+      description: The ID of the order to query
+      required: true
+      type: integer
+  Output parameters:
+    invoice_method:
+      categories:
+      - Issued by Platform
+      - Issued by Hotel
+      description: Invoice Method
+      type: string
+- API: query_invoice_progress
+  API description: Query Invoice Progress
+  Input parameters:
+    name:
+      description: The name to query
+      required: true
+      type: string
+  Output parameters:
+    invoice_progress:
+      description: Invoice Progress
+      type: string
+- API: query_member_status
+  API description: Query Member Status
+  Input parameters:
+    card_id:
+      description: The ID of the membership card to query
+      required: true
+      type: integer
+  Output parameters:
+    card_type:
+      categories:
+      - Platinum Card
+      - Non-Platinum Card
+      description: Membership Card Type
+      type: string

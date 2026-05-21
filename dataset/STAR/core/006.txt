@@ -1,0 +1,14 @@
+Step 1:::Process:::Ask the user for their name:::next::Step 2
+Step 2:::Process:::Ask the user to choose a hotel:::next::Step 3
+Step 3:::Process:::Ask the user for the check-in date:::next::Step 4
+Step 4:::Process:::Ask the user for the check-out date:::next::Step 5
+Step 5:::Process:::Ask the user for any specific requests they have for their stay:::next::Step 6
+Step 6:::Decision:::call hotel_reserve to check the availability of the hotel for the specified dates, and check availability based on the returned Message:::Available::Step 7::Unavailable::Step 12
+Step 7:::Process:::Ask the user to confirm the booking:::Yes::Step 8::No::Step 11
+Step 8:::Decision:::call hotel_reserve to attempt to book the hotel, and check if the booking is successful based on the returned Message:::Successful::Step 9::Failed::Step 10
+Step 9:::Process:::Notify the user that the reservation succeeded:::next::Step 13
+Step 10:::Process:::Notify the user that the reservation failed:::next::Step 13
+Step 11:::Process:::Ask the user to choose a different hotel:::next::Step 2
+Step 12:::Process:::Inform the user that the hotel is unavailable for the chosen dates:::next::Step 2
+Step 13:::Process:::Ask the user if they need assistance with anything else:::Yes::Step 1::No::Step 14
+Step 14:::Terminal:::The user is welcome to contact again for future needs:::

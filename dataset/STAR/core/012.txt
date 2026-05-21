@@ -1,0 +1,12 @@
+Step 1:::Process:::Ask the user for their name:::next::Step 2
+Step 2:::Process:::Ask the user for the flight ID they wish to book:::next::Step 3
+Step 3:::Decision:::Call plane_book with RequestType as 'check' to confirm flight status, and check flight availability based on the returned ReservationStatus:::Available::Step 4::Unavailable::Step 9
+Step 4:::Decision:::Ask the user if they want to proceed with the booking:::Yes::Step 5::No::Step 10
+Step 5:::Process:::Attempt to book the flight by calling plane_book with RequestType as 'book':::next::Step 6
+Step 6:::Decision:::Check if the booking query is successful based on the returned ReservationStatus:::Success::Step 7::Fail::Step 8
+Step 7:::Process:::Confirm that the reservation succeeded:::next::Step 11
+Step 8:::Process:::Inform the user that the reservation failed:::next::Step 10
+Step 9:::Process:::Inform the user that the flight is unavailable:::next::Step 10
+Step 10:::Decision:::Ask the user if they want to try booking a different flight:::Yes::Step 2::No::Step 11
+Step 11:::Process:::Ask the user if there is anything else they need help with:::Yes::Step 1::No::Step 12
+Step 12:::Terminal:::Thank the user and end the conversation:::

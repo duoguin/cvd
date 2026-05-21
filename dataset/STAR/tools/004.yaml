@@ -1,0 +1,20 @@
+- API: followup_doctor_appointment
+  API description: Schedules a follow-up appointment with a doctor for a patient
+  Input parameters:
+    Name:
+      categories:
+      - Dr. Johnson
+      - Dr. Morgan
+      - Dr. Alexis
+      description: Doctor Name
+      required: 'true'
+      type: Categorical
+    PatientName:
+      description: Patient Name
+      required: 'true'
+      type: ShortString
+  Output parameters:
+    Message:
+      description: Message
+      required: 'false'
+      type: ShortString

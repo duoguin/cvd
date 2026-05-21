@@ -1,0 +1,6 @@
+Step 1:::Process:::Ask the user for their name:::next::Step 2
+Step 2:::Process:::Request the name of the doctor for the follow-up appointment:::next::Step 3
+Step 3:::Process:::Perform a query for the follow-up doctor appointment using followup_doctor_appointment API with Name and PatientName:::next::Step 4
+Step 4:::Process:::Inform the user of the doctor's instructions based on the query result:::next::Step 5
+Step 5:::Decision:::Check if the user needs more assistance with anything else:::Yes::Step 1::No::Step 6
+Step 6:::Terminal:::Thank the user and offer further assistance in the future:::

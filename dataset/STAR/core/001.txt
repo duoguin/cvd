@@ -1,0 +1,9 @@
+Step 1:::Process:::Ask the user to provide search criteria for the apartment search:::next::Step 2
+Step 2:::Process:::Perform a query based on the provided search criteria by calling generic_sample API:::next::Step 3
+Step 3:::Decision:::Check if the query was successful and if there are results based on the returned values:::Yes::Step 4::No::Step 7
+Step 4:::Process:::Inform the user about the search results:::next::Step 5
+Step 5:::Decision:::Ask the user if they want to conduct another search:::Yes::Step 1::No::Step 6
+Step 6:::Terminal:::End the conversation with a goodbye message:::
+Step 7:::Process:::Inform the user that no results were found:::next::Step 8
+Step 8:::Decision:::Ask the user if they want to adjust their search criteria and search again:::Yes::Step 1::No::Step 9
+Step 9:::Terminal:::End the conversation with a goodbye message, and ask if the user needs assistance with anything else:::

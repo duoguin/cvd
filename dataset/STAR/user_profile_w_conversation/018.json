@@ -1,0 +1,832 @@
+[
+  {
+    "user_intention": "To obtain detailed information about the ride, including the driver's name, car model, and license plate.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to check the status of my ride booking.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great, Alex. Could you also provide your ride booking number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's 12345.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_status({'id': '12345', 'CustomerName': 'Alex'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_status",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Price: '$30', AllowsChanges: 'Yes', DurationMinutes: '15', ServiceProvider: 'RideCo', DriverName: 'John Doe', CarModel: 'Toyota Prius', LicensePlate: 'XYZ 123', id: '12345', RideStatus: 'On the way', RideWait: '5 mins'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your ride is on the way with an estimated wait time of 5 minutes. The driver is John Doe, driving a Toyota Prius with the license plate XYZ 123. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can I cancel this ride?",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Let me check if cancellation is possible. One moment please.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "SYSTEM",
+        "content": "AllowsChanges: 'Yes'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You can cancel the ride since changes are allowed. Would you like to proceed with the cancellation?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's alright. I'll keep it as is. Thanks!",
+        "type": "Confirmation Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "No problem at all. If you need anything else, feel free to ask.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you also tell me if there are any additional charges?",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The ride is priced at $30 with no additional charges mentioned. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To get an update on the price of the ride and if there are any changes to the initially quoted fare.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I want to check the price of my ride and see if there are any changes to it.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Could you also provide your ride booking number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I think I might need to cancel the ride. But here's the number: 12345.",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_status({'id': '12345', 'CustomerName': 'Alex'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_status",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, Price: '$25', AllowsChanges: 'Yes', DurationMinutes: 30, ServiceProvider: 'CityCabs', DriverName: 'John Doe', CarModel: 'Toyota Prius', LicensePlate: 'XYZ 123', id: '12345', RideStatus: 'Confirmed', RideWait: '5 mins'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your ride is confirmed with CityCabs. The price is $25, and changes are allowed. The driver, John Doe, will arrive in about 5 minutes. Would you like to proceed with cancellation or is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I didn't realize it was so soon. I'll keep it. Can you just confirm if the price is still $25?",
+        "type": "Attitude Switching",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Yes, the price remains $25. Is there anything else I can assist you with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Could you also let me know if there's any change in the pickup location?",
+        "type": "Information Addition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The pickup location remains the same as initially scheduled. If you need to change it, please let me know.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No changes needed. Thanks for your help!",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "You're welcome, Alex. Have a great ride! If you need anything else, feel free to ask.",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To check the current status of their ride booking, including if it's confirmed, in progress, or completed.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I need to check the status of my ride.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Could you also provide your ride booking number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I think it's somewhere in my emails. Can you just check it for me?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I need the booking number to check the status. Could you please find it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Okay, I found it. It's 12345.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_status({'id': '12345', 'CustomerName': 'Alex'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_status",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Price: 25, AllowsChanges: True, DurationMinutes: 30, ServiceProvider: 'City Rides', DriverName: 'John Doe', CarModel: 'Toyota Prius', LicensePlate: 'XYZ 123', id: '12345', RideStatus: 'In Progress', RideWait: 5",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your ride is currently in progress. The driver, John Doe, is on the way and should arrive in about 5 minutes. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "By the way, do you know if it's going to rain today?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to help with ride bookings. You might want to check a weather app for that. Is there anything else I can assist you with regarding your ride?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To obtain detailed information about the ride, including the driver's name, car model, and license plate.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need some details about my ride.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. Could you also share your ride booking number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, do you also know what the weather will be like during my ride?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to assist with ride details. Could you please provide your booking number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My booking number is 12345.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_status({'id': '12345', 'CustomerName': 'Alex'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_status",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, Price: '$30', AllowsChanges: 'Yes', DurationMinutes: '45', ServiceProvider: 'CityRides', DriverName: 'John Doe', CarModel: 'Toyota Prius', LicensePlate: 'XYZ 1234', id: '12345', RideStatus: 'On Time', RideWait: '5 mins'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your ride is on time. The driver's name is John Doe, driving a Toyota Prius with the license plate XYZ 1234. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What about the duration and cost?",
+        "type": "Counterquestion",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "The ride will take approximately 45 minutes and costs $30. Do you need any other assistance?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To inquire about the possibility of making changes to their ride booking, such as the pickup location or time.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I need to make changes to my ride booking. Can you help?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course! Could you please provide me with your name first?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can we skip that? I just want to change my pickup location.",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I understand, but to assist you, I need your name. Could you share it with me?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thank you, Alex. Now, could you please provide your ride booking number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I forgot it. Can we go back to what I can change in my booking?",
+        "type": "Returning to Initial Steps",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "To check what changes are possible, I'll need your booking number. Could you find it for me?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Alright, it's 12345.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_status({'id': '12345', 'CustomerName': 'Alex'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_status",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, Price: '50', AllowsChanges: 'True', DurationMinutes: '30', ServiceProvider: 'RideCo', DriverName: 'John Doe', CarModel: 'Sedan', LicensePlate: 'XYZ123', id: '12345', RideStatus: 'Scheduled', RideWait: '5'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your ride is scheduled with RideCo. Changes are allowed. Would you like to update the pickup location or time?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please change the pickup time to 3 PM.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I can assist with that. Your ride allows changes, so the new pickup time will be set to 3 PM. Is there anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To check the current status of their ride booking, including if it's confirmed, in progress, or completed.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hey, I need to know the status of my ride.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can I just give you my booking number first?",
+        "type": "Process Restructuring",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Of course, please provide your booking number.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's 12345AB.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Could you also tell me your name to proceed?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh right, it's Alex Johnson.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_status({'id': '12345AB', 'CustomerName': 'Alex Johnson'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_status",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345AB"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex Johnson"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Price: '$30', AllowsChanges: 'Yes', DurationMinutes: '45', ServiceProvider: 'Uber', DriverName: 'John Doe', CarModel: 'Toyota Camry', LicensePlate: 'XYZ 123', id: '12345AB', RideStatus: 'In Progress', RideWait: '5 minutes'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your ride is currently in progress. The driver, John Doe, is in a Toyota Camry with the license plate XYZ 123. It should take about 45 minutes to reach your destination. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you remind me of my booking number?",
+        "type": "Step Repetition",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your booking number is 12345AB. Anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "No, that's all. Thanks!",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To find out the estimated wait time for their ride to arrive after booking.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, I'd like to know when my ride will arrive.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. Could you please provide your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Thanks, Alex. Could you also provide your ride booking number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, I was wondering if you could cancel my booking instead.",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm currently unable to process cancellations. Could you please provide your ride booking number so I can check the status for you?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, right. It's 12345.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_status({'id': '12345', 'CustomerName': 'Alex'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_status",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, RideStatus: 'On the way', RideWait: '10 minutes'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your ride is on the way and should arrive in about 10 minutes. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Can you tell me who the driver is?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Certainly. Let me check that for you.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "SYSTEM",
+        "content": "DriverName: 'John Doe', CarModel: 'Toyota Prius', LicensePlate: 'XYZ 1234'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your driver is John Doe, driving a Toyota Prius with the license plate XYZ 1234. Anything else you need?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "What's the weather like today?",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, I can only assist with ride-related inquiries. Is there anything else regarding your ride that you need help with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "To inquire about the possibility of making changes to their ride booking, such as the pickup location or time.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "Hi, can you help me change the pickup location for my ride?",
+        "type": "Step Skipping",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Sure, I can help with that. First, could you please tell me your name?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Oh, I also wanted to know if it's possible to cancel the ride altogether.",
+        "type": "Request Cancellation",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Let's first check your current booking details. Could you please provide your ride booking number?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "It's 12345. My name is Alex.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> ride_status({'id': '12345', 'CustomerName': 'Alex'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "ride_status",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345"
+              },
+              {
+                "name": "CustomerName",
+                "value": "Alex"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "Price: 30, AllowsChanges: Yes, DurationMinutes: 15, ServiceProvider: 'City Rides', DriverName: 'John Doe', CarModel: 'Toyota Prius', LicensePlate: 'XYZ 123', id: '12345', RideStatus: 'Confirmed', RideWait: '5 minutes'",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Your ride is confirmed with City Rides. The driver is John Doe in a Toyota Prius, and it allows changes. Would you like to proceed with changing the pickup location or do something else?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, what's the weather like today?",
+        "type": "Irrelevant Information",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm here to assist with your ride booking. For weather updates, you might want to check a weather service. Would you like to proceed with changing your ride details or canceling it?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Let's change the pickup location.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Great! Please provide the new pickup location you'd like to set.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Change it to 123 Main Street.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I've noted the change request. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  }
+]

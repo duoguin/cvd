@@ -1,0 +1,103 @@
+- API: generic_sample
+  API description: Provides a generic sample of apartment listings based on various
+    input parameters.
+  Input parameters:
+    BalconySide:
+      categories:
+      - east
+      - north
+      - south
+      - west
+      description: The direction the balcony faces
+      required: 'false'
+      type: Categorical
+    FloorSquareMeters:
+      description: The size of the apartment in square meters
+      required: 'false'
+      type: Integer
+    HasBalcony:
+      description: Indicates if the apartment has a balcony
+      required: 'false'
+      type: Boolean
+    HasElevator:
+      description: Indicates if the building has an elevator
+      required: 'false'
+      type: Boolean
+    Level:
+      description: The floor level of the apartment
+      required: 'false'
+      type: Integer
+    MaxLevel:
+      description: The maximum floor level in the building
+      required: 'false'
+      type: Integer
+    Name:
+      categories:
+      - One on Center Apartments
+      - Shadyside Apartments
+      - North Hill Apartments
+      description: The name of the housing company or apartment complex
+      required: 'false'
+      type: Categorical
+    NearbyPOIs:
+      categories:
+      - School
+      - TrainStation
+      - Park
+      - Museum
+      - University
+      - Club
+      - User's office
+      - User's gym
+      description: Points of interest near the apartment
+      required: 'false'
+      type: CategoricalMultiple
+    NumRooms:
+      description: The number of rooms in the apartment
+      required: 'false'
+      type: Integer
+    Price:
+      description: The monthly cold rent price
+      required: 'false'
+      type: Integer
+  Output parameters:
+    BalconySide:
+      description: The direction the balcony faces
+      required: 'false'
+      type: Categorical
+    FloorSquareMeters:
+      description: The size of the apartment in square meters
+      required: 'false'
+      type: Integer
+    HasBalcony:
+      description: Indicates if the apartment has a balcony
+      required: 'false'
+      type: Boolean
+    HasElevator:
+      description: Indicates if the building has an elevator
+      required: 'false'
+      type: Boolean
+    Level:
+      description: The floor level of the apartment
+      required: 'false'
+      type: Integer
+    MaxLevel:
+      description: The maximum floor level in the building
+      required: 'false'
+      type: Integer
+    Name:
+      description: The name of the housing company or apartment complex
+      required: 'false'
+      type: Categorical
+    NearbyPOIs:
+      description: Points of interest near the apartment
+      required: 'false'
+      type: CategoricalMultiple
+    NumRooms:
+      description: The number of rooms in the apartment
+      required: 'false'
+      type: Integer
+    Price:
+      description: The monthly cold rent price
+      required: 'false'
+      type: Integer

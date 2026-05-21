@@ -1,0 +1,58 @@
+Name: Bank Balance Inquiry
+Desc: Inquire about the bank balance of an account by collecting necessary personal and security information from the user.
+
+SLOTs:
+  - name: FullName
+  - name: AccountNumber
+  - name: PIN
+  - name: DateOfBirth
+    optional: True
+  - name: MothersMaidenName
+    optional: True
+  - name: ChildhoodPetsName
+    optional: True
+  - name: BankName
+
+APIs:
+  - name: BankBalanceQuery
+    request: [BankName, AccountNumber, FullName, DateOfBirth, PIN, MothersMaidenName, ChildhoodPetsName]
+    response: [BankName, BankBalance]
+
+ANSWERs:
+  - name: BankBalanceSuccess
+    desc: Inform the user of their bank balance.
+    precondition: [BankBalanceQuery]
+  - name: AuthenticationFailure
+    desc: Inform the user that authentication cannot be completed and suggest contacting the bank for further assistance.
+    precondition: [BankBalanceQuery]
+  - name: FurtherAssistanceQuery
+    desc: Ask if the user needs assistance with anything else.
+  - name: Goodbye
+    desc: Conclude the interaction with a goodbye.
+
+PDL: |
+  [FullName] = ASKSLOT()
+  [AccountNumber] = ASKSLOT()
+  [PIN] = ASKSLOT()
+  try:
+      [BankName, BankBalance] = API_BankBalanceQuery([BankName, AccountNumber, FullName, "", PIN, "", ""])
+  except:
+      [DateOfBirth] = ASKSLOT()
+      [MothersMaidenName] = ASKSLOT()
+      [ChildhoodPetsName] = ASKSLOT()
+      try:
+          [BankName, BankBalance] = API_BankBalanceQuery([BankName, AccountNumber, FullName, DateOfBirth, PIN, MothersMaidenName, ChildhoodPetsName])
+      except:
+          ANSWER_AuthenticationFailure()
+          [FurtherAssistance] = ASKSLOT()
+          if FurtherAssistance == "yes":
+              # Logic for further assistance
+              pass
+          ANSWER_Goodbye()
+          return
+  ANSWER_BankBalanceSuccess()
+  [FurtherAssistance] = ASKSLOT()
+  if FurtherAssistance == "yes":
+      # Logic for further assistance
+      pass
+  ANSWER_Goodbye()

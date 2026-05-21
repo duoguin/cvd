@@ -1,0 +1,45 @@
+- API: bank_fraud_report
+  API description: Report a fraud case to the bank with the given details
+  Input parameters:
+    AccountNumber:
+      description: The account number associated with the fraud report
+      required: 'false'
+      type: ShortString
+    BankName:
+      categories:
+      - Chase
+      - Bank of America
+      - PNC
+      - Wells Fargo
+      description: The name of the bank
+      required: 'false'
+      type: Categorical
+    DateOfBirth:
+      description: The date of birth of the account holder
+      required: 'false'
+      type: ShortString
+    FraudReport:
+      description: Detailed fraud report
+      required: 'true'
+      type: LongString
+    FullName:
+      description: The full name of the account holder
+      required: 'false'
+      type: ShortString
+    PIN:
+      description: The account PIN
+      required: 'false'
+      type: ShortString
+    SecurityAnswer1:
+      description: The answer to the first security question
+      required: 'false'
+      type: ShortString
+    SecurityAnswer2:
+      description: The answer to the second security question
+      required: 'false'
+      type: ShortString
+  Output parameters:
+    Confirmation:
+      description: Confirmation message of fraud report submission
+      required: 'true'
+      type: Categorical

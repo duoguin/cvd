@@ -1,0 +1,14 @@
+1. Query available appointment slots based on the user's specified hospital, department, and time, and attempt to make an appointment.
+2. Verify the hospital name provided by the user; if the hospital does not exist, notify the user that the hospital does not exist.
+3. Verify the department name provided by the user; if the department does not exist, notify the user that the department does not exist.
+4. Query the available appointment slots for the specified hospital, department, and time.
+5. If there are available slots, attempt to make an appointment at the specified hospital.
+    a. If the appointment is successful, notify the user of the successful appointment.
+    b. If the appointment fails, notify the user of the failed appointment.
+6. If there are no available slots, attempt to make an appointment at other hospitals.
+    a. Query the available slots at other hospitals.
+    b. If there are available slots and the user is willing to make an appointment at another hospital, attempt to make an appointment at another hospital.
+        i. If the appointment is successful, notify the user of the successful appointment.
+        ii. If the appointment fails, notify the user of the failed appointment.
+    c. If there are no available slots, notify the user that there are no available slots.
+    d. If the user is unwilling to make an appointment at another hospital, notify the user of the refusal to make an appointment.

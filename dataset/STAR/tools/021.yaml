@@ -1,0 +1,89 @@
+- API: trip_directions
+  API description: Provides detailed directions for a trip based on the specified
+    travel mode, departure time, and locations.
+  Input parameters:
+    ArrivalLocation:
+      description: The destination location for the trip.
+      required: 'true'
+      type: ShortString
+    DepartureLocation:
+      description: The starting location for the trip.
+      required: 'true'
+      type: ShortString
+    DepartureTime:
+      categories:
+      - 12 am
+      - 1 am
+      - 2 am
+      - 3 am
+      - 4 am
+      - 5 am
+      - 6 am
+      - 7 am
+      - 8 am
+      - 9 am
+      - 10 am
+      - 11 am
+      - 12 pm
+      - 1 pm
+      - 2 pm
+      - 3 pm
+      - 4 pm
+      - 5 pm
+      - 6 pm
+      - 7 pm
+      - 8 pm
+      - 9 pm
+      - 10 pm
+      - 11 pm
+      description: The desired departure time for the trip.
+      required: 'true'
+      type: Categorical
+    Price:
+      description: The price category for the trip, applicable only to transit mode.
+      required: 'false'
+      type: Integer
+    TravelMode:
+      categories:
+      - Transit
+      - Driving
+      - Walking
+      description: The mode of travel for the trip.
+      required: 'true'
+      type: Categorical
+    TripLengthMinutes:
+      description: The expected length of the trip in minutes.
+      required: 'false'
+      type: Integer
+  Output parameters:
+    DepartureTime:
+      description: The departure time for the trip, in 24-hour format.
+      required: 'false'
+      type: Integer
+    DrivingInstructions:
+      description: Detailed driving instructions for the trip, applicable only to
+        driving mode.
+      required: 'false'
+      type: CategoricalList
+    Price:
+      description: The price for the trip, applicable only to transit mode.
+      required: 'false'
+      type: Integer
+    TransitInstructions:
+      description: Detailed transit instructions for the trip, applicable only to
+        transit mode.
+      required: 'false'
+      type: CategoricalList
+    TravelMode:
+      description: The mode of travel used for the trip.
+      required: 'false'
+      type: Categorical
+    TripLengthMinutes:
+      description: The calculated length of the trip in minutes.
+      required: 'false'
+      type: Integer
+    WalkingInstructions:
+      description: Detailed walking instructions for the trip, applicable only to
+        walking mode.
+      required: 'false'
+      type: CategoricalList

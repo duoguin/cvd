@@ -1,0 +1,75 @@
+- API: ride_status
+  API description: Retrieve the status and details of a specific ride
+  Input parameters:
+    CustomerName:
+      description: The name of the customer booking the ride
+      required: 'true'
+      type: ShortString
+    id:
+      description: The unique identifier for the ride
+      required: 'true'
+      type: Integer
+  Output parameters:
+    AllowsChanges:
+      description: Indicates if changes to the ride are allowed
+      required: 'false'
+      type: Boolean
+    CarModel:
+      categories:
+      - Honda
+      - Toyota
+      - Corolla
+      - Tesla
+      - BMW
+      - Ford
+      description: The model of the car used for the ride
+      required: 'false'
+      type: Categorical
+    DriverName:
+      categories:
+      - Mark
+      - John
+      - Dave
+      - Connor
+      - Alex
+      description: The name of the driver
+      required: 'false'
+      type: Categorical
+    DurationMinutes:
+      description: The duration of the ride in minutes
+      required: 'false'
+      type: Integer
+    LicensePlate:
+      categories:
+      - 432 LSA
+      - 313 EA9
+      - 901 FSA
+      - 019 EAS
+      - 031 NGA
+      description: The license plate of the car
+      required: 'false'
+      type: Categorical
+    Price:
+      description: The price of the ride
+      required: 'false'
+      type: Integer
+    RideStatus:
+      description: The current status of the ride
+      required: 'false'
+      type: ShortString
+    RideWait:
+      description: The wait time for the ride
+      required: 'false'
+      type: ShortString
+    ServiceProvider:
+      categories:
+      - Uber
+      - Lyft
+      - Taxi
+      description: The service provider for the ride
+      required: 'false'
+      type: Categorical
+    id:
+      description: The unique identifier for the ride (repeated in output for reference)
+      required: 'false'
+      type: Integer

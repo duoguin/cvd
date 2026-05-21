@@ -1,0 +1,166 @@
+- API: generic_sample
+  API description: Retrieves restaurant information based on various parameters.
+  Input parameters:
+    AverageRating:
+      description: Average Rating
+      required: 'false'
+      type: Integer
+    AverageWaitMinutes:
+      description: Average Wait Minutes
+      required: 'false'
+      type: Integer
+    CloseTimeHour:
+      categories:
+      - 12 am
+      - 1 am
+      - 2 am
+      - 3 am
+      - 4 am
+      - 5 am
+      - 6 am
+      - 7 am
+      - 8 am
+      - 9 am
+      - 10 am
+      - 11 am
+      - 12 pm
+      - 1 pm
+      - 2 pm
+      - 3 pm
+      - 4 pm
+      - 5 pm
+      - 6 pm
+      - 7 pm
+      - 8 pm
+      - 9 pm
+      - 10 pm
+      - 11 pm
+      description: Close Time Hour
+      required: 'false'
+      type: Categorical
+    Cost:
+      categories:
+      - Cheap
+      - Moderate
+      - Expensive
+      description: Cost
+      required: 'false'
+      type: Categorical
+    DoesDelivery:
+      description: Does Delivery
+      required: 'false'
+      type: Boolean
+    Food:
+      categories:
+      - Pizza
+      - Chinese
+      - Indian
+      - Burgers
+      - Italian
+      - Thai
+      - Steak
+      description: Food
+      required: 'false'
+      type: Categorical
+    Location:
+      categories:
+      - South
+      - West
+      - East
+      - North
+      - Center
+      description: Location
+      required: 'false'
+      type: Categorical
+    MaxPartySize:
+      description: Max Party Size
+      required: 'false'
+      type: Integer
+    Name:
+      categories:
+      - Cactus Club
+      - Tamarind
+      - Legume
+      - Lucca
+      - The Porch
+      description: Restaurant Name
+      required: 'false'
+      type: Categorical
+    OpenTimeHour:
+      categories:
+      - 12 am
+      - 1 am
+      - 2 am
+      - 3 am
+      - 4 am
+      - 5 am
+      - 6 am
+      - 7 am
+      - 8 am
+      - 9 am
+      - 10 am
+      - 11 am
+      - 12 pm
+      - 1 pm
+      - 2 pm
+      - 3 pm
+      - 4 pm
+      - 5 pm
+      - 6 pm
+      - 7 pm
+      - 8 pm
+      - 9 pm
+      - 10 pm
+      - 11 pm
+      description: Open Time Hour
+      required: 'false'
+      type: Categorical
+    TakesReservations:
+      description: Takes Reservations
+      required: 'false'
+      type: Boolean
+  Output parameters:
+    AverageRating:
+      description: Average Rating
+      required: 'false'
+      type: Integer
+    AverageWaitMinutes:
+      description: Average Wait Minutes
+      required: 'false'
+      type: Integer
+    CloseTimeHour:
+      description: Close Time Hour
+      required: 'false'
+      type: Categorical
+    Cost:
+      description: Cost
+      required: 'false'
+      type: Categorical
+    DoesDelivery:
+      description: Does Delivery
+      required: 'false'
+      type: Boolean
+    Food:
+      description: Food
+      required: 'false'
+      type: Categorical
+    Location:
+      description: Location
+      required: 'false'
+      type: Categorical
+    MaxPartySize:
+      description: Max Party Size
+      required: 'false'
+      type: Integer
+    Name:
+      description: Name
+      required: 'false'
+      type: Categorical
+    OpenTimeHour:
+      description: Open Time Hour
+      required: 'false'
+      type: Categorical
+    TakesReservations:
+      description: Takes Reservations
+      required: 'false'
+      type: Boolean

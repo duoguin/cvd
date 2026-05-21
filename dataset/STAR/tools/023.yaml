@@ -1,0 +1,58 @@
+- API: generic_sample
+  API description: Predicts weather conditions for a given city, day, and temperature.
+  Input parameters:
+    City:
+      categories:
+      - Los Angeles
+      - San Francisco
+      - Chicago
+      - Detroit
+      - New York City
+      - Pittsburgh
+      description: The city for which the weather prediction is desired.
+      required: 'false'
+      type: Categorical
+    Day:
+      categories:
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+      description: The day of the week.
+      required: 'true'
+      type: Categorical
+    TemperatureCelsius:
+      categories: null
+      description: The temperature in degrees Celsius.
+      required: 'false'
+      type: Integer
+    Weather:
+      categories:
+      - Raining
+      - Snowing
+      - Sunny
+      - Partly Cloudy
+      - Cloudy
+      description: The current or expected weather condition.
+      required: 'false'
+      type: Categorical
+  Output parameters:
+    City:
+      description: The city for which the weather prediction is provided.
+      required: 'false'
+      type: Categorical
+    Day:
+      description: The day of the week for which the weather is predicted.
+      required: 'false'
+      type: Categorical
+    TemperatureCelsius:
+      description: The predicted temperature in degrees Celsius.
+      required: 'false'
+      type: Integer
+    Weather:
+      description: The predicted weather condition.
+      required: 'false'
+      type: Categorical

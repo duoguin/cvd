@@ -1,0 +1,178 @@
+[
+  {
+    "persona": "an independent innovation consultant with a love for boxing. He is remarkably kind, often volunteering his time to mentor young entrepreneurs.",
+    "user_details": "- name: Michael James Carter\n    - sex: Male\n    - age: 35\n    - phone number: 13812345678\n    - id number: 110105198801013456",
+    "user_needs": "- Michael hopes to query the invoicing method for his order to ensure he receives the correct type of invoice.\n    - He wants to check the progress of the invoice issuance.\n    - He needs to know his membership status to understand the invoicing options available to him.\n    - He may also wish to understand the content and delivery method for both electronic and paper invoices.\n    - He may need to provide additional information if a paper special invoice is required.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "- **Personality Traits**: Michael is kind and supportive, reflecting his volunteer work with young entrepreneurs. He is likely to be patient and understanding.\n    - **Tone**: Professional yet friendly, given his role as an innovation consultant. He values clear and concise information.\n    - **Attitude**: Cooperative and appreciative, but he expects efficiency and accuracy in the responses provided by the assistant.",
+    "interactive_pattern": "- Michael is likely to start with a clear and direct query about the invoicing method for his order.\n    - He may ask follow-up questions regarding the progress of the invoice issuance.\n    - If he encounters any issues or lacks information, he will calmly request further assistance or clarification.\n    - He will appreciate detailed explanations about the type of invoices available to him based on his membership status.\n    - Given his background, he might occasionally express gratitude for the assistance provided by the assistant."
+  },
+  {
+    "persona": "A novelist who balances work life with raising a child with a speech impediment. She is gracious in her interactions, always offering understanding and patience.",
+    "user_details": "- name: Emily Grace Parker\n    - sex: Female\n    - age: 34\n    - phone number: 13812345678\n    - id number: 123456789012345678",
+    "user_needs": "- Emily needs to query the invoicing method for her order.\n    - She wants to know the progress of her invoice if it is issued by the platform.\n    - She needs to be informed if no invoicing information is found.\n    - She requires details about her membership status to understand the invoicing method applicable to her.\n    - She expects to be notified about the content, sending method, and time for different types of invoices (electronic general, paper general, and paper special).\n    - If the invoice is issued by the hotel, she needs confirmation that it has been successfully issued.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "- Emily communicates with grace and patience, reflecting her understanding nature.\n    - She is likely to use polite language and express gratitude frequently.\n    - Her tone is calm and composed, even when facing issues or delays.\n    - She appreciates clear, detailed, and structured responses to her queries.",
+    "interactive_pattern": "- Emily will start by providing the necessary order information and asking about the invoicing method.\n    - She will follow up with specific questions about the progress if the invoice is platform-issued.\n    - She will be understanding if there are delays or if no invoicing information is found, but will appreciate being kept informed.\n    - She will inquire about her membership status and the specific invoicing methods available to her based on her card type.\n    - Emily is likely to confirm receipt of information and express thanks after each interaction.\n    - She may also ask for clarification or additional details if the initial response does not fully address her needs."
+  },
+  {
+    "persona": "A working-class woman who loved watching classic movies and is highly determined, never giving up on her goals despite the challenges she faces.",
+    "user_details": "- Name: Emily Jane Smith\n    - Gender: Female\n    - Age: 35\n    - Contact Information: 13812345678\n    - ID Number: 110101198801011234",
+    "user_needs": "- Emily is looking to issue an invoice for an order she placed.\n    - She needs to know the invoicing method used for her order.\n    - If the invoice is issued by the platform, she wants to check the progress of the invoice.\n    - She needs to be informed about the invoicing details based on her membership status.\n    - If the invoice is issued by the hotel, she needs confirmation that the invoice has been successfully issued.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "- Personality Traits: Determined, focused, straightforward.\n    - Tone: Professional, polite, and concise.\n    - Attitude: Goal-oriented and persistent, with a clear focus on resolving her issues efficiently.",
+    "interactive_pattern": "- Emily will likely provide all necessary order details upfront to ensure a smooth and efficient process.\n    - She will ask direct questions about the invoicing method and progress.\n    - If additional information is needed, she will promptly provide it to avoid delays.\n    - She values clear and concise responses and may ask follow-up questions to ensure she fully understands the information provided.\n    - Emily will appreciate updates on the invoicing status and any required actions she needs to take."
+  },
+  {
+    "persona": "A casual gamer and vlogger who creates content about balancing life and gaming. Despite her efforts, she often views her challenges more pessimistically than her peers.",
+    "user_details": "- name: Emily Jane Carter\n    - sex: Female\n    - age: 29\n    - phone number: 13812345678\n    - id number: 110101199401012345",
+    "user_needs": "- Emily needs to query the invoicing method for her order.\n    - She wants to know the progress of her invoice if it is issued by the platform.\n    - She needs information on whether she qualifies for a Platinum Card or not.\n    - Depending on her membership status, she needs to know the specific steps and details for receiving different types of invoices (Electronic General Invoice, Paper General Invoice, Paper Special Invoice).\n    - If the invoice is issued by the hotel, she needs confirmation that it has been successfully issued.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "- Emily tends to be slightly pessimistic and may require reassurance and clear, detailed explanations.\n    - Her tone is likely to be casual but might have an underlying tone of urgency or concern due to her challenges with balancing life and gaming.\n    - She appreciates straightforward and concise information but may need additional encouragement or positive reinforcement.",
+    "interactive_pattern": "- Emily is likely to ask direct questions about her invoice and may need step-by-step guidance to understand the process.\n    - She may express concerns or doubts about the progress and accuracy of the invoicing process.\n    - Emily might ask for clarification or additional details to ensure she understands the invoicing methods and requirements fully.\n    - Given her background, she may appreciate a friendly and supportive interaction, with the assistant offering reassurances and checking in to ensure she is satisfied with the information provided."
+  },
+  {
+    "persona": "a newly admitted 1st Grader's parents, who are incredibly supportive of their child's educational journey.",
+    "user_details": "- name: Sarah Jane Smith\n    - sex: Female\n    - age: 32\n    - phone number: 13812345678\n    - id number: 110101198901011234",
+    "user_needs": "- Sarah wants to query the invoicing method for a recent order.\n    - She needs to check the progress of the invoice if it is issued by the platform.\n    - If no invoicing information is found, she expects to be informed promptly.\n    - She wants to know her membership status and the specific invoicing methods available based on her membership card type and invoice type.\n    - If the invoice is issued by the hotel, she needs confirmation that the invoice has been successfully issued.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "- **Personality Traits**: Polite, supportive, and detail-oriented. As a parent, Sarah is likely to be patient but also expects clear and concise information.\n    - **Tone**: Friendly, respectful, and slightly formal.\n    - **Attitude**: Cooperative and appreciative of assistance, but also assertive in seeking necessary information to complete her tasks efficiently.",
+    "interactive_pattern": "- **Initial Query**: Sarah will start by providing the order ID and asking for the invoicing method.\n    - **Follow-Up**: Depending on the response, she will ask for the progress or details about the invoice.\n    - **Clarification**: If she receives incomplete or unclear information, she will politely ask for further clarification.\n    - **Confirmation**: She will seek confirmation on the next steps and any additional information required.\n    - **Closing**: Sarah will likely express gratitude once her queries are resolved and might ask for a summary of the actions taken or any follow-up steps."
+  },
+  {
+    "persona": "A person whose guidance counselor told them to avoid technology jobs because they would be too hard. Despite this advice, they harbor a vengeful determination to prove the counselor wrong by excelling in the tech industry.",
+    "user_details": "- name: Alex James Carter\n    - sex: Male\n    - age: 29\n    - phone number: 13912345678\n    - id number: 110105199401012345",
+    "user_needs": "- Alex needs to understand the invoicing methods available for his order.\n    - He wants to track the progress of his invoice if it is issued by the platform.\n    - He needs to know his membership status to understand which invoicing options are available to him.\n    - He may need detailed information on how and when he will receive different types of invoices (electronic, paper general, paper special).\n    - If the invoice is issued by the hotel, he needs confirmation that it has been successfully issued.",
+    "required_apis": [
+      "- query_invoice_method\n    - query_invoice_progress\n    - query_member_status"
+    ],
+    "dialogue_style": "- Personality Traits: Determined, inquisitive, and detail-oriented.\n    - Tone: Professional, direct, and occasionally assertive, stemming from his desire to prove his competence in the tech industry.\n    - Attitude: Persistent and somewhat skeptical, especially when he encounters obstacles or unclear information. He values clarity and precision.",
+    "interactive_pattern": "- Alex is likely to ask specific, pointed questions to ensure he understands every step of the invoicing process.\n    - He might confirm details multiple times to ensure accuracy and completeness.\n    - He may request additional information or clarification if he feels the response is insufficient.\n    - Given his background, he might occasionally express frustration if the process seems overly complex or if he encounters technical jargon.\n    - He is likely to follow a logical sequence, addressing one aspect of the task at a time and ensuring it is resolved before moving on to the next."
+  },
+  {
+    "persona": "an investment banker who is very interested in FinTech and InfraTech. He is also known to be exceptionally trustworthy, earning him respect in his professional network.",
+    "user_details": "- name: Alexander James Carter\n    - sex: Male\n    - age: 38\n    - phone number: 13812345678\n    - id number: 123456789012345678",
+    "user_needs": "- Alexander needs to query the invoicing method for his orders.\n    - He wants to check the progress of invoicing if the platform is responsible for issuing the invoice.\n    - He seeks to understand the details of the invoicing process, including the type of invoice (electronic or paper), the content supported, and the delivery method and time.\n    - If the invoicing method is hotel-issued, he needs confirmation that the invoice has been successfully issued.\n    - He may also want to verify his membership status and understand how it affects the invoicing process.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "- Alexander is likely to be direct and efficient in his communication, reflecting his professional background as an investment banker.\n    - He values accuracy and timeliness, so he expects precise and prompt responses.\n    - He is courteous and respectful, given his trustworthy reputation, but also firm in ensuring his needs are met.\n    - His tone is likely to be formal and professional, with a focus on clarity and brevity.",
+    "interactive_pattern": "- Alexander will likely start the interaction with a clear and concise request, providing necessary details upfront (e.g., order ID).\n    - He may ask follow-up questions to clarify any ambiguous information or to obtain additional details.\n    - He will appreciate updates on the progress of his requests and may set expectations for response times.\n    - Alexander might cross-check information provided by the assistant with his own records, reflecting his meticulous nature.\n    - He may express gratitude for helpful and timely assistance, reinforcing his respectful demeanor."
+  },
+  {
+    "persona": "A middle-aged woman with a chronic autoimmune disease requiring long-term management. She is passionate about raising awareness and support for autoimmune diseases.",
+    "user_details": "- Name: Margaret Anne Johnson\n    - Gender: Female\n    - Age: 45\n    - Contact Information: 13812345678\n    - ID Number: 110101198001012345",
+    "user_needs": "- Margaret is looking to issue an invoice for her order. She needs to know the invoicing method for her order and the progress of the invoicing.\n    - If the invoice is issued by the platform, she needs details on the type of invoice she can receive based on her membership status.\n    - If the invoice is issued by the hotel, she needs confirmation that the invoice has been successfully issued.\n    - She might also inquire about the specifics of the invoice content, sending method, and time.\n    - In case of a paper invoice, she would need information on postage, especially if she has a non-Platinum card.",
+    "required_apis": [
+      "- query_invoice_method\n    - query_invoice_progress\n    - query_member_status"
+    ],
+    "dialogue_style": "- Margaret is likely to be polite and patient due to her background in raising awareness and support for autoimmune diseases.\n    - She might exhibit a calm and composed tone, even if she is dealing with a complex situation.\n    - Her communication would be clear and concise, focusing on getting the necessary information without unnecessary details.\n    - Given her condition, she might appreciate a compassionate and understanding tone from the assistant.",
+    "interactive_pattern": "- Margaret would start by providing her order information and asking about the invoicing method.\n    - She would follow up with queries about the progress of the invoicing if it is platform-issued.\n    - If no information is found, she would likely ask for further steps or assistance.\n    - Once invoicing information is found, she would inquire about her membership status and the type of invoice she can receive.\n    - She might ask for detailed information on the invoice content, sending method, and time.\n    - If a paper invoice is involved, she would ask about postage details, especially if she is a non-Platinum member.\n    - Throughout the interaction, she would likely appreciate clear, step-by-step guidance and reassurance from the assistant."
+  },
+  {
+    "persona": "A defender known for their physicality, but also secretly enjoys painting in their free time. He is surprisingly flexible, not just in his physical abilities but also in adapting to new situations.",
+    "user_details": "- name: David Michael Johnson\n    - sex: Male\n    - age: 32\n    - phone number: 13812345678\n    - id number: 110101198701012345",
+    "user_needs": "- Query the invoicing method for a specific order.\n    - Check the progress of an invoice if it is issued by the platform.\n    - Determine membership status to understand the type of invoicing method applicable.\n    - Obtain detailed information about electronic and paper invoices, including content, sending method, and postage (if applicable).\n    - Confirm successful issuance of an invoice by the hotel if applicable.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "- Personality Traits: Direct, efficient, and goal-oriented due to his role as a defender. However, he also has a creative and flexible side, which might make him open to detailed explanations and alternative solutions.\n    - Tone: Professional and straightforward, but polite. He values clear and concise communication.\n    - Attitude: Patient and adaptable, willing to follow the necessary steps to achieve his goal but prefers a streamlined process.",
+    "interactive_pattern": "- David will likely start by providing the necessary order information and directly ask about the invoicing method.\n    - If the invoice is issued by the platform, he will inquire about the progress and expect detailed updates.\n    - Depending on the progress information, he might ask further questions about his membership status to understand the invoicing options available to him.\n    - He will appreciate clear instructions on the content and sending methods of different invoice types.\n    - If the invoicing method is hotel-issued, he will seek confirmation of successful issuance and any additional details required.\n    - David will likely appreciate a step-by-step guide if the process involves multiple stages and will respond positively to proactive updates from the assistant."
+  },
+  {
+    "persona": "A Finnish car owner who works in the shipping industry. He is known for his warm personality, making everyone around him feel comfortable and welcomed.",
+    "user_details": "- name: Eero Juhani Lehtinen\n    - sex: Male\n    - age: 45\n    - phone number: 14123456789\n    - id number: 123456197801012345",
+    "user_needs": "- Eero is likely looking to query the invoicing method for his order.\n    - If the invoice is issued by the platform, he will want to check the invoicing progress.\n    - Depending on the progress, he may need to understand the details based on his membership status.\n    - He might also wish to know the type of invoice he can receive (electronic or paper) and the associated details such as content, sending method, and time.\n    - If the invoice is issued by the hotel, he needs confirmation that the invoice has been successfully issued.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "- Personality Traits: Warm, approachable, and friendly.\n    - Tone: Polite, respectful, and patient.\n    - Attitude: Positive and cooperative, likely to express gratitude and appreciation.",
+    "interactive_pattern": "- Eero might start with a polite greeting and a brief introduction of his needs.\n    - He will likely provide necessary order details promptly and clearly.\n    - He may ask follow-up questions to ensure he fully understands the invoicing process and any required actions on his part.\n    - Eero is likely to express thanks and appreciation for the assistance provided.\n    - He might prefer concise and clear responses, with a preference for step-by-step guidance if needed."
+  },
+  {
+    "persona": "A young child who embraces simplicity by finding joy in the smallest things, yet can be quite moody, shifting from laughter to tears in moments.",
+    "user_details": "- name: Tommy Bright Spark\n    - sex: Male\n    - age: 7\n    - phone number: 12345678901\n    - id number: 110105200802021234",
+    "user_needs": "- Tommy might need to know how to get an invoice for an order his parents made.\n    - He may want to understand the progress of the invoicing process.\n    - If the invoice is issued by the platform, he might need to know the type of invoice and how it will be sent.\n    - If the invoice is issued by the hotel, he needs confirmation that it has been successfully issued.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "- Personality Traits: Innocent, curious, and straightforward.\n    - Tone: Simple, playful, and sometimes a bit moody.\n    - Attitude: Can shift quickly from being cheerful and inquisitive to being frustrated and needing reassurance if things are not understood or do not go as expected.",
+    "interactive_pattern": "- Tommy might ask simple and direct questions, such as \"How do I get an invoice?\" or \"Is the invoice ready?\"\n    - He might express emotions openly, such as saying \"Yay!\" when things are going well or \"Oh no!\" if he doesn't understand something.\n    - The assistant should use simple language and be patient, providing clear and concise responses.\n    - Visual aids or playful elements might help in keeping his attention and making the interaction enjoyable.\n    - The assistant should be prepared to repeat information or explain things in different ways if Tommy gets confused."
+  },
+  {
+    "persona": "a Chinese who does not know or understand the technical details of civil engineering, but admires Cardona for his contributions to society. He is also remarkably tolerant, showing understanding and respect for differing views and practices.",
+    "user_details": "- Name: Li Wei Zhang\n    - Gender: Male\n    - Age: 35\n    - Contact Information: 13912345678\n    - ID Number: 110101198801012345",
+    "user_needs": "- Li Wei Zhang is looking to issue an invoice for his order and needs to understand the process and progress of invoicing.\n    - He wants to know the invoicing method for his order.\n    - If the invoice is issued by the platform, he needs to know the current progress of the invoicing.\n    - If no invoicing information is found, he needs to be informed promptly.\n    - If invoicing information is available, he needs to know his membership status to understand the invoicing methods available to him.\n    - Depending on his membership status, he needs detailed information on the content, sending method, and time for different types of invoices (electronic general, paper general, paper special).\n    - If the invoice is issued by the hotel, he needs to be notified that the invoice has been successfully issued.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "- Li Wei Zhang is respectful and understanding, showing patience and tolerance in his interactions.\n    - He prefers clear and concise information without technical jargon.\n    - He values politeness and appreciates a courteous tone.\n    - His inquiries are straightforward and focused on obtaining the necessary information to complete his task.",
+    "interactive_pattern": "- Li Wei Zhang will likely start by providing his order information and asking about the invoicing method.\n    - He will follow up with questions about the progress if the platform is issuing the invoice.\n    - He will provide his membership card ID when prompted to determine his membership status.\n    - He expects detailed and clear instructions on what to do next based on his membership status and the type of invoice he needs.\n    - He appreciates timely updates and clear notifications regarding any issues or progress in the invoicing process."
+  },
+  {
+    "persona": "a figure skating enthusiast living in Beijing, China. He is remarkably loyal to his friends and family.",
+    "user_details": "- Name: Zhang Wei Ming\n    - Gender: Male\n    - Age: 28\n    - Contact Information: 13812345678\n    - ID Number: 110101199501012345",
+    "user_needs": "- Zhang Wei Ming hopes to obtain information on how to issue an invoice for his order.\n    - He wants to check the progress of his invoice issuance if it is issued by the platform.\n    - He needs to know the specific details required for different types of invoices (electronic, paper general, paper special).\n    - He is interested in understanding the invoicing process based on his membership status.\n    - He may want to ensure that the invoicing details are accurate and timely, considering his loyalty to friends and family, possibly for shared expenses or gifts.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "- Zhang Wei Ming is likely to be polite and respectful in his communication, reflecting his loyalty to friends and family.\n    - He may prefer clear, concise, and direct responses to efficiently get the information he needs.\n    - Given his enthusiasm for figure skating, he might appreciate a friendly and engaging tone.\n    - He values accuracy and timeliness, so he may ask follow-up questions to ensure he fully understands the process.",
+    "interactive_pattern": "- Zhang Wei Ming might start the interaction by providing his order information and asking how to issue an invoice.\n    - He is likely to ask for updates on the invoicing progress and may inquire about the expected time frames for different types of invoices.\n    - If the invoicing method is platform-issued, he will want to know his membership status and how it affects the invoicing process.\n    - He may request detailed instructions or clarification on any requirements for paper special invoices.\n    - Zhang Wei Ming is expected to confirm receipt of the information and express gratitude for the assistance provided."
+  },
+  {
+    "persona": "a former police officer who emphasizes personal responsibility for everyone and often displays a callous attitude towards others' hardships.",
+    "user_details": "- name: John Michael Davis\n    - sex: Male\n    - age: 48\n    - phone number: 13876543210\n    - id number: 410223197501012345",
+    "user_needs": "- John needs to query the invoicing method for his order.\n    - He wants to check the progress of the invoice if it is issued by the platform.\n    - John expects to be informed if no invoicing information is found.\n    - If invoicing information is found, he wants to know his membership status and the corresponding invoicing method.\n    - He requires details about the content and sending method of the electronic or paper invoices, including any postage information if applicable.\n    - If the invoicing method is hotel-issued, he wants to be promptly notified of the successful issuance.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "- John has a straightforward and no-nonsense communication style.\n    - He is likely to be direct and to the point, showing little patience for unnecessary details.\n    - His tone may come off as stern or demanding due to his background in law enforcement and his emphasis on personal responsibility.\n    - He may display a callous attitude, especially if he perceives inefficiency or incompetence.",
+    "interactive_pattern": "- John will likely provide all necessary information upfront to avoid back-and-forth communication.\n    - He expects clear, concise, and accurate responses from the assistant.\n    - He may express frustration or impatience if the assistant fails to meet his expectations quickly.\n    - John prefers a structured interaction, where each step of the process is clearly communicated and executed without delay.\n    - He values efficiency and expects the assistant to follow through on tasks without requiring repeated prompts or clarifications."
+  },
+  {
+    "persona": "A professor of public health who guides the student leader in developing effective wellness programs. Despite his expertise, he is often quarrelsome, challenging ideas even when they align with his own.",
+    "user_details": "- name: Dr. Samuel Taylor\n    - sex: Male\n    - age: 52\n    - phone number: 13876543210\n    - id number: 110223198501011234",
+    "user_needs": "Dr. Samuel Taylor is likely to need the following information and actions from the assistant:\n    - Query the invoicing method for a specific order.\n    - Determine the progress of the invoice issuance.\n    - Understand the invoicing options available based on his membership status.\n    - Receive detailed instructions on how to proceed with different types of invoices (electronic general, paper general, paper special).\n    - Clarify any discrepancies or issues in the invoicing process.\n    - Ensure that the invoice issuance aligns with his requirements and timelines.",
+    "required_apis": [
+      "query_invoice_method",
+      "query_invoice_progress",
+      "query_member_status"
+    ],
+    "dialogue_style": "Dr. Samuel Taylor's dialogue style is characterized by:\n    - **Personality Traits**: Analytical, detail-oriented, and critical. He tends to question and challenge information to ensure accuracy and completeness.\n    - **Tone**: Often formal and assertive, with a tendency to be impatient or demanding if responses are not clear or satisfactory.\n    - **Attitude**: Skeptical and meticulous, requiring thorough explanations and justifications for any information provided.",
+    "interactive_pattern": "- **Initial Query**: Dr. Taylor is likely to start with a direct and specific question regarding the invoicing method for his order.\n    - **Follow-up Questions**: He will likely ask for detailed progress updates and may challenge any ambiguous or incomplete responses.\n    - **Clarifications**: Expect him to request clarifications or additional details on the invoicing options, especially if they vary based on membership status.\n    - **Verification**: He may cross-check the information provided, asking for confirmation or evidence to ensure accuracy.\n    - **Resolution**: Dr. Taylor will seek clear, actionable steps to resolve any issues or complete the invoicing process, insisting on precise timelines and methods of delivery."
+  }
+]

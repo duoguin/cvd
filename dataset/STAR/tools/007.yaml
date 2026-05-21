@@ -1,0 +1,69 @@
+- API: generic_sample
+  API description: This API is used to sample hotel data based on various input parameters
+    such as name, cost, reservation capability, service quality, average rating, and
+    location.
+  Input parameters:
+    AverageRating:
+      description: Average Rating
+      required: 'false'
+      type: Integer
+    Cost:
+      categories:
+      - Cheap
+      - Moderate
+      - Expensive
+      description: Cost
+      required: 'false'
+      type: Categorical
+    Location:
+      categories:
+      - South
+      - West
+      - East
+      - North
+      - Center
+      description: Location
+      required: 'false'
+      type: Categorical
+    Name:
+      categories:
+      - Shadyside Inn
+      - Hilton Hotel
+      - Hyatt Hotel
+      - Old Town Inn
+      description: Hotel Name
+      required: 'false'
+      type: Categorical
+    Service:
+      description: Service
+      required: 'false'
+      type: Boolean
+    TakesReservations:
+      description: Takes Reservations
+      required: 'false'
+      type: Boolean
+  Output parameters:
+    AverageRating:
+      description: Average Rating
+      required: 'false'
+      type: Integer
+    Cost:
+      description: Cost
+      required: 'false'
+      type: Categorical
+    Location:
+      description: Location
+      required: 'false'
+      type: Categorical
+    Name:
+      description: Name
+      required: 'false'
+      type: Categorical
+    Service:
+      description: Service
+      required: 'false'
+      type: Boolean
+    TakesReservations:
+      description: Takes Reservations
+      required: 'false'
+      type: Boolean

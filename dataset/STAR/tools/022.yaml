@@ -1,0 +1,8 @@
+- API: trivia
+  API description: Retrieves trivia questions based on the question number
+  Input parameters:
+    QuestionNum:
+      description: The number of the trivia question to retrieve
+      required: 'true'
+      type: Integer
+  Output parameters: {}

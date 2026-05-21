@@ -1,0 +1,54 @@
+Name: Apartment Search
+Desc: Search for apartments based on specific criteria provided by the user
+
+SLOTs:
+  - name: Level
+  - name: MaxLevel
+  - name: HasBalcony
+  - name: BalconySide
+  - name: HasElevator
+  - name: NumRooms
+  - name: FloorSquareMeters
+  - name: NearbyPOIs
+  - name: Name
+  - name: Price
+  - name: ContinueSearch
+  - name: AdjustCriteria
+
+APIs:
+  - name: ApartmentSearchQuery
+    request: [Level, MaxLevel, HasBalcony, BalconySide, HasElevator, NumRooms, FloorSquareMeters, NearbyPOIs, Name, Price]
+    response: [Level, MaxLevel, HasBalcony, BalconySide, HasElevator, NumRooms, FloorSquareMeters, Price, NearbyPOIs, Name]
+
+ANSWERs:
+  - name: SearchResults
+    desc: Inform the user about the search results.
+    precondition: [ApartmentSearchQuery]
+  - name: NoResultsFound
+    desc: Inform the user that no results were found.
+    precondition: [ApartmentSearchQuery]
+  - name: GoodbyeMessage
+    desc: End the conversation with a goodbye message.
+  - name: AskForAnotherSearch
+    desc: Ask the user if they want to conduct another search.
+    precondition: [SearchResults]
+  - name: AskToAdjustCriteria
+    desc: Ask the user if they want to adjust their search criteria and search again.
+    precondition: [NoResultsFound]
+
+PDL: |
+  while True:
+      [Level, MaxLevel, HasBalcony, BalconySide, HasElevator, NumRooms, FloorSquareMeters, NearbyPOIs, Name, Price] = ASKSLOT()
+      [Level, MaxLevel, HasBalcony, BalconySide, HasElevator, NumRooms, FloorSquareMeters, Price, NearbyPOIs, Name] = API_ApartmentSearchQuery([Level, MaxLevel, HasBalcony, BalconySide, HasElevator, NumRooms, FloorSquareMeters, NearbyPOIs, Name, Price])
+      if Name:
+          ANSWER_SearchResults()
+          [ContinueSearch] = ASKSLOT()
+          if not ContinueSearch:
+              ANSWER_GoodbyeMessage()
+              break
+      else:
+          ANSWER_NoResultsFound()
+          [AdjustCriteria] = ASKSLOT()
+          if not AdjustCriteria:
+              ANSWER_GoodbyeMessage()
+              break

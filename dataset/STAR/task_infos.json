@@ -1,0 +1,125 @@
+{
+  "version": "v240908",
+  "task_infos": {
+    "000": {
+      "name": "book_apartment_viewing",
+      "task_description": "A process to assist users in booking a viewing for an apartment.",
+      "task_detailed_description": "1. Ask the user for their name. 2. Request the name of the apartment the user is interested in. 3. Ask the user for the day they wish to view the apartment. 4. Ask for the start time of the viewing. 5. Inquire if the application fee has been paid. 6. Request any custom message the user might want to add. 7. Check the availability for the requested viewing. 8. If the viewing is available, inform the user and ask if they want to proceed with booking. 9. If the user says yes, book the viewing and inform them that the booking was successful. 10. If the user says no, ask again for the apartment name to modify search criteria (assuming this path allows for adjusting the search). 11. If the viewing is not available, inform the user that the viewing is unavailable. 12. Finally, ask if there's anything else the user needs assistance with."
+    },
+    "001": {
+      "name": "apartment_search",
+      "task_description": "Search for apartments based on specific criteria provided by the user",
+      "task_detailed_description": "1. Ask the user to provide search criteria for the apartment search. 2. Perform a query based on the provided search criteria. 3. If the query is successful, inform the user about the search results. 4. Ask the user if they want to conduct another search. 5. If the user wants to search more, loop back to asking for search criteria for another search. 6. If the user does not want to search more, end the conversation with a goodbye message. 7. If the initial query finds nothing, inform the user that no results were found. 8. Ask the user if they want to adjust their search criteria and search again. 9. If the user wants to adjust and search again, loop back to asking for search criteria. 10. If the user does not want to adjust or search again, end the conversation with a goodbye message. 11. After concluding the search process, ask if the user needs assistance with anything else."
+    },
+    "002": {
+      "name": "bank_balance",
+      "task_description": "Inquire about the bank balance of an account",
+      "task_detailed_description": "1. Ask the user for their name. 2. Request the user's account number. 3. Request the user's PIN for authentication. 4. Attempt to query the bank balance. 5. If information is missing or incorrect, ask for the user's date of birth, mother's maiden name, and childhood pet's name for further verification. 6. If additional information is still missing or incorrect, inform the user that authentication cannot be completed. 7. If all required information is provided and correct, attempt to query the bank balance again. 8. If the query is successful, inform the user of their bank balance. 9. If the query fails, inform the user that authentication cannot be completed. 10. Ask if the user needs assistance with anything else. 11. Conclude the interaction with a goodbye."
+    },
+    "003": {
+      "name": "bank_fraud_report",
+      "task_description": "Process to report bank fraud by collecting essential information from the user",
+      "task_detailed_description": "1. Ask the user for their name. 2. Request the user's bank account number. 3. Request the user's PIN. 4. If the account number or PIN is missing, further information is required: a) Ask for the user's date of birth. b) Ask for the user's mother's maiden name. c) Ask for the user's childhood pet's name. 5. If additional information is still missing after step 4, inform the user that authentication cannot be completed. 6. If all required information is provided, ask the user for details regarding the fraud. 7. Attempt to submit the fraud report. 8. If the submission is successful, inform the user that the fraud report has been submitted. 9. If the submission is unsuccessful, inform the user that authentication cannot be completed. 10. End the task with a goodbye message."
+    },
+    "004": {
+      "name": "followup_doctor_appointment",
+      "task_description": "Handle the process for a follow-up doctor appointment",
+      "task_detailed_description": "1. Ask the user for their name. 2. Request the name of the doctor for the follow-up appointment. 3. Perform a query for the follow-up doctor appointment. 4. Inform the user of the doctor's instructions based on the query result. 5. Check if the user needs more assistance with anything else."
+    },
+    "005": {
+      "name": "book_doctor_appointment",
+      "task_description": "A process to book a doctor's appointment based on the user's preferences and the doctor's availability.",
+      "task_detailed_description": "1. Ask the user for their name. 2. Ask the user to specify the doctor's name they wish to book an appointment with. 3. Ask the user for the day they prefer for the appointment. 4. Ask the user for the preferred start time of the appointment. 5. Ask the user to describe their symptoms. 6. Check the doctor's schedule for availability on the specified day and time. 7. If the doctor is available, inform the user about the booking availability. 8. If the user confirms (yes), book the appointment and inform the user that the booking was successful. 9. If the user declines (no), ask the user again for a different doctor's name and repeat the process. 10. If the doctor is not available, inform the user that the booking is unavailable. 11. Finally, ask the user if there is anything else they need assistance with."
+    },
+    "006": {
+      "name": "hotel_reserve",
+      "task_description": "A process for reserving a hotel room based on user input and availability.",
+      "task_detailed_description": "1. Ask the user for their name. 2. Ask the user to choose a hotel. 3. Ask the user for the check-in date. 4. Ask the user for the check-out date. 5. Ask the user for any specific requests they have for their stay. 6. Check the availability of the hotel for the specified dates. 7. If the hotel is available, ask the user to confirm the booking. 8. If the user confirms, attempt to book the hotel. 9. If the booking is successful, notify the user that the reservation succeeded. 10. If the booking fails, notify the user that the reservation failed. 11. If the user does not confirm the booking, ask them to choose a different hotel. 12. If the hotel is unavailable for the chosen dates, inform the user that it is unavailable. 13. Finally, ask the user if they need assistance with anything else."
+    },
+    "007": {
+      "name": "hotel_search",
+      "task_description": "Search for hotels based on specific criteria provided by the user",
+      "task_detailed_description": "1. Inform the user to input search criteria for hotels. 2. Query the database or search engine with the provided criteria to find matching hotels. 3. Provide the search results to the user, showing the available hotels that meet the criteria. 4. Ask the user if they want to search for more hotels. 5. If the user wants to search for more, ask again for the search criteria and loop back to querying. 6. If the user does not want to search for more, proceed to say goodbye. 7. Finally, ask if the user needs assistance with anything else."
+    },
+    "008": {
+      "name": "hotel_service_request",
+      "task_description": "Handle a service request from a hotel guest",
+      "task_detailed_description": "1. Ask the guest for their name. 2. Ask the guest which hotel they are staying at. 3. Ask the guest for their room number. 4. Ask the guest what service they are requesting. 5. Ask the guest when they would like the service. 6. Process the service request. 7. If the service request is successful, inform the guest that their service request was successful. 8. If the service request fails, inform the guest that their service request failed. 9. Ask the guest if there is anything else they need."
+    },
+    "009": {
+      "name": "schedule_meeting",
+      "task_description": "Schedule a meeting based on the user's preferences",
+      "task_detailed_description": "1. Ask the user for their name. 2. Ask the user to provide the name of the guest they want to invite to the meeting. 3. Ask the user to specify the day they want to schedule the meeting for. 4. Ask the user for the start time of the meeting. 5. Ask the user for the end time of the meeting. 6. Ask the user to provide a reason for the meeting. 7. Attempt to schedule the meeting based on the provided information. 8. If the scheduling is successful, inform the user that the meeting has been confirmed. 9. If the scheduling fails, inform the user that the requested time is unavailable and ask if they want to choose a different time. 10. If the user wants to choose a different time, loop back to step 3 to select a new day. 11. If the user does not want to choose a different time, say goodbye. 12. Finally, ask the user if there is anything else they need help with."
+    },
+    "010": {
+      "name": "party_plan",
+      "task_description": "The process of planning a party, including venue booking and informing about food and drink criteria.",
+      "task_detailed_description": "1. Begin the party planning process by asking the user for their preferred venue. 2. Ask the user for their name. 3. Ask the user to specify the day they want to have the party. 4. Ask the user for the starting time of the party. 5. Ask the user for the number of guests they are expecting. 6. Inform the user about the food and drink criteria. 7. Check if the selected venue is available. 8. If the venue is available, ask the user to confirm the booking. 9. Attempt to book the venue. 10. If the booking is successful, inform the user that the booking was successful. 11. If the booking fails, inform the user that the booking failed. 12. If the venue is not available, inform the user that the venue is not available. 13. Ask the user if there is anything else they need help with."
+    },
+    "011": {
+      "name": "party_rsvp",
+      "task_description": "Manage the RSVP process for a party",
+      "task_detailed_description": "1. Ask the attendee for their name. 2. Inquire about the venue of the party. 3. Ask who is hosting the party. 4. Request the attendee's planned arrival time. 5. Ask how many guests the attendee will bring. 6. Inquire if the attendee needs parking. 7. Ask about any dietary restrictions the attendee or their guests might have. 8. Process the RSVP by calling the party RSVP system. 9. Confirm the RSVP with the attendee. 10. Ask if there is anything else the attendee needs."
+    },
+    "012": {
+      "name": "plane_reserve",
+      "task_description": "Reserve a flight based on the user's preferences",
+      "task_detailed_description": "1. Ask the user for their name. 2. Ask the user for the flight ID they wish to book. 3. Check if the flight is available. 4. If the flight is available, check if the user wants to proceed with the booking. 5. If the user wants to proceed, attempt to book the flight. 6. If the booking query is successful, confirm that the reservation succeeded. 7. If the booking query fails, inform the user that the reservation failed. 8. If the user does not want to proceed with the booking or if the flight is not available, ask the user again for a different flight ID. 9. If the flight is unavailable from the start, inform the user that the flight is unavailable. 10. Finally, ask the user if there is anything else they need help with."
+    },
+    "013": {
+      "name": "plane_search",
+      "task_description": "Search for plane flights based on user inputs such as departure city, arrival city, and date.",
+      "task_detailed_description": "1. Ask the user for their name. 2. Ask the user for the city from which they will depart. 3. Ask the user for their destination city. 4. Ask the user for the date of their flight. 5. Request any optional preferences or requirements for the flight. 6. Perform the search query with the given parameters. 7. Inform the user about the flight details found. 8. Ask the user if they want to search for more flights. 9. If the user says yes, go back to requesting optional preferences or requirements. 10. If the user says no, end the conversation with a goodbye message."
+    },
+    "014": {
+      "name": "restaurant_reserve",
+      "task_description": "A process to reserve a table at a restaurant based on the user's preferences.",
+      "task_detailed_description": "1. Ask the user for their name. 2. Request the user to specify the restaurant they wish to reserve a table at. 3. Ask the user for the time they want to make the reservation. 4. Inquire about the size of the party for the reservation. 5. Check the availability of the table at the specified time. 6. If available, ask the user to confirm the booking. 7. If the user confirms, attempt to book the table. 8. If the booking is successful, inform the user that their booking was successful. 9. If the booking fails, inform the user that the booking could not be completed. 10. If the user does not confirm the booking or if the requested time is unavailable, ask the user to select another restaurant or time. 11. Finally, ask if the user needs any other assistance."
+    },
+    "015": {
+      "name": "restaurant_search",
+      "task_description": "Search for restaurants based on specific criteria provided by the user",
+      "task_detailed_description": "1. Inform the user to provide search criteria for the restaurant search. 2. Perform a query based on the user input to find matching restaurants. 3. Inform the user about the search results obtained from the query. 4. Ask the user if they want to continue searching for restaurants. 5. If the response is 'no', end the process with a goodbye message. 6. If the response is 'yes', loop back to the step of informing about search criteria and continue the process. 7. Finally, ask if there is anything else the user needs help with."
+    },
+    "016": {
+      "name": "book_ride",
+      "task_description": "The process of booking a ride based on the user's input and preferences.",
+      "task_detailed_description": "1. Ask the user for their name. 2. Ask the user for their desired destination. 3. Ask the user for their departure location. 4. Inform the user about the search criteria being used to find the ride. 5. Check if a ride that matches the criteria is available. 6. If a ride is available, ask the user if they want to confirm the booking. 7. If the user confirms (yes), proceed to book the ride and then confirm the booking to the user. 8. If the user declines (no), inform them again about the search criteria to possibly adjust and search again. 9. If no ride is found (query failure), inform the user that nothing was found. 10. Offer the user the option to change their search criteria and search again or end the process. 11. Finally, ask the user if there's anything else they need help with."
+    },
+    "017": {
+      "name": "ride_change",
+      "task_description": "Manage the process of changing a ride booking for a user",
+      "task_detailed_description": "1. Ask the user for their name. 2. Request the booking number of the ride they wish to change. 3. Ask the user what changes they want to make to their booking. 4. Attempt to make the requested changes to the booking. 5. If the changes are successfully made, inform the user that their changes have been successful. 6. If the changes could not be made, inform the user that the attempt to change their booking has failed. 7. Ask the user if there is anything else they need assistance with."
+    },
+    "018": {
+      "name": "ride_status",
+      "task_description": "Check the status of a ride booking",
+      "task_detailed_description": "1. Ask the user for their name. 2. Ask the user for their ride booking number. 3. Query the ride status using the provided booking number. 4. Provide the user with the status of their booking. 5. Provide any updates regarding the booking status. 6. Ask the user if they need assistance with anything else."
+    },
+    "019": {
+      "name": "spaceship_access_codes",
+      "task_description": "Gathers and verifies access codes for spaceship entry",
+      "task_detailed_description": "1. Ask the user for their name. 2. Query the user for their rank within the spaceship hierarchy. 3. Request the access code from the user. 4. Inquire about the type of access code provided. 5. Call the spaceship access codes system to verify the provided information. 6. Inform the user of the outcome of their access request. 7. Ask the user if they need assistance with anything else. 8. If the user indicates no further assistance is needed, say goodbye and end the interaction."
+    },
+    "020": {
+      "name": "spaceship_life_support",
+      "task_description": "Resolve issues related to the spaceship's life support system",
+      "task_detailed_description": "1. Ask the user for their name. 2. Inquire about the lock manufacturer of the spaceship. 3. Ask for the color of the top cable in the system. 4. Ask for the color of the second cable in the system. 5. Execute a query based on the provided information to find a resolution for the life support issue. 6. Inform the user of the outcome of the query. 7. Check if the user needs further assistance. 8. If no more assistance is needed, say goodbye to the user."
+    },
+    "021": {
+      "name": "trip_directions",
+      "task_description": "A task flow for providing trip directions based on user preferences.",
+      "task_detailed_description": "1. Ask the user for their preferred mode of travel. 2. Ask the user for their departure location. 3. Ask the user for their arrival location. 4. Ask the user for their preferred departure time. 5. Query for trip directions based on the provided information. 6. Inform the user about the first step of their trip and ask if they want more detailed instructions. 7. If the user wants more details, provide a detailed step. 8. If the user says they are done, conclude the trip instructions. 9. Ask the user if there is anything else they need help with."
+    },
+    "022": {
+      "name": "trivia",
+      "task_description": "Conduct a trivia game with the user, asking questions and responding based on the user's answers.",
+      "task_detailed_description": "1. Start the trivia task flow by asking the user how many questions they want. 2. Call the trivia game to begin. 3. Ask the first trivia question to the user. 4. Loop through the questions based on the user's answers, performing the following actions: if the answer is correct, inform the user that their answer is correct and ask the next question; if the answer is incorrect, inform the user that their answer is incorrect and ask the next question; if no answer is provided, remind the user to answer and ask the next question. 5. Once all questions have been answered or the user decides to end the trivia, check if the user wants to do anything else, offering options for further engagement or to end the session."
+    },
+    "023": {
+      "name": "weather",
+      "task_description": "Provide the weather forecast information based on the day and location specified by the user",
+      "task_detailed_description": "1. Ask the user for the day they want the weather information for. 2. Ask the user for the location they are interested in getting the weather forecast for. 3. Call a generic sample function (details not specified). 4. Provide the user with the weather forecast for the specified day and location. 5. Ask the user if there is anything else they need help with."
+    }
+  }
+}

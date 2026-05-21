@@ -1,0 +1,45 @@
+Name: Trip Directions
+Desc: A task flow for providing trip directions based on user preferences
+
+SLOTs:
+  - name: TravelMode
+  - name: DepartureLocation
+  - name: ArrivalLocation
+  - name: DepartureTime
+  - name: DetailedInstructionsRequest
+
+APIs:
+  - name: TripDirectionsQuery
+    request: [TravelMode, DepartureLocation, ArrivalLocation, DepartureTime]
+    response: [TripLengthMinutes, TransitInstructions, DrivingInstructions, WalkingInstructions, Price]
+    precondition: []
+
+ANSWERs:
+  - name: InitialTripDirection
+    desc: Inform the user about the first step of their trip and ask if they want more detailed instructions.
+    precondition: [TripDirectionsQuery]
+  - name: DetailedInstruction
+    desc: Provide the user with a detailed step of their trip.
+    precondition: [InitialTripDirection, TripDirectionsQuery]
+  - name: TripConclusion
+    desc: Conclude the trip instructions and ask the user if there is anything else they need help with.
+    precondition: [DetailedInstruction]
+  - name: NoMoreHelp
+    desc: Confirm that no further assistance is needed and thank the user.
+    precondition: [TripConclusion]
+
+PDL: |
+  [TravelMode] = ASKSLOT()
+  [DepartureLocation] = ASKSLOT()
+  [ArrivalLocation] = ASKSLOT()
+  [DepartureTime] = ASKSLOT()
+  [TripLengthMinutes, TransitInstructions, DrivingInstructions, WalkingInstructions, Price] = API_TripDirectionsQuery([TravelMode, DepartureLocation, ArrivalLocation, DepartureTime])
+  ANSWER_InitialTripDirection()
+  [DetailedInstructionsRequest] = ASKSLOT()
+  if DetailedInstructionsRequest == "yes":
+      ANSWER_DetailedInstruction()
+  else:
+      ANSWER_TripConclusion()
+      [FurtherAssistance] = ASKSLOT()
+      if FurtherAssistance == "no":
+          ANSWER_NoMoreHelp()

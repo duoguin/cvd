@@ -1,0 +1,812 @@
+[
+  {
+    "user_intention": "Gather comprehensive details about multiple DHL service points in a city, including names, addresses, phone numbers, and business hours, to compare and choose the most convenient one.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for service points in Springfield. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_point_city_list()",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_point_city_list",
+            "params": []
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "service_point_cities: ['Metropolis', 'Gotham', 'Star City']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> validate_service_point_city({'city': 'Springfield'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "validate_service_point_city",
+            "params": [
+              {
+                "name": "city",
+                "value": "Springfield"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 404",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, Springfield is not currently supported. Would you like to check service points in nearby cities like Metropolis or Gotham? You can also use our self-service query links for more information. Here's the link for PC: [PC Link] and for mobile: [Mobile Link].",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please check Metropolis for me.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_points({'city': 'Metropolis'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_points",
+            "params": [
+              {
+                "name": "city",
+                "value": "Metropolis"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, service_points: ['Metropolis Central', 'Metropolis East']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "In Metropolis, we have service points at Metropolis Central and Metropolis East. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me the weather forecast for Metropolis?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only provide information about service points. You might want to check a weather service for that information. Is there anything else I can assist you with regarding service points?",
+        "type": ""
+      }
+    ]
+  },
+  {
+    "user_intention": "Verify if a particular city has DHL service points available for parcel drop-off or pick-up.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for service points in Springfield. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_point_city_list()",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_point_city_list",
+            "params": []
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "service_point_cities: ['Metropolis', 'Gotham', 'Star City']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> validate_service_point_city({'city': 'Springfield'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "validate_service_point_city",
+            "params": [
+              {
+                "name": "city",
+                "value": "Springfield"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 404",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, Springfield is not currently supported. Would you like to check service points in nearby cities like Metropolis or Gotham? You can also use our self-service query links for more information. Here's the link for PC: [PC Link] and for mobile: [Mobile Link].",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please check Metropolis for me.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_points({'city': 'Metropolis'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_points",
+            "params": [
+              {
+                "name": "city",
+                "value": "Metropolis"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, service_points: ['Metropolis Central', 'Metropolis East']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "In Metropolis, we have service points at Metropolis Central and Metropolis East. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me the weather forecast for Metropolis?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only provide information about service points. You might want to check a weather service for that information. Is there anything else I can assist you with regarding service points?",
+        "type": ""
+      }
+    ]
+  },
+  {
+    "user_intention": "Obtain the business hours of a specific DHL service point to plan a visit accordingly.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for service points in Springfield. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_point_city_list()",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_point_city_list",
+            "params": []
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "service_point_cities: ['Metropolis', 'Gotham', 'Star City']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> validate_service_point_city({'city': 'Springfield'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "validate_service_point_city",
+            "params": [
+              {
+                "name": "city",
+                "value": "Springfield"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 404",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, Springfield is not currently supported. Would you like to check service points in nearby cities like Metropolis or Gotham? You can also use our self-service query links for more information. Here's the link for PC: [PC Link] and for mobile: [Mobile Link].",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please check Metropolis for me.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_points({'city': 'Metropolis'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_points",
+            "params": [
+              {
+                "name": "city",
+                "value": "Metropolis"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, service_points: ['Metropolis Central', 'Metropolis East']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "In Metropolis, we have service points at Metropolis Central and Metropolis East. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me the weather forecast for Metropolis?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only provide information about service points. You might want to check a weather service for that information. Is there anything else I can assist you with regarding service points?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Find the nearest DHL service point in a specific city, including its name, address, and contact information.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for service points in Springfield. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_point_city_list()",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_point_city_list",
+            "params": []
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "service_point_cities: ['Metropolis', 'Gotham', 'Star City']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> validate_service_point_city({'city': 'Springfield'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "validate_service_point_city",
+            "params": [
+              {
+                "name": "city",
+                "value": "Springfield"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 404",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, Springfield is not currently supported. Would you like to check service points in nearby cities like Metropolis or Gotham? You can also use our self-service query links for more information. Here's the link for PC: [PC Link] and for mobile: [Mobile Link].",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please check Metropolis for me.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_points({'city': 'Metropolis'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_points",
+            "params": [
+              {
+                "name": "city",
+                "value": "Metropolis"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, service_points: ['Metropolis Central', 'Metropolis East']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "In Metropolis, we have service points at Metropolis Central and Metropolis East. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me the weather forecast for Metropolis?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only provide information about service points. You might want to check a weather service for that information. Is there anything else I can assist you with regarding service points?",
+        "type": "",
+        "apis": []
+      }
+    ]
+  },
+  {
+    "user_intention": "Find the nearest DHL service point in a specific city, including its name, address, and contact information.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for service points in Springfield. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_point_city_list()",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_point_city_list",
+            "params": []
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "service_point_cities: ['Metropolis', 'Gotham', 'Star City']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> validate_service_point_city({'city': 'Springfield'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "validate_service_point_city",
+            "params": [
+              {
+                "name": "city",
+                "value": "Springfield"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 404",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, Springfield is not currently supported. Would you like to check service points in nearby cities like Metropolis or Gotham? You can also use our self-service query links for more information. Here's the link for PC: [PC Link] and for mobile: [Mobile Link].",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please check Metropolis for me.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_points({'city': 'Metropolis'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_points",
+            "params": [
+              {
+                "name": "city",
+                "value": "Metropolis"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, service_points: ['Metropolis Central', 'Metropolis East']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "In Metropolis, we have service points at Metropolis Central and Metropolis East. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me the weather forecast for Metropolis?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only provide information about service points. You might want to check a weather service for that information. Is there anything else I can assist you with regarding service points?",
+        "type": ""
+      }
+    ]
+  },
+  {
+    "user_intention": "Gather comprehensive details about multiple DHL service points in a city, including names, addresses, phone numbers, and business hours, to compare and choose the most convenient one.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for service points in Springfield. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_point_city_list()",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_point_city_list",
+            "params": []
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "service_point_cities: ['Metropolis', 'Gotham', 'Star City']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> validate_service_point_city({'city': 'Springfield'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "validate_service_point_city",
+            "params": [
+              {
+                "name": "city",
+                "value": "Springfield"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 404",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, Springfield is not currently supported. Would you like to check service points in nearby cities like Metropolis or Gotham? You can also use our self-service query links for more information. Here's the link for PC: [PC Link] and for mobile: [Mobile Link].",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please check Metropolis for me.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_points({'city': 'Metropolis'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_points",
+            "params": [
+              {
+                "name": "city",
+                "value": "Metropolis"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, service_points: ['Metropolis Central', 'Metropolis East']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "In Metropolis, we have service points at Metropolis Central and Metropolis East. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me the weather forecast for Metropolis?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only provide information about service points. You might want to check a weather service for that information. Is there anything else I can assist you with regarding service points?",
+        "type": ""
+      }
+    ]
+  },
+  {
+    "user_intention": "Verify if a particular city has DHL service points available for parcel drop-off or pick-up.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for service points in Springfield. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_point_city_list()",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_point_city_list",
+            "params": []
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "service_point_cities: ['Metropolis', 'Gotham', 'Star City']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> validate_service_point_city({'city': 'Springfield'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "validate_service_point_city",
+            "params": [
+              {
+                "name": "city",
+                "value": "Springfield"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 404",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, Springfield is not currently supported. Would you like to check service points in nearby cities like Metropolis or Gotham? You can also use our self-service query links for more information. Here's the link for PC: [PC Link] and for mobile: [Mobile Link].",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please check Metropolis for me.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_points({'city': 'Metropolis'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_points",
+            "params": [
+              {
+                "name": "city",
+                "value": "Metropolis"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, service_points: ['Metropolis Central', 'Metropolis East']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "In Metropolis, we have service points at Metropolis Central and Metropolis East. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me the weather forecast for Metropolis?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only provide information about service points. You might want to check a weather service for that information. Is there anything else I can assist you with regarding service points?",
+        "type": ""
+      }
+    ]
+  },
+  {
+    "user_intention": "Gather comprehensive details about multiple DHL service points in a city, including names, addresses, phone numbers, and business hours, to compare and choose the most convenient one.",
+    "conversation": [
+      {
+        "role": "USER",
+        "content": "I'm looking for service points in Springfield. Can you help me with that?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_point_city_list()",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_point_city_list",
+            "params": []
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "service_point_cities: ['Metropolis', 'Gotham', 'Star City']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> validate_service_point_city({'city': 'Springfield'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "validate_service_point_city",
+            "params": [
+              {
+                "name": "city",
+                "value": "Springfield"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 404",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "Unfortunately, Springfield is not currently supported. Would you like to check service points in nearby cities like Metropolis or Gotham? You can also use our self-service query links for more information. Here's the link for PC: [PC Link] and for mobile: [Mobile Link].",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Yes, please check Metropolis for me.",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "<Call API> get_service_points({'city': 'Metropolis'})",
+        "type": "",
+        "apis": [
+          {
+            "API": "get_service_points",
+            "params": [
+              {
+                "name": "city",
+                "value": "Metropolis"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "role": "SYSTEM",
+        "content": "errcode: 0, service_points: ['Metropolis Central', 'Metropolis East']",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "In Metropolis, we have service points at Metropolis Central and Metropolis East. Is there anything else you need help with?",
+        "type": "",
+        "apis": []
+      },
+      {
+        "role": "USER",
+        "content": "Actually, can you tell me the weather forecast for Metropolis?",
+        "type": "Topic Shift",
+        "apis": []
+      },
+      {
+        "role": "BOT",
+        "content": "I'm sorry, but I can only provide information about service points. You might want to check a weather service for that information. Is there anything else I can assist you with regarding service points?",
+        "type": ""
+      }
+    ]
+  }
+]

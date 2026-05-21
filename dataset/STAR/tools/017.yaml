@@ -1,0 +1,23 @@
+- API: ride_change
+  API description: Change details of an existing ride
+  Input parameters:
+    ChangeDescription:
+      description: Description of the change requested by the customer
+      required: true
+      type: ShortString
+    CustomerName:
+      description: Name of the customer requesting the change
+      required: true
+      type: ShortString
+    id:
+      description: The unique identifier for the ride
+      required: true
+      type: Integer
+  Output parameters:
+    ChangeStatus:
+      categories:
+      - Your trip has been successfuly changed.
+      - We are unable to change your trip.
+      description: Status indicating whether the change was successful or not
+      required: false
+      type: Categorical
