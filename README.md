@@ -100,3 +100,5 @@ Theo mặc định, hệ thống đang dùng model `openai/gpt-oss-20b` thông q
 - Để sử dụng một quy trình nghiệp vụ khác, hãy tìm tham số `--workflow-id=005` và đổi số `005` thành mã ID kịch bản khác có trong dataset (ví dụ: `022`, `001`,...).
 - Nếu muốn thử trên một bộ dataset hoàn toàn mới, hãy sửa giá trị tham số `--workflow-dataset=STAR` thành nguồn dữ liệu khác (như `PDL`).
 - **Lưu ý đặc biệt quan trọng:** Bất kể bạn thay đổi kịch bản hay bộ dữ liệu như thế nào, tham số `--workflow-type` **LUÔN LUÔN phải là `flowchart`**. Không được thay đổi tham số này.
+
+Chọn workflow id: 000 và 005 trong thư mục flowchart của STAR
