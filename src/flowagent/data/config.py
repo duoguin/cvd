@@ -3,6 +3,10 @@
 import jinja2
 import yaml, copy, os
 from dataclasses import dataclass, asdict, field
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 @dataclass
 class Config:

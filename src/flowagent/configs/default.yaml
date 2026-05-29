@@ -29,7 +29,7 @@ api_llm_name: "gpt-4o-mini"
 
 conversation_turn_limit: 20
 log_utterence_time: false
-log_to_db: ture
+log_to_db: true
 
 db_uri: {{DB_URI}}
 db_name: "pdl"

@@ -120,3 +120,79 @@ class LLMSimulatedAPIHandler(BaseAPIHandler):
             response_data=json.dumps(result[APIOutput.response_data_str_react], ensure_ascii=False),
             response_status_code=int(result[APIOutput.response_status_str_react]),
         )
+
+
+class RealAPIHandler(BaseAPIHandler):
+    names: List[str] = ["real_api", "RealAPIHandler"]
+    backend_url: str = "http://127.0.0.1:8000/api"
+    api_template_fn: str = ""
+    
+    def __init__(self, **args) -> None:
+        super().__init__(**args)
+        
+    def process(self, apicalling_info: BotOutput, *args, **kwargs) -> APIOutput:
+        flag, m = self.check_validation(apicalling_info)
+        if not flag:        # base check error!
+            msg = Message(
+                Role.SYSTEM, m,
+                conversation_id=self.conv.conversation_id, utterance_id=self.conv.current_utterance_id
+            )
+            prediction = APIOutput(apicalling_info.action, apicalling_info.action_input, m, 400)
+        else:
+            self.cnt_api_callings[apicalling_info.action] += 1  # stat
+            
+            action_name = apicalling_info.action
+            action_input = apicalling_info.action_input
+            
+            # If action_input is a string of JSON, parse it to a dictionary
+            if isinstance(action_input, str):
+                try:
+                    payload = json.loads(action_input)
+                except Exception:
+                    payload = {"input": action_input}
+            else:
+                payload = action_input
+                
+            url = f"{self.backend_url}/{action_name}"
+            
+            try:
+                import requests
+                # Send the post request
+                res = requests.post(url, json=payload, timeout=5)
+                if res.status_code == 200:
+                    res_json = res.json()
+                    status_code = res_json.get("status_code", 200)
+                    response_data = res_json.get("data", "")
+                else:
+                    status_code = res.status_code
+                    response_data = f"Error calling backend: {res.text}"
+            except Exception as e:
+                status_code = 500
+                response_data = f"Failed to connect to backend: {str(e)}"
+                
+            prediction = APIOutput(
+                name=action_name,
+                request=action_input,
+                response_data=response_data,
+                response_status_code=status_code
+            )
+            
+            if prediction.response_status_code == 200:
+                msg_content = f"<API response> {prediction.response_data}"
+            else:
+                msg_content = f"<API response> {prediction.response_status_code} {prediction.response_data}"
+                
+            msg = Message(
+                Role.SYSTEM, msg_content,
+                conversation_id=self.conv.conversation_id, utterance_id=self.conv.current_utterance_id
+            )
+            
+        self.conv.add_message(msg)
+        return prediction
+        
+    def check_validation(self, apicalling_info: BotOutput) -> bool:
+        # match the api by name? check params? 
+        api_names = [api["API"] for api in self.api_infos]
+        if apicalling_info.action not in api_names: 
+            return False, f"<Calling API Error> : {apicalling_info.action} not in {api_names}"
+        return True, None
