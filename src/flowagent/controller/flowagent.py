@@ -11,6 +11,7 @@ from ..roles import (
 )
 from .base import BaseController
 from utils.wrappers import Timer
+from utils.workflow_restart import reset_bot_state_if_requested
 from .pdl_checker import PDLDependencyChecker, APIDuplicatedChecker
 
 class FlowagentController(BaseController):
@@ -73,6 +74,7 @@ class FlowagentController(BaseController):
                         # 3.2 call the API (system)
                         with Timer("api process", print=self.cfg.log_utterence_time):
                             api_output: APIOutput = self.api.process(bot_output)
+                        self.reset_workflow_if_requested(api_output)
                         self.log_msg(self.conv.get_last_message(), verbose=verbose)
                     else: raise TypeError(f"Unexpected BotOutputType: {bot_output.action_type}")
                     
@@ -102,6 +104,9 @@ class FlowagentController(BaseController):
         if self.cfg.pdl_check_api_dup_calls:
             if not self.pdl_api_dup_checker.check(bot_output): return False
         return True
+
+    def reset_workflow_if_requested(self, api_output: APIOutput) -> None:
+        reset_bot_state_if_requested(self.bot, api_output.response_data)
 
     def conversation_teacher_forcing(self, verbose:bool=True) -> Conversation:
         """ given a reference conversation, test the bot in a teacher-forcing manner

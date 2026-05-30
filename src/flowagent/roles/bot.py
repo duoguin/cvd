@@ -13,7 +13,7 @@ from easonsi.llm.openai_client import OpenAIClient, Formater
 class DummyBot(BaseBot):
     names: List[str] = ["dummy_bot"]
     bot_template_fn: str = ""
-    
+
     # def __init__(self, **args) -> None:
     #     super().__init__(**args)
 
@@ -165,6 +165,9 @@ class StateReactBot(ReactBot):
     def __init__(self, **args) -> None:
         super().__init__(**args)
         self.current_state = "Starting phase / Initial step"
+
+    def reset_workflow_state(self) -> None:
+        self.current_state = "Starting phase / Initial step"
         
     def _gen_prompt(self) -> str:
         prompt = jinja_render(
@@ -211,5 +214,3 @@ class StateReactBot(ReactBot):
             assert BotOutput.response_str in result, f"Response not in prediction! LLM output:\n" + LogUtils.format_infos_basic(s)
             output = BotOutput(response=result[BotOutput.response_str], thought=thought)
         return output, state
-
-    
