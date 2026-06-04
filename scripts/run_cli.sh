@@ -40,11 +40,20 @@ cd src
 #     --bot-template-fn=baselines/flowbench.jinja \
 #     --conversation-turn-limit=20 --log-utterence-time --log-to-db
 
+# python run_flowagent_cli.py --config=default.yaml --exp-version=defaultss --exp-mode=session \
+#    --workflow-dataset=STAR \
+#    --workflow-type=flowchart --workflow-id=005 \
+#    --user-mode=manual --user-llm-name=openai/gpt-oss-20b --user-profile-id=0 \
+#    --bot-mode=state_react_bot --bot-llm-name=openai/gpt-oss-20b \
+#    --api-mode=llm --api-llm-name=openai/gpt-oss-20b \
+#    --bot-template-fn=baselines/state_flowbench.jinja \
+#    --conversation-turn-limit=20 --log-utterence-time --log-to-db
+
 python run_flowagent_cli.py --config=default.yaml --exp-version=defaultss --exp-mode=session \
     --workflow-dataset=STAR \
     --workflow-type=flowchart --workflow-id=005 \
-    --user-mode=manual --user-llm-name=openai/gpt-oss-20b --user-profile-id=0 \
-    --bot-mode=state_react_bot --bot-llm-name=openai/gpt-oss-20b \
-    --api-mode=llm --api-llm-name=openai/gpt-oss-20b \
+    --user-mode=manual --user-llm-name=openai/qwen2.5-3b-instruct --user-profile-id=0 \
+    --bot-mode=state_react_bot --bot-llm-name=openai/qwen2.5-3b-instruct \
+    --api-mode=llm --api-llm-name=openai/qwen2.5-3b-instruct \
     --bot-template-fn=baselines/state_flowbench.jinja \
-    --conversation-turn-limit=20 --log-utterence-time --log-to-db
+    --conversation-turn-limit=15 --log-utterence-time --log-to-db
