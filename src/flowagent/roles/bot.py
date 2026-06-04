@@ -21,6 +21,9 @@ class DummyBot(BaseBot):
     names: List[str] = ["dummy_bot"]
     bot_template_fn: str = ""
 
+    # def __init__(self, **args) -> None:
+    #     super().__init__(**args)
+
     def process(self, *args, **kwargs) -> BotOutput:
         self.cnt_bot_actions += 1
         if (self.cnt_bot_actions % 2) == 0:
@@ -159,6 +162,9 @@ class StateReactBot(ReactBot):
         super().__init__(**args)
         self.current_state = "Starting phase / Initial step"
 
+    def reset_workflow_state(self) -> None:
+        self.current_state = "Starting phase / Initial step"
+        
     def _gen_prompt(self) -> str:
         # ── TỐI ƯU: infer node từ state string LLM tự sinh ───────────────
         current_node = infer_current_node(self.current_state, self.workflow.workflow)
