@@ -1,7 +1,0 @@
-1. First, check if the city the user wants to inquire about is supported. 2. Call the API to get the service point information and provide feedback to the user. The specific steps are as follows:
-   a. Get the list of service point cities.
-   b. Verify if the city provided by the user is in the supported list.
-   c. If the city is in the supported list, call the API to get the service point information for that city.
-   d. If successful, return the queried service point information.
-   e. If unsuccessful, inform the user that no service point information is currently available for that city and suggest querying nearby cities.
-   f. If the city is not in the supported list, prompt the user to choose the correct service point city and provide self-service query links for PC and mobile.

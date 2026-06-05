@@ -16,32 +16,24 @@ FlowAIssistant/
 ├── docs/                   # Thư mục chứa tài liệu dự án
 │   └── midterm-report.pdf  # Báo cáo giữa kỳ, tài liệu nghiên cứu chi tiết về kiến trúc Flowchart kết hợp LLM
 ├── dataset/                # Thư mục chứa các bộ dữ liệu, kịch bản hội thoại chuẩn hóa
-│   ├── PDL/                # Bộ dữ liệu kịch bản hội thoại bao gồm flowchart, code, mô tả tools...
 │   ├── STAR/               # Bộ dữ liệu đánh giá hội thoại dựa trên sơ đồ quy trình
 │   └── meta/               # Siêu dữ liệu liên quan đến các tập dữ liệu
 ├── scripts/                # Các script hỗ trợ tự động hóa và tiện ích
 │   └── run_cli.sh          # Script bash để khởi chạy nhanh chương trình CLI trong môi trường
-└── src/                    # Thư mục chứa mã nguồn chính của ứng dụng
-    ├── run_flowagent_cli.py # Điểm khởi chạy chính (entrypoint) để chạy chatbot trên giao diện dòng lệnh (CLI)
-    ├── utils/              # Chứa các hàm tiện ích dùng chung (utility)
-    │   └── jinja_templates.py # Quản lý các file mẫu (template) Prompt cung cấp ngữ cảnh động cho LLM
-    ├── easonsi/            # Module chịu trách nhiệm kết nối, bao bọc và xử lý API với các LLM provider
-    └── flowagent/          # Core module, chứa các logic quan trọng nhất của hệ thống FlowAIssistant
-        ├── configs/        # Thư mục chứa các file thiết lập/cấu hình thông số hệ thống (vd: default.yaml)
-        ├── controller/     # Điều phối luồng chương trình, quản lý logic di chuyển trên Flowchart
-        │   └── flowagent.py   # Agent điều phối chính kết hợp việc gọi LLM và duyệt trạng thái
-        ├── roles/          # Định nghĩa các vai trò (thực thể) tham gia vào quy trình hội thoại
-        │   ├── bot.py      # LLM Chatbot: Tiếp nhận ngữ cảnh từ Flowchart, giao tiếp và suy luận
-        │   ├── user.py     # Lớp định nghĩa, giả lập hoặc quản lý hành vi của người dùng
-        │   └── api.py      # Quản lý giao tiếp với các dịch vụ bên ngoài, cung cấp tools/API cho LLM
-        ├── data/           # Module định nghĩa cấu trúc dữ liệu, lưu trữ ngữ cảnh hội thoại
-        │   └── workflow.py # Trừu tượng hóa sơ đồ Flowchart thành cấu trúc đồ thị hỗ trợ code xử lý
-        ├── eval/           # Cung cấp bộ công cụ tự động đánh giá và chấm điểm chất lượng hội thoại
-        │   ├── judger.py   # Bộ chấm điểm kết quả cuối cùng theo nhiều metric khác nhau
-        │   └── analyzer.py # Công cụ phân tích chi tiết các phiên tương tác
-        └── ui/             # Giao diện người dùng cho việc demo hoặc debug (Web App, CLI tools)
-            ├── app.py      # Ứng dụng Streamlit hiển thị giao diện UI web
-            └── show_conversation.py # Tiện ích hiển thị, debug hội thoại trực quan
+├── backend/                # Backend API Layer (FastAPI + MongoDB)
+│   └── app.py              # File chạy ứng dụng backend API lưu lịch sử hội thoại thực tế
+├── flowagent/              # FlowAgent Controller Layer
+│   ├── configs/            # Chứa file thiết lập thông số hệ thống (vd: default.yaml)
+│   ├── controller/         # Điều phối luồng chương trình, quản lý duyệt trạng thái Flowchart
+│   │   └── flowagent.py    # Agent điều phối chính kết hợp việc gọi LLM và duyệt trạng thái
+│   ├── roles/              # Định nghĩa các vai trò hội thoại (bot.py, user.py, api.py)
+│   ├── data/               # Định nghĩa cấu trúc dữ liệu hội thoại (workflow.py, db.py, etc.)
+│   ├── eval/               # Bộ công cụ tự động đánh giá và chấm điểm chất lượng (judger.py, analyzer.py)
+│   └── ui/                 # Giao diện người dùng Streamlit (app.py, show_conversation.py)
+├── utils/                  # Chứa các hàm tiện ích dùng chung (utility, jinja prompt templates)
+├── easonsi/                # Module chịu trách nhiệm kết nối, bao bọc và xử lý API với các LLM provider
+├── run_flowagent_cli.py    # Điểm khởi chạy chính (entrypoint) để chạy chatbot trên giao diện CLI
+└── deleted_resources.md    # Tài liệu thống kê các tài nguyên cũ liên quan đến PDL/Code/Text đã xóa
 ```
 
 ## Cách setup local LLM cho project
@@ -70,13 +62,13 @@ Khi mở file `scripts/run_cli.sh`, bạn sẽ thấy một lệnh chạy `pytho
 - `--config`: Tên file chứa các cấu hình mặc định khác của hệ thống (ví dụ: `default.yaml`).
 - `--exp-version`: Đặt tên cho phiên bản/môi trường chạy thử nghiệm (ví dụ: `defaultss`), giúp phân biệt log và dữ liệu đầu ra giữa các lần thử nghiệm.
 - `--exp-mode`: Chế độ chạy thử nghiệm (ví dụ: `session` là chế độ tạo một phiên hội thoại duy trì trạng thái).
-- `--workflow-dataset`: Tên của bộ dữ liệu chứa kịch bản quy trình (ví dụ: `STAR` hoặc `PDL`).
+- `--workflow-dataset`: Tên của bộ dữ liệu chứa kịch bản quy trình (ví dụ: `STAR`).
 - `--workflow-type`: Loại cấu trúc của quy trình. **LƯU Ý:** Tham số này luôn luôn phải được thiết lập là `flowchart` trong dự án này.
 - `--workflow-id`: Mã định danh (ID) của sơ đồ/kịch bản cụ thể mà hệ thống sẽ chạy (ví dụ: `005`, `022`).
 - `--user-mode`: Chế độ hoạt động của người dùng (ví dụ: `manual` có nghĩa là con người sẽ tự gõ tin nhắn vào terminal).
 - `--user-llm-name`: Tên mô hình LLM dùng để giả lập hành vi người dùng (nếu bạn chạy chế độ người dùng tự động).
 - `--user-profile-id`: Mã hồ sơ giả định của người dùng, dùng để cung cấp các thông tin nền tảng, bối cảnh cho user (ví dụ: `0`).
-- `--bot-mode`: Chế độ luận dịch của tác nhân Bot (ví dụ: `state_react_bot`, `pdl_bot`, `react_bot`).
+- `--bot-mode`: Chế độ luận dịch của tác nhân Bot (ví dụ: `state_react_bot`, `react_bot`).
 - `--bot-llm-name`: Tên mô hình LLM chính sẽ được Chatbot sử dụng để sinh văn bản, phân tích và luận dịch trạng thái.
 - `--api-mode`: Cơ chế xử lý các API Tool gọi ra ngoài. `llm` có nghĩa là hệ thống sẽ dùng mô hình AI để tự sinh ra kết quả giả lập cho các hàm chức năng.
 - `--api-llm-name`: Tên mô hình LLM sẽ được sử dụng để giả lập kết quả API.
@@ -98,7 +90,6 @@ Theo mặc định, hệ thống đang dùng model `openai/gpt-oss-20b` thông q
 
 **2. Đổi kịch bản hội thoại (Workflow/Flowchart)**
 - Để sử dụng một quy trình nghiệp vụ khác, hãy tìm tham số `--workflow-id=005` và đổi số `005` thành mã ID kịch bản khác có trong dataset (ví dụ: `022`, `001`,...).
-- Nếu muốn thử trên một bộ dataset hoàn toàn mới, hãy sửa giá trị tham số `--workflow-dataset=STAR` thành nguồn dữ liệu khác (như `PDL`).
-- **Lưu ý đặc biệt quan trọng:** Bất kể bạn thay đổi kịch bản hay bộ dữ liệu như thế nào, tham số `--workflow-type` **LUÔN LUÔN phải là `flowchart`**. Không được thay đổi tham số này.
+- **Lưu ý đặc biệt quan trọng:** Bất kể bạn thay đổi kịch bản như thế nào, tham số `--workflow-type` **LUÔN LUÔN phải là `flowchart`**. Không được thay đổi tham số này.
 
 Chọn workflow id: 000 và 005 trong thư mục flowchart của STAR

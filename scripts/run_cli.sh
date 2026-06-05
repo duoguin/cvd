@@ -7,28 +7,21 @@ if [ -f ".env" ]; then
     set +a
 fi
 
+export PYTHONIOENCODING=utf-8
+
 if [ -f ".venv/bin/activate" ]; then
     source .venv/bin/activate
 elif [ -f ".venv/Scripts/activate" ]; then
     source .venv/Scripts/activate
 fi
 
-cd src
-# python run_flowagent_cli.py --config=default.yaml --exp-version=defaultss --exp-mode=session \
-#     --workflow-type=pdl --workflow-id=000 \
-#     --user-mode=manual --user-llm-name=openai/gpt-oss-20b --user-profile-id=0 \
-#     --bot-mode=pdl_bot --bot-llm-name=openai/gpt-oss-20b \
-#     --api-mode=llm --api-llm-name=openai/gpt-oss-20b \
-#     --bot-template-fn=flowagent/bot_pdl.jinja \
-#     --conversation-turn-limit=20 --log-utterence-time --log-to-db
-
 # python run_flowagent_cli.py --config=default.yaml --exp-version=defaultss --exp-mode=session \
 #     --workflow-dataset=STAR \
-#     --workflow-type=pdl --workflow-id=004 \
+#     --workflow-type=flowchart --workflow-id=022 \
 #     --user-mode=manual --user-llm-name=openai/gpt-oss-20b --user-profile-id=0 \
-#     --bot-mode=pdl_bot --bot-llm-name=openai/gpt-oss-20b \
+#     --bot-mode=react_bot --bot-llm-name=openai/gpt-oss-20b \
 #     --api-mode=llm --api-llm-name=openai/gpt-oss-20b \
-#     --bot-template-fn=flowagent/bot_pdl.jinja \
+#     --bot-template-fn=baselines/flowbench.jinja \
 #     --conversation-turn-limit=20 --log-utterence-time --log-to-db
 
 # python run_flowagent_cli.py --config=default.yaml --exp-version=defaultss --exp-mode=session \
@@ -74,10 +67,10 @@ if [[ " ${CLI_ARGS[*]} " == *" --api-mode=real_api "* ]]; then
     rm -f backend/backend.log
     
     PYTHON_BIN="python"
-    if [ -f "../.venv/Scripts/python.exe" ]; then
-        PYTHON_BIN="../.venv/Scripts/python.exe"
-    elif [ -f "../.venv/bin/python" ]; then
-        PYTHON_BIN="../.venv/bin/python"
+    if [ -f ".venv/Scripts/python.exe" ]; then
+        PYTHON_BIN=".venv/Scripts/python.exe"
+    elif [ -f ".venv/bin/python" ]; then
+        PYTHON_BIN=".venv/bin/python"
     fi
     
     $PYTHON_BIN backend/app.py > backend/backend.log 2>&1 &

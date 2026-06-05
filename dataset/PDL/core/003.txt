@@ -1,9 +1,0 @@
-Step 1:::Process:::Inquire the user for the city they want to check for DHL service points:::next::Step 2
-Step 2:::Process:::Call get_service_point_city_list to retrieve the list of service point cities:::next::Step 3
-Step 3:::Decision:::Check if the city provided by the user is in the service_point_cities list:::Yes::Step 4::No::Step 8
-Step 4:::Process:::Call get_service_points with the user-provided city to retrieve service point information:::next::Step 5
-Step 5:::Decision:::Check if the errcode returned by get_service_points is 200:::Yes::Step 6::No::Step 7
-Step 6:::Process:::Provide the user with the service point information, including name, address, phone number, and business hours:::next::Step 9
-Step 7:::Process:::Inform the user that no service point information is currently available for that city and suggest querying nearby cities:::next::Step 9
-Step 8:::Process:::Inform the user that the city is not supported and prompt them to choose a correct service point city. Provide self-service query links for PC and mobile:::next::Step 9
-Step 9:::Terminal:::End the inquiry process. The user is welcome to contact again for future needs:::

@@ -1,1 +1,0 @@
-1. Ask the user for their name. 2. Request the name of the doctor for the follow-up appointment. 3. Perform a query for the follow-up doctor appointment. 4. Inform the user of the doctor's instructions based on the query result. 5. Check if the user needs more assistance with anything else.

@@ -1,6 +1,0 @@
-1. Obtain the user's news query requirements, including the location, type, and time of the news. 
-2. Call the API 'Query News', passing the location, type, and time of the news provided by the user as request parameters. 
-3. Based on the results returned by the API, perform the following actions: 
-    a. If a news list is retrieved, inform the user that the 'News Query' operation has been successfully executed and the retrieved news list has been returned. 
-    b. If no news list is retrieved, inform the user that the query failed and broadcast the day's headline news. 
-4. Handle other free response questions, or request necessary information from the user.

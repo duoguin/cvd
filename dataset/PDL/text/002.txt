@@ -1,7 +1,0 @@
-1. Obtain the target country and item information provided by the user.
-2. Call the API 'Check If Item Can Be Shipped', passing the target country and item information, and get the returned status and shipping eligibility information.
-3. If the status code is 200:
-   a. If the item can be shipped, inform the user that it can be shipped and state that the information is for reference only and the final decision is based on the destination customs clearance requirements.
-   b. If the item cannot be shipped, call the API 'Get Item List', passing the target country, to get the list of supported item categories for that country. Then inform the user that the item cannot be shipped, provide the supported item categories for that country, and state that the information is for reference only and the final decision is based on the destination customs clearance requirements.
-4. If the status code is not 200, inform the user that the query failed, state that the destination shipping restriction information was not found, and suggest that the user contact local DHL for further assistance.
-5. If the information provided by the user is incomplete, prompt the user to provide the necessary information.

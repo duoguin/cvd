@@ -1,1 +1,0 @@
-1. Ask the user for the day they want the weather information for. 2. Ask the user for the location they are interested in getting the weather forecast for. 3. Call a generic sample function (details not specified). 4. Provide the user with the weather forecast for the specified day and location. 5. Ask the user if there is anything else they need help with.

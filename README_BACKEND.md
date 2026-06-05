@@ -46,10 +46,10 @@ Mở Terminal của bạn (Git Bash hoặc PowerShell) tại thư mục dự án
 
 ## 3. Khởi chạy Backend Server
 
-Backend được xây dựng dựa trên FastAPI tại tệp `src/backend/app.py`. Chạy lệnh sau trong terminal đã kích hoạt môi trường ảo:
+Backend được xây dựng dựa trên FastAPI tại tệp `backend/app.py`. Chạy lệnh sau trong terminal đã kích hoạt môi trường ảo:
 
 ```bash
-python src/backend/app.py
+python backend/app.py
 ```
 
 * Máy chủ uvicorn sẽ khởi chạy thành công tại địa chỉ: `http://127.0.0.1:8000`
@@ -72,7 +72,7 @@ python src/backend/app.py
 ### Cách 2: Chạy trực tiếp qua lệnh Python
 Mở Terminal và thực thi lệnh đầy đủ sau (ví dụ kiểm tra workflow khám bệnh bác sĩ `005`):
 ```bash
-python src/run_flowagent_cli.py --config=default.yaml --exp-version=defaultss --exp-mode=session \
+python run_flowagent_cli.py --config=default.yaml --exp-version=defaultss --exp-mode=session \
     --workflow-dataset=STAR \
     --workflow-type=flowchart --workflow-id=005 \
     --user-mode=manual --user-llm-name=openai/gpt-oss-20b --user-profile-id=0 \
