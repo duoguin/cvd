@@ -85,9 +85,10 @@ class FlowagentController(BaseController):
                         break
                 role = Role.USER
             num_UB_turns += 1
-            if num_UB_turns > self.cfg.conversation_turn_limit: 
-                self.logger.log("  <main> end due to conversation turn limit!", with_print=verbose)
-                break
+            if self.cfg.conversation_turn_limit is not None and self.cfg.conversation_turn_limit > 0:
+                if num_UB_turns > self.cfg.conversation_turn_limit: 
+                    self.logger.log("  <main> end due to conversation turn limit!", with_print=verbose)
+                    break
         
         return self.conv
     

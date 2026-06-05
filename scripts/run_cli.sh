@@ -54,6 +54,6 @@ python run_flowagent_cli.py --config=default.yaml --exp-version=defaultss --exp-
     --workflow-type=flowchart --workflow-id=005 \
     --user-mode=manual --user-llm-name=openai/qwen2.5-3b-instruct --user-profile-id=0 \
     --bot-mode=state_react_bot --bot-llm-name=openai/qwen2.5-3b-instruct \
-    --api-mode=llm --api-llm-name=openai/qwen2.5-3b-instruct \
+    --api-mode=real_api --api-llm-name=openai/qwen2.5-3b-instruct \
     --bot-template-fn=baselines/state_flowbench.jinja \
-    --conversation-turn-limit=15 --log-utterence-time --log-to-db
+    --conversation-turn-limit=-1 --log-utterence-time --log-to-db
