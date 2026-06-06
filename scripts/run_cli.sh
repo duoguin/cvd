@@ -1,6 +1,9 @@
 PROJECT_PATH="$(git rev-parse --show-toplevel)"
 cd "${PROJECT_PATH}"
 
+# Clear system_run.log on new run
+rm -f system_run.log
+
 if [ -f ".env" ]; then
     set -a
     source .env

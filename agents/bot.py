@@ -53,17 +53,23 @@ class ReactBot(BaseBot):
         self.llm = init_client(llm_cfg=LLM_CFG[self.cfg.bot_llm_name])
 
     def process(self, *args, **kwargs) -> BotOutput:
+        from controller.log import SystemLogger
+        SystemLogger.log("bot", "ReactBot.process", "Khởi chạy quy trình xử lý của Bot Agent", with_print=False)
         prompt = self._gen_prompt()
+        SystemLogger.log("bot", "ReactBot.process", f"Đã sinh prompt cho LLM. Kích thước: {len(prompt)} ký tự", with_print=False)
         @retry_wrapper(retry=self.cfg.bot_retry_limit, step_name="bot_process", log_fn=print)
         def process_with_retry(prompt):
+            SystemLogger.log("bot", "ReactBot.process", "Đang gửi truy vấn tới LLM...", with_print=False)
             llm_response, prediction = self._process(prompt)
             return llm_response, prediction
         llm_response, prediction = process_with_retry(prompt)
 
         if prediction.action_type == BotOutputType.RESPONSE:
             msg_content = prediction.response
+            SystemLogger.log("bot", "ReactBot.process", f"LLM trả về RESPONSE: '{msg_content}'", with_print=False)
         else:
             msg_content = f"<Call API> {prediction.action}({prediction.action_input})"
+            SystemLogger.log("bot", "ReactBot.process", f"LLM trả về ACTION: '{prediction.action}' kèm Input: {prediction.action_input}", with_print=False)
         msg = Message(
             Role.BOT, msg_content, prompt=prompt, llm_response=llm_response,
             conversation_id=self.conv.conversation_id, utterance_id=self.conv.current_utterance_id
@@ -159,9 +165,11 @@ class StateReactBot(ReactBot):
         return prompt
 
     def _process(self, prompt: str = None) -> Tuple[str, BotOutput]:
+        from controller.log import SystemLogger
         llm_response = self.llm.query_one(prompt)
         prediction, new_state = self.parse_react_output(llm_response)
         if new_state:
+            SystemLogger.log("bot", "StateReactBot._process", f"Cập nhật trạng thái Bot State: '{self.current_state}' -> '{new_state}'", with_print=False)
             self.current_state = new_state
         return llm_response, prediction
 

@@ -61,12 +61,17 @@ class LLMSimulatedUserWithProfile(BaseUser):
         """ mian process logic.
         gen prompt -> query & process -> gen message
         """
+        from controller.log import SystemLogger
+        SystemLogger.log("user", "LLMSimulatedUserWithProfile.process", "Khởi chạy giả lập hành vi người dùng (User Agent) dựa trên profile", with_print=False)
         prompt = self._gen_prompt()
+        SystemLogger.log("user", "LLMSimulatedUserWithProfile.process", f"Đã sinh prompt cho User Agent. Kích thước: {len(prompt)} ký tự", with_print=False)
         @retry_wrapper(retry=self.cfg.user_retry_limit, step_name="user_process", log_fn=print)
         def process_with_retry(prompt):
+            SystemLogger.log("user", "LLMSimulatedUserWithProfile.process", "Đang gửi truy vấn tới LLM...", with_print=False)
             llm_response, prediction = self._process(prompt)
             return llm_response, prediction
         llm_response, prediction = process_with_retry(prompt)
+        SystemLogger.log("user", "LLMSimulatedUserWithProfile.process", f"LLM User phản hồi: '{prediction.response_content}'", with_print=False)
         msg = Message(
             Role.USER, prediction.response_content, prompt=prompt, llm_response=llm_response,
             conversation_id=self.conv.conversation_id, utterance_id=self.conv.current_utterance_id
@@ -123,19 +128,25 @@ class LLMSimulatedUserWithOOW(LLMSimulatedUserWithProfile):
         """ mian process logic.
         [random] -> gen prompt -> query & process -> gen message
         """
+        from controller.log import SystemLogger
+        SystemLogger.log("user", "LLMSimulatedUserWithOOW.process", "Khởi chạy giả lập hành vi người dùng (User Agent) kèm OOW", with_print=False)
         # 1. random select a oow
         if_oow = random.random() < self.cfg.user_oow_ratio
         if if_oow:
             oow_intention = self.workflow.user_oow_intentions[self.cfg.user_profile_id % len(self.workflow.user_oow_intentions)]
-            # print(f"  >> using oow: {oow_intention.name}")
-        else: oow_intention = None
+            SystemLogger.log("user", "LLMSimulatedUserWithOOW.process", f"Kích hoạt hành vi Out-Of-Workflow (OOW) với kịch bản: '{oow_intention.name}'", with_print=False)
+        else:
+            oow_intention = None
         # 2. prompting & processing
         prompt = self._gen_prompt(oow_intention)
+        SystemLogger.log("user", "LLMSimulatedUserWithOOW.process", f"Đã sinh prompt cho User Agent (OOW). Kích thước: {len(prompt)} ký tự", with_print=False)
         @retry_wrapper(retry=self.cfg.user_retry_limit, step_name="user_process", log_fn=print)
         def process_with_retry(prompt):
+            SystemLogger.log("user", "LLMSimulatedUserWithOOW.process", "Đang gửi truy vấn tới LLM...", with_print=False)
             llm_response, prediction = self._process(prompt)
             return llm_response, prediction
         llm_response, prediction = process_with_retry(prompt)
+        SystemLogger.log("user", "LLMSimulatedUserWithOOW.process", f"LLM User (OOW) phản hồi: '{prediction.response_content}'", with_print=False)
         # 3. note to add type! 
         msg = Message(
             Role.USER, prediction.response_content, prompt=prompt, llm_response=llm_response,

@@ -270,25 +270,31 @@ def get_local_flowchart(
     Returns:
         Mermaid string của subgraph, hoặc full_flowchart nếu parse thất bại.
     """
+    from controller.log import SystemLogger
+    SystemLogger.log("utils", "get_local_flowchart", f"Trích xuất subgraph lân cận cho Node={current_node} (fwd={depth_fwd}, bwd={depth_bwd})", with_print=False)
     try:
         graph = parse_mermaid_flowchart(full_flowchart)
         if not graph.nodes:
+            SystemLogger.log("utils", "get_local_flowchart", "Flowchart rỗng, fallback về toàn bộ flowchart", with_print=False)
             return full_flowchart
         if current_node not in graph.nodes:
             # node chưa xác định → trả toàn bộ
+            SystemLogger.log("utils", "get_local_flowchart", f"Node={current_node} không tìm thấy trong graph, trả về toàn bộ flowchart", with_print=False)
             return full_flowchart
         sub = extract_local_subgraph(graph, current_node, depth_fwd, depth_bwd)
         result = subgraph_to_mermaid(sub, current_node)
         # Thêm chú thích để LLM biết đây là trích đoạn
         total = len(graph.nodes)
         shown = len(sub.nodes)
+        SystemLogger.log("utils", "get_local_flowchart", f"Trích xuất thành công: Giữ {shown}/{total} nodes quanh Node={current_node}", with_print=False)
         header = (
             f"%% [Local view: showing {shown}/{total} nodes around {current_node}]\n"
             f"%% depth_back={depth_bwd}, depth_forward={depth_fwd}\n"
         )
         return header + result
-    except Exception:
+    except Exception as e:
         # an toàn: fallback về full flowchart
+        SystemLogger.log("utils", "get_local_flowchart", f"Lỗi trích xuất subgraph: {e}, fallback về toàn bộ flowchart", with_print=False)
         return full_flowchart
 
 
@@ -308,9 +314,11 @@ def get_recent_history(conv, k_turns: int = 6) -> str:
         Chuỗi history đã được trim.
     """
     from controller import Role  # import lazy để tránh circular
+    from controller.log import SystemLogger
 
     msgs = conv.msgs
     if not msgs:
+        SystemLogger.log("utils", "get_recent_history", "Lịch sử hội thoại rỗng", with_print=False)
         return ""
 
     # Đếm ngược: mỗi message của USER bắt đầu 1 "turn"
@@ -331,6 +339,9 @@ def get_recent_history(conv, k_turns: int = 6) -> str:
     prefix = ""
     if shown_msgs < total_msgs:
         prefix = f"[... {total_msgs - shown_msgs} earlier messages omitted ...]\n"
+        SystemLogger.log("utils", "get_recent_history", f"Cắt lịch sử hội thoại: Chỉ giữ {shown_msgs}/{total_msgs} tin nhắn (K={k_turns})", with_print=False)
+    else:
+        SystemLogger.log("utils", "get_recent_history", f"Giữ nguyên lịch sử hội thoại: {shown_msgs} tin nhắn", with_print=False)
 
     return prefix + "\n".join(msg.to_str() for msg in kept)
 
@@ -353,10 +364,14 @@ def infer_current_node(state_str: str, flowchart: str) -> Optional[str]:
     Returns:
         Node ID nếu tìm được, None nếu không.
     """
+    from controller.log import SystemLogger
+    SystemLogger.log("utils", "infer_current_node", f"Suy luận node hiện tại từ chuỗi state='{state_str}'", with_print=False)
     # 1. Trực tiếp
     m = _NODE_ID_RE.search(state_str or "")
     if m:
-        return m.group(1)
+        result = m.group(1)
+        SystemLogger.log("utils", "infer_current_node", f"Suy luận trực tiếp khớp Node ID={result}", with_print=False)
+        return result
 
     # 2. Fuzzy: tìm node label chứa nhiều từ nhất từ state_str
     try:
@@ -369,8 +384,10 @@ def infer_current_node(state_str: str, flowchart: str) -> Optional[str]:
             if score > best_score:
                 best_score, best_node = score, nid
         if best_score >= 2:     # cần match ít nhất 2 từ để tránh false positive
+            SystemLogger.log("utils", "infer_current_node", f"Suy luận fuzzy khớp Node ID={best_node} (score={best_score})", with_print=False)
             return best_node
-    except Exception:
-        pass
+    except Exception as e:
+        SystemLogger.log("utils", "infer_current_node", f"Lỗi trong quá trình suy luận fuzzy node: {e}", with_print=False)
 
+    SystemLogger.log("utils", "infer_current_node", "Không tìm thấy node phù hợp", with_print=False)
     return None

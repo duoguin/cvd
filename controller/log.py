@@ -90,6 +90,54 @@ class LogUtils:
         return COLOR_DICT[color] + text + Style.RESET_ALL
 
 
+class SystemLogger:
+    _log_file = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "system_run.log")
+
+    @classmethod
+    def log(cls, layer: str, location: str, message: str, with_print: bool = False):
+        # 1. Map layer to one of the 4 valid layers: UI, USER, BOT, API
+        layer_lower = layer.lower()
+        if layer_lower in ('ui', 'controller'):
+            mapped_layer = 'UI'
+        elif layer_lower == 'user':
+            mapped_layer = 'USER'
+        elif layer_lower == 'bot':
+            mapped_layer = 'BOT'
+        elif layer_lower in ('api', 'backend', 'database'):
+            mapped_layer = 'API'
+        elif layer_lower == 'utils':
+            # Resolve calling layer using stack trace
+            import inspect
+            mapped_layer = 'BOT'  # default fallback
+            frame = inspect.currentframe()
+            while frame:
+                filename = frame.f_code.co_filename.lower()
+                if 'bot.py' in filename:
+                    mapped_layer = 'BOT'
+                    break
+                elif 'user.py' in filename:
+                    mapped_layer = 'USER'
+                    break
+                elif 'api.py' in filename or 'app.py' in filename:
+                    mapped_layer = 'API'
+                    break
+                elif 'ui' in filename or 'run_flowagent_cli.py' in filename:
+                    mapped_layer = 'UI'
+                    break
+                frame = frame.f_back
+        else:
+            mapped_layer = 'UI'
+
+        # 2. Write log to file
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
+        formatted = f"{timestamp} [{mapped_layer}] [{location}] {message}"
+        try:
+            with open(cls._log_file, "a", encoding="utf-8") as f:
+                f.write(formatted + "\n")
+        except Exception:
+            pass
+
+
 class BaseLogger:
     """ Base logger without dumping to file """
     def __init__(self):
@@ -97,12 +145,25 @@ class BaseLogger:
     def log(self, message:str, with_print=False, *args, **kwargs):
         if with_print:
             print(message)
+        SystemLogger.log("ui", "BaseLogger.log", message)
+
     def debug(self, message:str, *args, **kwargs):
         print(message)
+        SystemLogger.log("ui", "BaseLogger.debug", message)
 
     def log_to_stdout(self, message:str, color=None):
         colored_message = COLOR_DICT[color] + message + Style.RESET_ALL
         print(colored_message)
+        
+        layer = "ui"
+        if color == 'red' or color == 'blue':
+            layer = "user"
+        elif color == 'orange' or color == 'green':
+            layer = "bot"
+        elif color == 'cyan' or color == 'yellow':
+            layer = "api"
+        
+        SystemLogger.log(layer, f"BaseLogger.stdout({color})", message)
 
 
 class FileLogger(BaseLogger):
@@ -116,7 +177,7 @@ class FileLogger(BaseLogger):
     def __init__(self, log_dir:str, t:datetime.datetime=None):
         """ 
         args:
-            log_dir: str, the directory to save the log files
+          log_dir: str, the directory to save the log files
         """
         super().__init__()
         if not t:
@@ -137,6 +198,7 @@ class FileLogger(BaseLogger):
 
     def log(self, message:str, add_line=True, with_print=False):
         self.num_logs += 1
+        SystemLogger.log("ui", "FileLogger.log", message)
         with open(self.log_fn, 'a') as f:
             f.write(message + "\n" if add_line else "")
             f.flush()
@@ -144,8 +206,13 @@ class FileLogger(BaseLogger):
             print(message)
     
     def debug(self, message:str):
+        SystemLogger.log("ui", "FileLogger.debug", message)
         with open(self.log_detail_fn, 'a') as f:
             f.write(f"{message}\n\n")
             f.flush()
+        with open(self.log_detail_fn, 'a') as f:
+            f.write(f"{message}\n\n")
+            f.flush()
+
 
 

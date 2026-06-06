@@ -45,6 +45,8 @@ def run_cli(
     if log_to_db is not None: cfg.log_to_db = log_to_db
 
     cfg.simulate_force_rerun = True
+    from controller.log import SystemLogger
+    SystemLogger.log("ui", "run_cli", f"Khởi chạy CLI UI: Config={config}, Dataset={cfg.workflow_dataset}, ID={cfg.workflow_id}, BotMode={cfg.bot_mode}, APIMode={cfg.api_mode}", with_print=False)
     controller = FlowagentController(cfg)
     controller.start_conversation()
 
