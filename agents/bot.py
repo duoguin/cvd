@@ -175,8 +175,19 @@ class StateReactBot(ReactBot):
 
     @staticmethod
     def parse_react_output(s: str) -> Tuple[BotOutput, str]:
-        if "```" in s:
-            s = Formater.parse_codeblock(s, type="").strip()
+        # 1. Clean outer backticks only if the entire output is wrapped in them
+        s_clean = s.strip()
+        if s_clean.startswith("```") and s_clean.endswith("```"):
+            lines = s_clean.splitlines()
+            if len(lines) >= 2:
+                if lines[0].startswith("```"):
+                    lines = lines[1:]
+                if lines and lines[-1].strip() == "```":
+                    lines = lines[:-1]
+                s_clean = "\n".join(lines).strip()
+            s = s_clean
+
+        # 2. Parse using ReAct regex pattern
         pattern = r"(?P<field>State|Thought|Action|Action Input|Response):\s*(?P<value>.*?)(?=\n(State|Thought|Action|Action Input|Response):|\Z)"
         matches = re.finditer(pattern, s, re.DOTALL)
         result = {match.group('field'): match.group('value').strip() for match in matches}
@@ -189,8 +200,15 @@ class StateReactBot(ReactBot):
         if BotOutput.action_str in result:
             assert BotOutput.action_input_str in result, \
                 f"Action Input not in prediction! LLM output:\n" + LogUtils.format_infos_basic(s)
+            
+            action_input_val = result[BotOutput.action_input_str]
+            # Clean up nested code blocks inside Action Input if present
+            if "```" in action_input_val:
+                action_input_val = Formater.parse_codeblock(action_input_val, type="json").strip()
+                action_input_val = Formater.parse_codeblock(action_input_val, type="").strip()
+                
             try:
-                result[BotOutput.action_input_str] = json.loads(result[BotOutput.action_input_str])
+                result[BotOutput.action_input_str] = json.loads(action_input_val)
             except Exception as e:
                 raise RuntimeError(f"Action Input not in json format! LLM output:\n" + LogUtils.format_infos_basic(s))
             if result[BotOutput.action_str].startswith("API_"):

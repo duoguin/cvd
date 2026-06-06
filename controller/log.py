@@ -95,40 +95,65 @@ class SystemLogger:
 
     @classmethod
     def log(cls, layer: str, location: str, message: str, with_print: bool = False):
-        # 1. Map layer to one of the 4 valid layers: UI, USER, BOT, API
-        layer_lower = layer.lower()
-        if layer_lower in ('ui', 'controller'):
-            mapped_layer = 'UI'
-        elif layer_lower == 'user':
-            mapped_layer = 'USER'
-        elif layer_lower == 'bot':
-            mapped_layer = 'BOT'
-        elif layer_lower in ('api', 'backend', 'database'):
-            mapped_layer = 'API'
-        elif layer_lower == 'utils':
-            # Resolve calling layer using stack trace
-            import inspect
-            mapped_layer = 'BOT'  # default fallback
-            frame = inspect.currentframe()
-            while frame:
-                filename = frame.f_code.co_filename.lower()
-                if 'bot.py' in filename:
-                    mapped_layer = 'BOT'
-                    break
-                elif 'user.py' in filename:
-                    mapped_layer = 'USER'
-                    break
-                elif 'api.py' in filename or 'app.py' in filename:
-                    mapped_layer = 'API'
-                    break
-                elif 'ui' in filename or 'run_flowagent_cli.py' in filename:
-                    mapped_layer = 'UI'
-                    break
+        import inspect
+        mapped_layer = None
+        
+        # 1. Tự động phân giải tầng log (UI, CONTROLLER, BACKEND, AGENTS) dựa trên nguồn phát sinh trong stack trace
+        frame = inspect.currentframe()
+        while frame:
+            filename = frame.f_code.co_filename.replace('\\', '/').lower()
+            func_name = frame.f_code.co_name
+            
+            # Bỏ qua chính file cấu hình log
+            if 'controller/log.py' in filename:
                 frame = frame.f_back
-        else:
-            mapped_layer = 'UI'
+                continue
+                
+            # Trường hợp đặc biệt ghi log hội thoại từ controller/base.py
+            if 'controller/base.py' in filename and func_name in ('log_msg', 'log_to_stdout'):
+                layer_lower = layer.lower() if layer else ""
+                if layer_lower in ('user', 'bot', 'agents'):
+                    mapped_layer = 'AGENTS'
+                elif layer_lower in ('api', 'backend', 'database'):
+                    mapped_layer = 'BACKEND'
+                else:
+                    mapped_layer = 'CONTROLLER'
+                break
+                
+            # Phân loại dựa trên thư mục chứa file code
+            if '/ui/' in filename or filename.endswith('/ui') or 'run_flowagent_cli.py' in filename:
+                mapped_layer = 'UI'
+                break
+            elif '/controller/' in filename or filename.endswith('/controller'):
+                mapped_layer = 'CONTROLLER'
+                break
+            elif '/backend/' in filename or filename.endswith('/backend'):
+                mapped_layer = 'BACKEND'
+                break
+            elif '/agents/' in filename or filename.endswith('/agents'):
+                if 'agents/api.py' in filename or 'agents\\api.py' in filename:
+                    mapped_layer = 'BACKEND'
+                else:
+                    mapped_layer = 'AGENTS'
+                break
+                
+            frame = frame.f_back
+            
+        # 2. Cơ chế dự phòng dựa trên tham số layer truyền vào
+        if not mapped_layer:
+            layer_lower = layer.lower() if layer else ""
+            if 'ui' in layer_lower:
+                mapped_layer = 'UI'
+            elif 'controller' in layer_lower:
+                mapped_layer = 'CONTROLLER'
+            elif 'backend' in layer_lower or 'api' in layer_lower or 'database' in layer_lower:
+                mapped_layer = 'BACKEND'
+            elif 'agent' in layer_lower or 'bot' in layer_lower or 'user' in layer_lower:
+                mapped_layer = 'AGENTS'
+            else:
+                mapped_layer = 'UI'
 
-        # 2. Write log to file
+        # 3. Ghi log ra file
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
         formatted = f"{timestamp} [{mapped_layer}] [{location}] {message}"
         try:
@@ -155,13 +180,11 @@ class BaseLogger:
         colored_message = COLOR_DICT[color] + message + Style.RESET_ALL
         print(colored_message)
         
-        layer = "ui"
-        if color == 'red' or color == 'blue':
-            layer = "user"
-        elif color == 'orange' or color == 'green':
-            layer = "bot"
-        elif color == 'cyan' or color == 'yellow':
-            layer = "api"
+        layer = "controller"
+        if color in ('red', 'blue', 'orange', 'green'):
+            layer = "agents"
+        elif color in ('cyan', 'yellow'):
+            layer = "backend"
         
         SystemLogger.log(layer, f"BaseLogger.stdout({color})", message)
 

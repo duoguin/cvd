@@ -313,7 +313,7 @@ def get_recent_history(conv, k_turns: int = 6) -> str:
     Returns:
         Chuỗi history đã được trim.
     """
-    from controller import Role  # import lazy để tránh circular
+    from controller.base_data import Role
     from controller.log import SystemLogger
 
     msgs = conv.msgs
